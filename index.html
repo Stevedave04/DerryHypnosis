@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Derry Hypnosis | Hypnotherapy in Derry/Londonderry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              teal: {
+                DEFAULT: '#2C5F5D',
+                dark: '#1E4A48'
+              },
+              gold: {
+                DEFAULT: '#D4A574',
+                light: '#C4956A'
+              },
+              cream: '#FAF7F2',
+              darkGrey: '#2D3748',
+              success: '#48BB78'
+            },
+            fontFamily: {
+              heading: ['"Playfair Display"', 'serif'],
+              body: ['"Source Sans Pro"', 'sans-serif'],
+              accent: ['"Lato"', 'sans-serif'],
+            },
+            boxShadow: {
+              'card': '0 8px 25px rgba(44, 95, 93, 0.15)',
+              'hover': '0 15px 40px rgba(44, 95, 93, 0.25)',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(40px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeInRight: {
+                '0%': { opacity: '0', transform: 'translateX(40px)' },
+                '100%': { opacity: '1', transform: 'translateX(0)' },
+              },
+              blurInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)', filter: 'blur(8px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-15px)' },
+              },
+              kenburns: {
+                '0%': { transform: 'scale(1)' },
+                '100%': { transform: 'scale(1.1)' },
+              },
+              shimmer: {
+                '0%': { backgroundPosition: '-1000px 0' },
+                '100%': { backgroundPosition: '1000px 0' }
+              }
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^6.22.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
