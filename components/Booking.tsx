@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CONTACT_OPTIONS } from '../constants';
 import { Phone, MapPin, Video, Calendar } from 'lucide-react';
@@ -25,9 +26,9 @@ const Booking: React.FC = () => {
           <p className="font-body text-lg text-cream/90 mb-8">
             Book your free 15-minute consultation to discuss your goals and learn how hypnotherapy can help you achieve lasting change.
           </p>
-          <div className="bg-white/10 p-4 rounded-lg backdrop-blur-sm border border-white/20 inline-block">
-             <p className="font-accent font-bold text-gold">Risk-Free Guarantee</p>
-             <p className="text-sm">If you're not completely satisfied after your first full session, I'll refund your payment in full.</p>
+          <div className="bg-white/10 p-6 rounded-lg backdrop-blur-sm border border-white/20 inline-block">
+             <p className="font-accent font-bold text-gold text-lg mb-2">Service Excellence</p>
+             <p className="text-sm md:text-base">I promise that the best service will be given guaranteed every time.</p>
           </div>
         </div>
 

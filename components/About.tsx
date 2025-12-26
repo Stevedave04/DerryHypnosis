@@ -12,23 +12,23 @@ const About: React.FC = () => {
           <div className="w-full lg:w-1/2 relative">
             <div className="absolute top-4 -left-4 w-full h-full border-4 border-gold rounded-xl z-0 hidden md:block"></div>
             <img 
-              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop" 
-              alt="Tracey McGill" 
-              className="relative z-10 rounded-xl shadow-card w-full object-cover h-[500px]"
+              src="https://cdn.usegalileo.ai/sdxl10/228d447a-250c-4034-9721-a3f875317769.png" 
+              alt="Tracey McGill - Derry Hypnosis" 
+              className="relative z-10 rounded-xl shadow-card w-full object-cover h-[550px]"
             />
           </div>
 
           <div className="w-full lg:w-1/2">
             <h2 className="font-heading text-4xl lg:text-5xl font-bold text-teal mb-6">
-              Why Choose Derry Hypnosis?
+              Meet Tracey McGill
             </h2>
             <div className="h-1 w-20 bg-gold mb-8"></div>
             
             <p className="font-body text-lg text-gray-700 leading-relaxed mb-6">
-              We specialise in evidence-based hypnotherapy techniques that create lasting change. Whether you are looking to lose weight, stop smoking, or overcome anxiety, our goal is to help you achieve the results you desire.
+              I specialise in evidence-based hypnotherapy techniques that create lasting change. Whether you are looking to lose weight, stop smoking, or overcome anxiety, my goal is to help you achieve the results you desire.
             </p>
             <p className="font-body text-lg text-gray-700 leading-relaxed mb-8">
-              Hypnotherapy isn't magic—it's a partnership between you and your subconscious mind. We provide the tools, guidance, and non-judgemental environment you need to break old patterns and build a future you love.
+              Hypnotherapy isn't magic—it's a partnership between you and your subconscious mind. I provide the tools, guidance, and non-judgemental environment you need to break old patterns and build a future you love.
             </p>
 
             <ul className="space-y-4 mb-10">
@@ -40,8 +40,8 @@ const About: React.FC = () => {
                 "Proven track record with successful clients"
               ].map((item, index) => (
                 <li key={index} className="flex items-center gap-3">
-                  <CheckCircle2 className="text-gold flex-shrink-0" />
-                  <span className="font-body text-darkGrey">{item}</span>
+                  <CheckCircle2 className="text-gold flex-shrink-0" size={20} />
+                  <span className="font-body text-darkGrey text-lg">{item}</span>
                 </li>
               ))}
             </ul>

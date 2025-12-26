@@ -54,7 +54,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "anxiety-stress",
     title: "Anxiety & Stress Relief",
     description: "Find calm and confidence in any situation.",
-    longDescription: "Anxiety and stress can be debilitating, affecting your sleep, relationships, and career. Our specialized hypnotherapy for anxiety helps you regain control by calming the nervous system and reframing the automatic 'fight or flight' response. We teach your subconscious mind to remain calm and collected in situations that previously triggered panic. Whether it's social anxiety, general stress, or specific phobias, you can learn to live with a profound sense of inner peace.",
+    longDescription: "Anxiety and stress can be debilitating, affecting your sleep, relationships, and career. Our specialised hypnotherapy for anxiety helps you regain control by calming the nervous system and reframing the automatic 'fight or flight' response. We teach your subconscious mind to remain calm and collected in situations that previously triggered panic. Whether it's social anxiety, general stress, or specific phobias, you can learn to live with a profound sense of inner peace.",
     benefits: [
       "Stop panic attacks in their tracks",
       "Overcome social anxiety and fear of public speaking",
@@ -93,7 +93,7 @@ export const TESTIMONIALS: TestimonialItem[] = [
     category: "weight"
   },
   {
-    text: "After 20 years of smoking, I quit after just one session. It's been 8 months and I have no desire to smoke. I feel free.",
+    text: "After years of smoking, I quit after just one session. It's been 8 months and I have no desire to smoke. I feel free.",
     author: "Mark T.",
     location: "Letterkenny",
     rating: 5,
