@@ -1,67 +1,71 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Derry Hypnosis | Hypnotherapy in Derry/Londonderry</title>
+    <title>Derry Hypnosis | Specialised Hypnotherapy in Derry/Londonderry</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               teal: {
+                light: '#4A7C7A',
                 DEFAULT: '#2C5F5D',
-                dark: '#1E4A48'
+                dark: '#1A3D3C'
               },
               gold: {
+                light: '#E5C4A1',
                 DEFAULT: '#D4A574',
-                light: '#C4956A'
+                dark: '#B88A58'
               },
-              cream: '#FAF7F2',
-              darkGrey: '#2D3748',
+              cream: {
+                light: '#FCFAF7',
+                DEFAULT: '#F5F1E9',
+                dark: '#EDE7D9'
+              },
+              slate: {
+                800: '#1E293B',
+                900: '#0F172A'
+              },
               success: '#48BB78'
             },
             fontFamily: {
               heading: ['"Playfair Display"', 'serif'],
-              body: ['"Source Sans Pro"', 'sans-serif'],
-              accent: ['"Lato"', 'sans-serif'],
+              body: ['"Plus Jakarta Sans"', 'sans-serif'],
             },
             boxShadow: {
-              'card': '0 8px 25px rgba(44, 95, 93, 0.15)',
-              'hover': '0 15px 40px rgba(44, 95, 93, 0.25)',
+              'soft': '0 4px 20px -2px rgba(44, 95, 93, 0.05)',
+              'premium': '0 20px 50px -12px rgba(44, 95, 93, 0.12)',
+              'glass': 'inset 0 0 0 1px rgba(255, 255, 255, 0.1)',
+            },
+            borderRadius: {
+              '2xl': '1.5rem',
+              '3xl': '2rem',
             },
             keyframes: {
-              fadeInUp: {
-                '0%': { opacity: '0', transform: 'translateY(40px)' },
+              reveal: {
+                '0%': { opacity: '0', transform: 'translateY(30px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
               },
-              fadeInRight: {
-                '0%': { opacity: '0', transform: 'translateX(40px)' },
+              slideInRight: {
+                '0%': { opacity: '0', transform: 'translateX(-20px)' },
                 '100%': { opacity: '1', transform: 'translateX(0)' },
-              },
-              blurInUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)', filter: 'blur(8px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
               },
               float: {
                 '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-15px)' },
-              },
-              kenburns: {
-                '0%': { transform: 'scale(1)' },
-                '100%': { transform: 'scale(1.1)' },
-              },
-              shimmer: {
-                '0%': { backgroundPosition: '-1000px 0' },
-                '100%': { backgroundPosition: '1000px 0' }
+                '50%': { transform: 'translateY(-10px)' },
               }
             },
             animation: {
-              'float': 'float 6s ease-in-out infinite',
+              'reveal': 'reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'slideInRight': 'slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'float': 'float 5s ease-in-out infinite',
             }
           }
         }
@@ -71,6 +75,20 @@
       html {
         scroll-behavior: smooth;
       }
+      body {
+        background-color: #FCFAF7;
+        -webkit-font-smoothing: antialiased;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      /* Staggered text animation classes */
+      .stagger-1 { animation-delay: 100ms; }
+      .stagger-2 { animation-delay: 300ms; }
+      .stagger-3 { animation-delay: 500ms; }
+      .stagger-4 { animation-delay: 700ms; }
     </style>
   <script type="importmap">
 {

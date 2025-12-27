@@ -1,66 +1,75 @@
-
 import React from 'react';
-import { SERVICES } from '../constants';
-import { Flower, Wind, Waves, Sun, Check, ArrowRight } from 'lucide-react';
+import { SERVICES, SERVICE_IMAGES } from '../constants';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Services: React.FC = () => {
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'flower': return <Flower size={36} className="text-white" />;
-      case 'wind': return <Wind size={36} className="text-white" />;
-      case 'waves': return <Waves size={36} className="text-white" />;
-      case 'sun': return <Sun size={36} className="text-white" />;
-      default: return <Flower size={36} className="text-white" />;
-    }
-  };
-
   return (
-    <section className="py-24 bg-light-grey min-h-screen pt-32">
+    <section className="py-32 bg-cream-light">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="font-heading text-4xl font-bold text-teal mb-4">Specialised Hypnotherapy Services</h2>
-          <div className="h-1 w-24 bg-gold mx-auto mb-6"></div>
-          <p className="font-body text-xl text-darkGrey/80">
-            Personalised treatments designed to help you achieve lasting change through the power of your subconscious mind.
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div className="max-w-2xl">
+            <span className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">Our Expertise</span>
+            <h2 className="font-heading text-5xl md:text-6xl font-bold text-teal leading-tight">
+              Personalised Therapy for <span className="italic font-medium text-teal-light">Lasting Results.</span>
+            </h2>
+          </div>
+          <p className="font-body text-xl text-slate-800/60 max-w-sm mb-2">
+            Combining modern psychology with advanced clinical hypnotherapy to create meaningful changes in your subconscious mind.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {SERVICES.map((service, index) => (
-            <div 
+            <Link 
+              to={`/services/${service.slug}`}
               key={index} 
-              className="bg-white rounded-xl shadow-card hover:shadow-hover transition-all duration-300 hover:-translate-y-2 overflow-hidden border-t-4 border-teal flex flex-col h-full group"
+              className="group relative bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-premium transition-all duration-500 hover:-translate-y-2 flex flex-col sm:flex-row h-full"
             >
-              <div className="p-8 flex flex-col h-full">
-                <div className="w-20 h-20 bg-teal rounded-full flex items-center justify-center mb-6 shadow-md mx-auto group-hover:scale-110 transition-transform duration-300">
-                  {getIcon(service.icon)}
+              <div className="w-full sm:w-2/5 relative h-64 sm:h-auto overflow-hidden">
+                <img 
+                  src={SERVICE_IMAGES[service.slug]} 
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-teal/10 group-hover:bg-transparent transition-colors duration-500"></div>
+              </div>
+              
+              <div className="p-8 sm:p-10 w-full sm:w-3/5 flex flex-col justify-between">
+                <div>
+                  <div className="flex justify-between items-start mb-6">
+                    <h3 className="font-heading text-3xl font-bold text-teal leading-tight group-hover:text-gold transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <ArrowUpRight className="text-teal/20 group-hover:text-gold group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" size={24} />
+                  </div>
+                  <p className="font-body text-slate-800/70 mb-8 leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
                 
-                <h3 className="font-heading text-2xl font-bold text-darkGrey mb-3 text-center">{service.title}</h3>
-                <p className="font-body text-gray-600 mb-6 flex-grow text-center">{service.description}</p>
-                
-                <div className="space-y-3 mb-8 px-2">
-                  {service.benefits.slice(0, 3).map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2">
-                      <Check size={16} className="text-success mt-1 flex-shrink-0" />
-                      <span className="text-sm text-gray-500 font-body">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-auto pt-6 border-t border-gray-100 text-center">
-                  <p className="text-gold font-bold font-accent text-sm mb-4">{service.price}</p>
-                  <Link 
-                    to={`/services/${service.slug}`} 
-                    className="inline-flex items-center gap-2 text-teal font-bold hover:text-teal-dark transition-colors group-hover:gap-3"
-                  >
-                    Learn More <ArrowRight size={16} />
-                  </Link>
+                <div className="flex items-center justify-between pt-6 border-t border-gray-100">
+                  <span className="text-gold font-bold font-body">{service.price}</span>
+                  <span className="font-body font-bold text-teal flex items-center gap-2 group-hover:gap-3 transition-all">
+                    Details
+                    <ArrowRight size={18} />
+                  </span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
+        </div>
+
+        <div className="mt-24 text-center">
+          <Link 
+            to="/services" 
+            className="inline-flex items-center gap-3 text-teal font-bold text-lg hover:text-gold transition-colors group"
+          >
+            View All Specialised Treatments
+            <div className="w-12 h-12 rounded-full border border-teal/20 flex items-center justify-center group-hover:border-gold transition-colors">
+              <ArrowRight size={20} />
+            </div>
+          </Link>
         </div>
       </div>
     </section>

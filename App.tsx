@@ -8,6 +8,8 @@ import ServiceDetail from './components/ServiceDetail';
 import About from './components/About';
 import Testimonials from './components/Testimonials';
 import Booking from './components/Booking';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsAndConditions from './components/TermsAndConditions';
 import Footer from './components/Footer';
 
 // Wrapper to handle scroll to top on route change
@@ -23,7 +25,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-white text-darkGrey font-body flex flex-col">
+      <div className="min-h-screen bg-white text-slate-800 font-body flex flex-col">
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -33,6 +35,8 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Booking />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsAndConditions />} />
           </Routes>
         </main>
         <Footer />

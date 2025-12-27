@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-darkGrey text-white pt-20 pb-8 border-t-8 border-gold">
+    <footer className="bg-slate-900 text-white pt-20 pb-8 border-t-8 border-gold">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
@@ -14,18 +14,18 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-heading text-2xl font-bold mb-6 text-gold">{SITE_INFO.title}</h3>
             <p className="text-gray-400 font-body mb-6">
-              Expert hypnotherapy serving Derry/Londonderry. Helping you achieve weight loss, stop smoking, and overcome anxiety.
+              Specialised hypnotherapy serving Derry/Londonderry. Helping you achieve weight loss, stop smoking, and overcome anxiety.
             </p>
             <div className="flex gap-4">
-              <span className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer">
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" aria-label="Facebook">
                 <Facebook size={20} />
-              </span>
-              <span className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer">
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" aria-label="Instagram">
                 <Instagram size={20} />
-              </span>
-              <span className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer">
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" aria-label="LinkedIn">
                 <Linkedin size={20} />
-              </span>
+              </a>
             </div>
           </div>
 
@@ -78,11 +78,11 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
           <p>© {new Date().getFullYear()} Derry Hypnosis. All rights reserved.</p>
           <div className="flex gap-6">
-            <span className="hover:text-white cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-white cursor-pointer">Terms & Conditions</span>
+            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>

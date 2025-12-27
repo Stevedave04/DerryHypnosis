@@ -1,18 +1,18 @@
-
-import React, { useState, useEffect, useCallback } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { SITE_INFO } from '../constants';
 
 const BACKGROUND_IMAGES = [
-  "https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&w=1920&auto=format&fit=crop", // Nature/Forest
-  "https://images.unsplash.com/photo-1515238152791-8216bfdf89a7?q=80&w=1920&auto=format&fit=crop", // Sea/Stones
-  "https://images.unsplash.com/photo-1520962922320-2038eebab146?q=80&w=1920&auto=format&fit=crop", // Relaxing Room
-  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop"  // Beach/Calm
+  "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920&auto=format&fit=crop", // Serene Forest
+  "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?q=80&w=1920&auto=format&fit=crop", // Waterfall/Nature
+  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop", // Beach
+  "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=1920&auto=format&fit=crop"  // Golden Sunset
 ];
 
 const Hero: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const indicatorRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const nextSlide = useCallback(() => {
     setCurrentImageIndex((prev) => (prev + 1) % BACKGROUND_IMAGES.length);
@@ -22,113 +22,118 @@ const Hero: React.FC = () => {
     setCurrentImageIndex((prev) => (prev - 1 + BACKGROUND_IMAGES.length) % BACKGROUND_IMAGES.length);
   }, []);
 
-  const goToSlide = (index: number) => {
-    setCurrentImageIndex(index);
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(nextSlide, 8000);
+    return () => clearInterval(interval);
+  }, [nextSlide, isPaused]);
+
+  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      const nextIndex = (index + 1) % BACKGROUND_IMAGES.length;
+      indicatorRefs.current[nextIndex]?.focus();
+      setCurrentImageIndex(nextIndex);
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      const prevIndex = (index - 1 + BACKGROUND_IMAGES.length) % BACKGROUND_IMAGES.length;
+      indicatorRefs.current[prevIndex]?.focus();
+      setCurrentImageIndex(prevIndex);
+    }
   };
 
-  useEffect(() => {
-    // Auto-advance slides, resetting timer on manual interaction (dependency on currentImageIndex)
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 6000); 
-
-    return () => clearInterval(interval);
-  }, [currentImageIndex, nextSlide]);
-
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden group">
-      {/* Background Image Slider */}
-      <div className="absolute inset-0 z-0">
+    <section 
+      className="relative min-h-[95vh] flex items-center pt-20 overflow-hidden"
+      aria-roledescription="carousel"
+      aria-label="Derry Hypnosis Hero Section"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
+      {/* Background slider with zoom effect */}
+      <div className="absolute inset-0 z-0" aria-live="polite">
         {BACKGROUND_IMAGES.map((img, index) => (
           <div
             key={index}
-            className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+            className={`absolute inset-0 transition-opacity duration-[3000ms] ease-in-out ${
+              index === currentImageIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
             }`}
+            aria-hidden={index !== currentImageIndex}
           >
             <img
               src={img}
-              alt={`Calming background ${index + 1}`}
-              className="w-full h-full object-cover transform scale-105 animate-[kenburns_25s_ease-in-out_infinite_alternate]"
+              alt="" // Decorative background images use empty alt
+              className="w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+              aria-hidden="true"
             />
           </div>
         ))}
-        
-        {/* Gradient Overlay */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(135deg, rgba(44, 95, 93, 0.85) 0%, rgba(212, 165, 116, 0.75) 100%)'
-          }}
-        ></div>
+        {/* Subtle Darkening Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/40 to-transparent"></div>
       </div>
 
-      {/* Navigation Controls */}
-      <button 
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 hidden md:flex items-center justify-center hover:scale-110"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft size={32} />
-      </button>
-
-      <button 
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 hidden md:flex items-center justify-center hover:scale-110"
-        aria-label="Next slide"
-      >
-        <ChevronRight size={32} />
-      </button>
-
-      {/* Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
-        {BACKGROUND_IMAGES.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToSlide(index)}
-            className={`h-2 rounded-full transition-all duration-500 ${
-              index === currentImageIndex ? 'bg-gold w-8' : 'bg-white/50 w-2 hover:bg-white'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12">
-        <div className="w-full md:w-3/5 text-white pt-10 md:pt-0">
-          <h1 className="font-heading text-5xl md:text-7xl font-bold leading-tight mb-6 drop-shadow-md opacity-0 animate-[blurInUp_1s_ease-out_forwards]">
-            {SITE_INFO.tagline}
+      <div className="container mx-auto px-6 relative z-10">
+        <div key={currentImageIndex} className="max-w-4xl">
+          <div className="mb-6 overflow-hidden">
+            <span className="inline-block font-body text-gold font-bold tracking-[0.2em] uppercase text-sm animate-slideInRight">
+              Professional Clinical Hypnotherapy
+            </span>
+          </div>
+          
+          <h1 className="font-heading text-6xl md:text-8xl text-white font-bold leading-[1.1] mb-8 animate-reveal stagger-1">
+            Unlock the Power of <br />
+            <span className="text-white italic font-medium">Your Mind.</span>
           </h1>
-          <p className="font-body text-xl md:text-2xl font-light text-cream/95 mb-8 max-w-2xl opacity-0 animate-[blurInUp_1s_ease-out_0.3s_forwards]">
-            Expert hypnotherapy for weight loss, smoking cessation, and personal breakthrough. Serving Derry/Londonderry and surrounding areas.
+
+          <p className="font-body text-xl md:text-2xl text-cream-light/90 mb-12 max-w-2xl leading-relaxed animate-reveal stagger-2">
+            Break free from old habits and limiting beliefs. Specialised hypnotherapy for Weight Loss, Smoking Cessation, and Anxiety in Derry.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-[blurInUp_1s_ease-out_0.6s_forwards]">
+
+          <div className="flex flex-wrap gap-6 animate-reveal stagger-3">
             <Link
               to="/contact"
-              className="bg-gold hover:bg-gold-light text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 text-center"
+              className="bg-gold hover:bg-gold-dark text-white font-bold py-5 px-10 rounded-full transition-all shadow-2xl hover:shadow-gold/40 flex items-center gap-3 transform hover:-translate-y-1 active:translate-y-0"
+              aria-label="Start your journey with a consultation"
             >
-              Book Free 15-Min Consultation
+              Start Your Journey
+              <ArrowRight size={20} aria-hidden="true" />
             </Link>
+            
             <Link
-              to="/about"
-              className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-bold py-4 px-8 rounded-full transition-all text-center flex items-center justify-center gap-2"
+              to="/services"
+              className="bg-white/10 backdrop-blur-md border border-white/30 text-white hover:bg-white/20 font-bold py-5 px-10 rounded-full transition-all flex items-center gap-2 group shadow-xl"
+              aria-label="Explore our specialised hypnotherapy services"
             >
-              Learn About Hypnotherapy
-              <ArrowRight size={18} />
+              Explore Services
+              <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
           </div>
         </div>
-        
-        <div className="hidden md:block w-2/5 opacity-0 animate-[fadeInRight_1s_ease-out_0.8s_forwards]">
-            {/* Using arbitrary value to combine animations: Fade In first, then continuous Float */}
-            <div className="animate-[float_6s_ease-in-out_infinite_1s]">
-                <img 
-                    src="https://images.unsplash.com/photo-1535957998253-26ae1ef29506?q=80&w=800&auto=format&fit=crop" 
-                    alt="Balanced Stones" 
-                    className="rounded-xl shadow-2xl border-4 border-white/20 transform rotate-2 hover:rotate-0 transition-transform duration-500 object-cover h-[500px] w-full"
-                />
-            </div>
-        </div>
+      </div>
+
+      {/* Modern Slide Indicators with Accessibility */}
+      <div 
+        className="absolute bottom-12 left-6 md:left-12 z-20 flex gap-4"
+        role="tablist"
+        aria-label="Select slide"
+      >
+        {BACKGROUND_IMAGES.map((_, index) => (
+          <button
+            key={index}
+            ref={(el) => { indicatorRefs.current[index] = el; }}
+            onClick={() => setCurrentImageIndex(index)}
+            onKeyDown={(e) => handleKeyDown(e, index)}
+            role="tab"
+            aria-selected={index === currentImageIndex}
+            aria-label={`Go to slide ${index + 1}`}
+            className={`h-1.5 transition-all duration-700 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 ${
+              index === currentImageIndex ? 'bg-gold w-16 shadow-[0_0_10px_rgba(212,165,116,0.8)]' : 'bg-white/30 w-6 hover:bg-white/50'
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
