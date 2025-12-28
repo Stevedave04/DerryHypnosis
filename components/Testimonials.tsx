@@ -1,47 +1,45 @@
-
 import React from 'react';
 import { TESTIMONIALS } from '../constants';
 import { Quote, Star } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   return (
-    <section className="py-32 bg-white overflow-hidden">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20">
-          <h2 className="font-heading text-5xl font-bold text-teal mb-6">Success Stories</h2>
-          <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-8"></div>
-          <p className="font-body text-xl text-slate-800/60 max-w-2xl mx-auto">
-            Our clients' journeys are our greatest inspiration. Hear from those who have reclaimed control of their lives.
+        <div className="text-center mb-16">
+          <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Client Success</span>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-teal mb-6">Voices of Transformation</h2>
+          <p className="font-body text-lg text-slate-800/60 max-w-2xl mx-auto leading-relaxed">
+            Real stories from people in Derry and beyond who have reclaimed control of their lives through our clinical hypnotherapy programmes.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {TESTIMONIALS.map((t, index) => (
             <div 
               key={index} 
-              className="relative p-10 md:p-14 bg-cream-light rounded-[3xl] border border-cream transition-all duration-300 hover:shadow-premium group"
+              className="p-8 bg-cream-light rounded-2xl border border-cream shadow-soft hover:shadow-premium transition-all duration-300 relative group flex flex-col"
             >
-              <Quote className="absolute top-8 left-8 text-gold/10 w-24 h-24" />
-              
-              <div className="relative z-10">
-                <div className="flex gap-1 mb-8">
-                  {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} size={16} className="fill-gold text-gold" />
-                  ))}
-                </div>
+              <div className="flex gap-1 mb-6 text-gold">
+                {[...Array(t.rating)].map((_, i) => (
+                  <Star key={i} size={14} className="fill-gold" />
+                ))}
+              </div>
 
-                <p className="font-heading text-2xl md:text-3xl text-teal italic leading-snug mb-10 group-hover:text-teal-dark transition-colors">
+              <div className="mb-8 flex-grow">
+                <Quote size={20} className="text-gold/20 mb-3" />
+                <p className="font-body text-slate-800 leading-relaxed italic">
                   "{t.text}"
                 </p>
+              </div>
 
-                <div className="flex items-center justify-between border-t border-gold/10 pt-8">
-                  <div>
-                    <h4 className="font-body font-bold text-slate-800 text-lg uppercase tracking-wider">{t.author}</h4>
-                    <p className="font-body text-gold font-medium">{t.location}</p>
-                  </div>
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-soft">
-                    <span className="text-teal font-bold text-xl">{t.author[0]}</span>
-                  </div>
+              <div className="flex items-center gap-4 pt-6 border-t border-cream/50">
+                <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm text-teal font-bold border border-cream">
+                  {t.author[0]}
+                </div>
+                <div>
+                  <h4 className="font-body font-bold text-teal text-sm uppercase tracking-wider">{t.author}</h4>
+                  <p className="text-xs text-gold font-medium uppercase tracking-widest">{t.location}</p>
                 </div>
               </div>
             </div>
