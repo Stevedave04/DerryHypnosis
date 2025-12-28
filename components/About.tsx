@@ -1,10 +1,12 @@
+
 import React from 'react';
 import { Award, Heart, ShieldCheck, CheckCircle2, Star, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SITE_INFO } from '../constants';
 
 const About: React.FC = () => {
-  const traceyPortrait = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop";
+  // Updated portrait to the official one provided by the user.
+  const traceyPortrait = "https://derryhypnosis.co.uk/Tracey-portrait.png";
 
   return (
     <section className="py-24 bg-white overflow-hidden min-h-screen pt-40">
@@ -20,7 +22,7 @@ const About: React.FC = () => {
                 <img 
                   src={traceyPortrait} 
                   alt={`${SITE_INFO.owner} - Clinical Hypnotherapist`} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-teal/90 via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-10 text-white">

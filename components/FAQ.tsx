@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { FAQS } from '../constants';
 import { ChevronDown, HelpCircle } from 'lucide-react';
