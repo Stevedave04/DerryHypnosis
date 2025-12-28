@@ -1,6 +1,6 @@
-
 import React from 'react';
 import Hero from './Hero';
+import MindfulnessTeaser from './MindfulnessTeaser';
 import BreathingApplet from './BreathingApplet';
 import Services from './Services';
 import Testimonials from './Testimonials';
@@ -10,9 +10,8 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col">
       <Hero />
+      <MindfulnessTeaser />
       <BreathingApplet />
-      {/* We render Services here to give the homepage substance, 
-          but users can also navigate to the dedicated /services page */}
       <Services />
       <Testimonials />
       <Booking />

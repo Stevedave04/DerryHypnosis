@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, RotateCcw, ArrowDown, ArrowUp, Circle, Award, CheckCircle, Users, TrendingUp, Pause } from 'lucide-react';
+import { Play, RotateCcw, ArrowDown, ArrowUp, Circle, Award, CheckCircle, Users, TrendingUp, Pause, Info } from 'lucide-react';
 
 const PHASES = [
-  { label: 'Inhale', icon: <ArrowDown size={20} /> },
-  { label: 'Hold', icon: <Circle size={10} fill="currentColor" /> },
-  { label: 'Exhale', icon: <ArrowUp size={20} /> },
-  { label: 'Hold', icon: <Circle size={10} fill="currentColor" /> }
+  { label: 'Inhale', icon: <ArrowDown size={20} />, color: 'bg-teal' },
+  { label: 'Hold', icon: <Circle size={10} fill="currentColor" />, color: 'bg-gold' },
+  { label: 'Exhale', icon: <ArrowUp size={20} />, color: 'bg-teal-light' },
+  { label: 'Hold', icon: <Circle size={10} fill="currentColor" />, color: 'bg-gold-dark' }
 ];
 
 const BreathingApplet: React.FC = () => {
@@ -52,20 +52,51 @@ const BreathingApplet: React.FC = () => {
   const currentPhase = PHASES[phaseIndex];
 
   return (
-    <div className="py-32 bg-cream-light/50 border-y border-cream">
+    <div id="breathing-applet" className="py-32 bg-cream-light/50 border-y border-cream scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-24">
+          <div className="text-center mb-16">
             <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Mindfulness Tool</span>
             <h2 className="font-heading text-5xl md:text-7xl font-bold text-teal mb-6">Box Breathing</h2>
             <p className="font-body text-xl text-slate-800/60 max-w-xl mx-auto leading-relaxed">
               A powerful technique used by professionals to regulate the nervous system and clear mental fog in seconds.
             </p>
           </div>
+
+          {/* Step-by-Step Instructions */}
+          <div className="bg-white/80 backdrop-blur-sm border border-gold/20 rounded-3xl p-8 mb-16 shadow-soft max-w-2xl mx-auto">
+            <div className="flex items-center gap-3 mb-6 text-teal font-bold uppercase tracking-widest text-sm">
+              <Info size={18} className="text-gold" />
+              <span>How to Perform Box Breathing</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors duration-500 ${phaseIndex === 0 && isActive ? 'bg-teal/10 border border-teal/20' : 'bg-transparent'}`}>
+                <span className="w-8 h-8 rounded-full bg-teal text-white flex items-center justify-center font-bold text-sm">1</span>
+                <p className="font-body text-slate-800 text-sm"><strong>Inhale</strong> slowly for 4 seconds</p>
+              </div>
+              <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors duration-500 ${phaseIndex === 1 && isActive ? 'bg-gold/10 border border-gold/20' : 'bg-transparent'}`}>
+                <span className="w-8 h-8 rounded-full bg-gold text-white flex items-center justify-center font-bold text-sm">2</span>
+                <p className="font-body text-slate-800 text-sm"><strong>Hold</strong> your breath for 4 seconds</p>
+              </div>
+              <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors duration-500 ${phaseIndex === 2 && isActive ? 'bg-teal-light/10 border border-teal-light/20' : 'bg-transparent'}`}>
+                <span className="w-8 h-8 rounded-full bg-teal-light text-white flex items-center justify-center font-bold text-sm">3</span>
+                <p className="font-body text-slate-800 text-sm"><strong>Exhale</strong> slowly for 4 seconds</p>
+              </div>
+              <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors duration-500 ${phaseIndex === 3 && isActive ? 'bg-gold-dark/10 border border-gold-dark/20' : 'bg-transparent'}`}>
+                <span className="w-8 h-8 rounded-full bg-gold-dark text-white flex items-center justify-center font-bold text-sm">4</span>
+                <p className="font-body text-slate-800 text-sm"><strong>Hold</strong> empty for 4 seconds</p>
+              </div>
+            </div>
+          </div>
           
           <div className="flex flex-col items-center">
             {/* Immersive Breathing Circle */}
             <div className="relative w-96 h-96 flex items-center justify-center">
+              {/* Pulsing Aura */}
+              <div className={`absolute inset-0 rounded-full transition-all duration-[4000ms] ${
+                isActive ? 'opacity-20 scale-125' : 'opacity-0 scale-100'
+              } ${currentPhase.color}`}></div>
+              
               <div className="absolute inset-0 rounded-full bg-white shadow-premium opacity-50"></div>
               
               <div className="absolute inset-6 rounded-full border border-teal/5"></div>
@@ -86,10 +117,10 @@ const BreathingApplet: React.FC = () => {
                   cy="192"
                   r="160"
                   fill="transparent"
-                  stroke="#2C5F5D"
-                  strokeWidth="6"
+                  stroke="currentColor"
+                  strokeWidth="8"
                   strokeLinecap="round"
-                  className={`${isActive ? 'transition-all duration-1000 linear' : 'transition-none'} opacity-20`}
+                  className={`${isActive ? 'transition-all duration-1000 linear' : 'transition-none'} ${phaseIndex % 2 === 0 ? 'text-teal' : 'text-gold'}`}
                   style={{
                     strokeDasharray: '1005',
                     strokeDashoffset: isActive ? 1005 - (1005 * (4 - secondsLeft + 1) / 4) : 1005,
@@ -97,11 +128,16 @@ const BreathingApplet: React.FC = () => {
                 />
               </svg>
 
-              <div className={`w-72 h-72 rounded-full bg-teal shadow-2xl flex flex-col items-center justify-center text-white transition-all duration-[1000ms] ease-in-out ${
-                isActive ? (phaseIndex === 0 ? 'scale-110 shadow-teal/20' : phaseIndex === 2 ? 'scale-90 shadow-teal/40' : 'scale-100') : 'scale-100'
-              }`}>
-                <span className="text-8xl font-heading font-bold mb-1 tracking-tighter">{secondsLeft}</span>
-                <span className="text-2xl font-body uppercase tracking-[0.3em] font-light opacity-80">{currentPhase.label}</span>
+              <div className={`w-72 h-72 rounded-full shadow-2xl flex flex-col items-center justify-center text-white transition-all duration-[1000ms] ease-in-out ${
+                isActive ? (phaseIndex === 0 ? 'scale-110 shadow-teal/30' : phaseIndex === 2 ? 'scale-90 shadow-slate-900/10' : 'scale-100') : 'scale-100'
+              } ${currentPhase.color}`}>
+                <div className="relative">
+                   <span className="text-8xl font-heading font-bold mb-1 tracking-tighter tabular-nums drop-shadow-lg">{secondsLeft}</span>
+                   {isActive && (
+                     <div className="absolute -top-4 -right-4 w-6 h-6 bg-white/20 rounded-full animate-ping"></div>
+                   )}
+                </div>
+                <span className="text-2xl font-body uppercase tracking-[0.3em] font-light opacity-90 drop-shadow-md">{currentPhase.label}</span>
               </div>
             </div>
 
@@ -109,10 +145,10 @@ const BreathingApplet: React.FC = () => {
               {PHASES.map((p, i) => (
                 <div 
                   key={i} 
-                  className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 ${
+                  className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${
                     phaseIndex === i 
-                    ? 'bg-teal text-white scale-110 shadow-xl' 
-                    : 'bg-white text-slate-800/30'
+                    ? `${p.color} text-white scale-110 shadow-xl border-white/20` 
+                    : 'bg-white text-slate-800/20 border-transparent'
                   }`}
                 >
                   {p.icon}
@@ -127,7 +163,9 @@ const BreathingApplet: React.FC = () => {
             <div className="flex flex-wrap justify-center gap-6 mt-16">
               <button
                 onClick={handleStart}
-                className="bg-teal hover:bg-teal-dark text-white font-bold py-5 px-12 rounded-2xl shadow-xl hover:shadow-teal/20 transition-all flex items-center gap-3 transform hover:-translate-y-1 active:scale-95"
+                className={`font-bold py-5 px-12 rounded-2xl shadow-xl transition-all flex items-center gap-3 transform hover:-translate-y-1 active:scale-95 ${
+                  isActive ? 'bg-slate-800 text-white hover:bg-slate-900' : 'bg-teal text-white hover:bg-teal-dark'
+                }`}
               >
                 {isActive ? 'Pause Session' : 'Start Session'}
                 {isActive ? <Pause size={20} /> : <Play size={20} fill="currentColor" />}
@@ -143,7 +181,7 @@ const BreathingApplet: React.FC = () => {
           </div>
         </div>
 
-        {/* Stats Grid - Cleaner Look */}
+        {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 mt-40">
           {[
             { label: "Clinical Expert", sub: "Accredited by IA Hypnotherapists", icon: <Award className="text-gold" size={32} /> },

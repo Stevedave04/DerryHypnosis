@@ -1,11 +1,14 @@
 import React from 'react';
 import { SERVICES, SERVICE_IMAGES } from '../constants';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Services: React.FC = () => {
+  const location = useLocation();
+  const isServicesPage = location.pathname === '/services';
+
   return (
-    <section className="py-32 bg-cream-light">
+    <section className={`py-32 bg-cream-light ${isServicesPage ? 'pt-48' : ''}`}>
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
           <div className="max-w-2xl">
@@ -31,6 +34,10 @@ const Services: React.FC = () => {
                   src={SERVICE_IMAGES[service.slug]} 
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  onError={(e) => {
+                    // Fallback to a neutral office/clinic environment if the specific image fails to avoid duplication
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop';
+                  }}
                 />
                 <div className="absolute inset-0 bg-teal/10 group-hover:bg-transparent transition-colors duration-500"></div>
               </div>
@@ -60,17 +67,19 @@ const Services: React.FC = () => {
           ))}
         </div>
 
-        <div className="mt-24 text-center">
-          <Link 
-            to="/services" 
-            className="inline-flex items-center gap-3 text-teal font-bold text-lg hover:text-gold transition-colors group"
-          >
-            View All Specialised Treatments
-            <div className="w-12 h-12 rounded-full border border-teal/20 flex items-center justify-center group-hover:border-gold transition-colors">
-              <ArrowRight size={20} />
-            </div>
-          </Link>
-        </div>
+        {!isServicesPage && (
+          <div className="mt-24 text-center">
+            <Link 
+              to="/services" 
+              className="inline-flex items-center gap-3 text-teal font-bold text-lg hover:text-gold transition-colors group"
+            >
+              View All Specialised Treatments
+              <div className="w-12 h-12 rounded-full border border-teal/20 flex items-center justify-center group-hover:border-gold transition-colors">
+                <ArrowRight size={20} />
+              </div>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

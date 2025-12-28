@@ -10,8 +10,8 @@ export const SITE_INFO = {
 };
 
 export const SERVICE_IMAGES: Record<string, string> = {
-  'weight-loss': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop',
-  'quit-smoking': 'https://images.unsplash.com/photo-1527137342181-19aab11a8ee1?q=80&w=1200&auto=format&fit=crop',
+  'weight-loss': 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop',
+  'quit-smoking': 'https://images.unsplash.com/photo-1626078299034-92d55981267b?q=80&w=1200&auto=format&fit=crop',
   'anxiety-stress': 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop',
   'personal-development': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop'
 };
