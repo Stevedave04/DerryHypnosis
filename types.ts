@@ -30,3 +30,8 @@ export interface ContactOption {
   ctaUrl: string;
   icon: 'phone' | 'map' | 'video';
 }
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}

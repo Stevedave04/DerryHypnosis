@@ -1,9 +1,11 @@
+
 import React from 'react';
 import Hero from './Hero';
 import MindfulnessTeaser from './MindfulnessTeaser';
 import BreathingApplet from './BreathingApplet';
 import Services from './Services';
 import Testimonials from './Testimonials';
+import FAQ from './FAQ';
 import Booking from './Booking';
 
 const Home: React.FC = () => {
@@ -14,6 +16,7 @@ const Home: React.FC = () => {
       <BreathingApplet />
       <Services />
       <Testimonials />
+      <FAQ />
       <Booking />
     </div>
   );

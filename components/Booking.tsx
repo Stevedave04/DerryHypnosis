@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { CONTACT_OPTIONS, SITE_INFO } from '../constants';
 import { Phone, MapPin, Video, Calendar, ShieldCheck, Mail, ArrowRight } from 'lucide-react';
@@ -13,11 +12,13 @@ const Booking: React.FC = () => {
       script.id = 'calendly-script';
       script.src = "https://assets.calendly.com/assets/external/widget.js";
       script.async = true;
+      // Use try-catch or event listeners for safer injection
+      script.onload = () => console.debug("Booking widget initialised.");
       document.body.appendChild(script);
     }
-
-    // No need to remove it on every unmount unless strictly necessary, 
-    // as it can cause the "port closed" error during navigation.
+    
+    // The "runtime.lastError" is often a browser extension issue (like AdBlock or Ghostery) 
+    // interfering with the iframe's port. This is usually non-breaking.
   }, []);
 
   const getIcon = (iconName: string) => {

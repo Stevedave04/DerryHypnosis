@@ -38,7 +38,7 @@ const Services: React.FC = () => {
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   loading="lazy"
                   onError={(e) => {
-                    // Unique fallback strategy using a nature/calm image if specific one fails
+                    // Unique fallback strategy using a calm nature visual
                     (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop`;
                   }}
                 />

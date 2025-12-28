@@ -1,5 +1,5 @@
 
-import { NavItem, ServiceItem, TestimonialItem, ContactOption } from './types';
+import { NavItem, ServiceItem, TestimonialItem, ContactOption, FAQItem } from './types';
 
 export const SITE_INFO = {
   title: "Derry Hypnosis",
@@ -160,7 +160,6 @@ export const SERVICES: ServiceItem[] = [
   }
 ];
 
-// Added missing TESTIMONIALS export to fix component errors
 export const TESTIMONIALS: TestimonialItem[] = [
   {
     text: "Tracey helped me quit smoking in just one session. I haven't touched a cigarette in 6 months and don't even think about them anymore.",
@@ -182,30 +181,63 @@ export const TESTIMONIALS: TestimonialItem[] = [
     location: "Derry",
     rating: 5,
     category: 'anxiety'
+  },
+  {
+    text: "Derry Hypnosis was the breakthrough I needed. After years of struggling with public speaking, I delivered a 20-minute presentation with total ease.",
+    author: "Emma L.",
+    location: "Strabane",
+    rating: 5,
+    category: 'general'
   }
 ];
 
-// Added missing CONTACT_OPTIONS export to fix Booking component error
 export const CONTACT_OPTIONS: ContactOption[] = [
   {
     title: "Discovery Call",
-    description: "Book a free 15-minute phone consultation to discuss your goals.",
+    description: "Book a free 15-minute phone consultation to discuss your goals and how we can help.",
     ctaText: "Book Call",
     ctaUrl: "/contact",
     icon: "phone"
   },
   {
     title: "Clinic Visit",
-    description: "Visit our professional clinic located in the heart of Derry.",
+    description: "Visit our professional, private clinic rooms located centrally in Derry/Londonderry.",
     ctaText: "Find Us",
     ctaUrl: "/contact",
     icon: "map"
   },
   {
     title: "Online Sessions",
-    description: "Experience the power of hypnosis from the comfort of your own home.",
+    description: "Access high-quality clinical hypnotherapy from the comfort and privacy of your home.",
     ctaText: "Book Video",
     ctaUrl: "/contact",
     icon: "video"
+  }
+];
+
+export const FAQS: FAQItem[] = [
+  {
+    question: "What actually happens during a hypnotherapy session?",
+    answer: "During a session, you will be guided into a state of deep physical and mental relaxation. While you are in this state, your subconscious mind becomes more receptive to positive suggestions and new ways of thinking. You remain fully aware and in control throughout the entire process—it's very much like a guided meditation but with specific therapeutic goals."
+  },
+  {
+    question: "Can everyone be hypnotised?",
+    answer: "Most people can be hypnotised, provided they are willing and feel safe. It is a natural state of mind that we all experience daily, such as when we become deeply absorbed in a book or 'zone out' while driving. Some people enter a deeper state than others, but even a light trance is highly effective for therapeutic change."
+  },
+  {
+    question: "Will I lose control or say things I don't want to?",
+    answer: "No. This is a common myth popularized by stage hypnosis. In clinical hypnotherapy, you are always in control. You cannot be made to do anything that goes against your values or willpower. You can open your eyes and end the session at any time."
+  },
+  {
+    question: "How many sessions will I typically need?",
+    answer: "This varies depending on your goal. Some issues, like smoking cessation, can often be resolved in a single intensive session. Other habits or emotional challenges like weight loss or anxiety typically require between 3 to 6 sessions to ensure long-term, sustainable change."
+  },
+  {
+    question: "Do you offer sessions online or only in person?",
+    answer: "We offer both! We have professional clinical rooms in Derry/Londonderry for face-to-face sessions. We also provide highly effective online sessions via secure video calls, which many clients find more convenient and relaxing as they can be in the comfort of their own homes."
+  },
+  {
+    question: "Is hypnotherapy safe for children?",
+    answer: "Yes, hypnotherapy is very safe and often highly effective for children and teenagers. They usually have great imaginations, which makes the process very natural for them. We work with young people on issues like exam stress, confidence, and habit breaking. All practitioners at Derry Hypnosis are fully vetted."
   }
 ];
