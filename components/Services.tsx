@@ -32,17 +32,18 @@ const Services: React.FC = () => {
               key={index} 
               className="group bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-premium transition-all duration-300 hover:-translate-y-1 flex flex-col h-full border border-cream/30"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <img 
-                  src={SERVICE_IMAGES[service.slug]} 
+                  src={SERVICE_IMAGES[service.slug] || `https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop`} 
                   alt={service.title}
-                  className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   loading="lazy"
                   onError={(e) => {
-                    // Use a more generic but unique fallback for each if possible
+                    // Unique fallback strategy to avoid "duplication" feel
                     (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop`;
                   }}
                 />
+                <div className="absolute inset-0 bg-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
               
               <div className="p-6 md:p-8 flex flex-col flex-grow">

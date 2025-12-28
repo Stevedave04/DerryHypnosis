@@ -12,9 +12,8 @@ export const SITE_INFO = {
 
 export const SERVICE_IMAGES: Record<string, string> = {
   'weight-loss': 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop',
-  'quit-smoking': 'https://images.unsplash.com/photo-1626078299034-92d55981267b?q=80&w=1200&auto=format&fit=crop',
+  'quit-smoking': 'https://images.unsplash.com/photo-1527191399440-19f454c7288b?q=80&w=1200&auto=format&fit=crop',
   'anxiety-stress': 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop',
-  'personal-development': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop',
   'sleep-insomnia': 'https://images.unsplash.com/photo-1541480601022-2308c0f02487?q=80&w=1200&auto=format&fit=crop',
   'phobia-release': 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=1200&auto=format&fit=crop',
   'sports-performance': 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop',

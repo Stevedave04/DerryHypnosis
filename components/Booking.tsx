@@ -5,18 +5,19 @@ import { Phone, MapPin, Video, Calendar, ShieldCheck, Mail, ArrowRight } from 'l
 
 const Booking: React.FC = () => {
   useEffect(() => {
-    // Load Calendly Script
-    const script = document.createElement('script');
-    script.src = "https://assets.calendly.com/assets/external/widget.js";
-    script.async = true;
-    document.body.appendChild(script);
+    // Check if script already exists to avoid duplicate messaging ports
+    const existingScript = document.getElementById('calendly-script');
+    
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.id = 'calendly-script';
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
 
-    return () => {
-      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
-    };
+    // No need to remove it on every unmount unless strictly necessary, 
+    // as it can cause the "port closed" error during navigation.
   }, []);
 
   const getIcon = (iconName: string) => {
@@ -89,7 +90,6 @@ const Booking: React.FC = () => {
 
           {/* Right: Map & Booking */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Google Maps Embed focused on Derry/Londonderry */}
             <div className="bg-white p-2 rounded-2xl shadow-soft border border-cream h-[400px] overflow-hidden">
               <iframe 
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d73539.52627409244!2d-7.387902462310103!3d54.99616223838466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485fe187c3f309ef%3A0xc3927237e199859c!2sDerry%2C%20UK!5e0!3m2!1sen!2sie!4v1716301234567!5m2!1sen!2sie" 
