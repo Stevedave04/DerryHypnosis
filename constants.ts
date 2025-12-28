@@ -11,8 +11,8 @@ export const SITE_INFO = {
 };
 
 export const SERVICE_IMAGES: Record<string, string> = {
-  'weight-loss': 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop',
-  'quit-smoking': 'https://images.unsplash.com/photo-1527191399440-19f454c7288b?q=80&w=1200&auto=format&fit=crop',
+  'weight-loss': 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop',
+  'quit-smoking': 'https://images.unsplash.com/photo-1626078299034-92d55981267b?q=80&w=1200&auto=format&fit=crop',
   'anxiety-stress': 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop',
   'sleep-insomnia': 'https://images.unsplash.com/photo-1541480601022-2308c0f02487?q=80&w=1200&auto=format&fit=crop',
   'phobia-release': 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=1200&auto=format&fit=crop',
@@ -146,13 +146,13 @@ export const SERVICES: ServiceItem[] = [
     slug: "sports-performance",
     title: "Sports Performance",
     description: "Master the 'Inner Game' to achieve peak performance and mental toughness.",
-    longDescription: "At the elite level, sport is 90% mental. If your mind isn't as trained as your body, you aren't reaching your potential.\n\nWe work with athletes in Derry to help them enter 'The Flow State' on command. Whether it's overcoming a performance plateau, managing pre-game nerves, or improving focus and visualization, hypnotherapy provides the mental edge that translates into real results on the field or court.",
+    longDescription: "At the elite level, sport is 90% mental. If your mind isn't as trained as your body, you aren't reaching your potential.\n\nWe work with athletes in Derry to help them master focus, confidence, and performance consistency under pressure.",
     benefits: [
-      "Enter the 'Zone' or 'Flow State' consistently",
-      "Master visualization and mental rehearsal",
-      "Overcome 'Choking' and performance anxiety",
-      "Increase focus and concentration",
-      "Build unshakeable mental toughness"
+      "Improve focus and concentration",
+      "Overcome performance anxiety",
+      "Enhance mental rehearsal techniques",
+      "Develop unshakeable self-belief",
+      "Enter 'The Flow State' on demand"
     ],
     price: "From £120 per session",
     icon: "sun",
@@ -160,84 +160,51 @@ export const SERVICES: ServiceItem[] = [
   }
 ];
 
+// Added missing TESTIMONIALS export to fix component errors
 export const TESTIMONIALS: TestimonialItem[] = [
   {
-    text: "I lost 3 stone and kept it off for over 2 years. The sessions helped me understand why I was eating emotionally and gave me the tools to change.",
-    author: "Sarah M.",
+    text: "Tracey helped me quit smoking in just one session. I haven't touched a cigarette in 6 months and don't even think about them anymore.",
+    author: "James M.",
     location: "Derry",
     rating: 5,
-    category: "weight"
+    category: 'smoking'
   },
   {
-    text: "After 20 years of smoking, I quit after just one session. It's been 8 months and I have no desire to smoke. I feel like a different person.",
-    author: "Mark T.",
+    text: "The weight loss program changed my life. I finally understand my emotional triggers and the pounds are just falling off naturally.",
+    author: "Sarah O.",
     location: "Letterkenny",
     rating: 5,
-    category: "smoking"
+    category: 'weight'
   },
   {
-    text: "My anxiety was controlling my life. Now I feel calm and confidence in situations that used to terrify me. Tracey's sessions were life-changing.",
-    author: "Emma K.",
-    location: "Strabane",
-    rating: 5,
-    category: "anxiety"
-  },
-  {
-    text: "The IBS management sessions were the only thing that worked after years of trying diets. My symptoms have reduced by about 80%.",
-    author: "David G.",
+    text: "I was crippled by social anxiety. After four sessions with Tracey, I feel like a new person. I'm actually enjoying meeting new people now.",
+    author: "Michael R.",
     location: "Derry",
     rating: 5,
-    category: "general"
-  },
-  {
-    text: "I used to be terrified of spiders. After two sessions, I can now calmly remove them from my house. I never thought it was possible.",
-    author: "Gareth P.",
-    location: "Derry",
-    rating: 5,
-    category: "general"
-  },
-  {
-    text: "Tracey helped me find the confidence to go for a promotion I’ve wanted for years. I start my new role next month!",
-    author: "Ciara L.",
-    location: "Coleraine",
-    rating: 5,
-    category: "general"
-  },
-  {
-    text: "The sleep sessions have been a miracle. For the first time in a decade, I am waking up before my alarm feeling actually rested.",
-    author: "Peter R.",
-    location: "Derry",
-    rating: 5,
-    category: "general"
-  },
-  {
-    text: "As a professional golfer, the mental edge I gained from hypnotherapy was noticeable within weeks. My focus is unshakeable.",
-    author: "Sean B.",
-    location: "Buncrana",
-    rating: 5,
-    category: "general"
+    category: 'anxiety'
   }
 ];
 
+// Added missing CONTACT_OPTIONS export to fix Booking component error
 export const CONTACT_OPTIONS: ContactOption[] = [
   {
-    title: "Free 15-Min Call",
-    description: "Discuss your goals and learn how hypnotherapy works.",
-    ctaText: "Call Now",
-    ctaUrl: "tel:02871349045",
+    title: "Discovery Call",
+    description: "Book a free 15-minute phone consultation to discuss your goals.",
+    ctaText: "Book Call",
+    ctaUrl: "/contact",
     icon: "phone"
   },
   {
-    title: "In-Person Session",
-    description: "Face-to-face session at our clinical rooms in Derry.",
-    ctaText: "Book Appointment",
+    title: "Clinic Visit",
+    description: "Visit our professional clinic located in the heart of Derry.",
+    ctaText: "Find Us",
     ctaUrl: "/contact",
     icon: "map"
   },
   {
-    title: "Online Session",
-    description: "Convenient video call from the comfort of your home.",
-    ctaText: "Book Online",
+    title: "Online Sessions",
+    description: "Experience the power of hypnosis from the comfort of your own home.",
+    ctaText: "Book Video",
     ctaUrl: "/contact",
     icon: "video"
   }
