@@ -11,28 +11,30 @@ const About: React.FC = () => {
   return (
     <section className="py-24 bg-white overflow-hidden min-h-screen pt-40">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-20 mb-32">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-32">
+          {/* Portrait Column */}
           <div className="w-full lg:w-1/2 relative">
             <div className="absolute -top-10 -left-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl z-0"></div>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-teal/10 rounded-full blur-3xl z-0"></div>
             
             <div className="relative z-10">
               <div className="absolute top-4 -left-4 w-full h-full border-2 border-cream rounded-2xl z-0 hidden md:block"></div>
-              <div className="relative overflow-hidden rounded-2xl shadow-premium aspect-[4/5] lg:aspect-auto lg:h-[700px]">
+              <div className="relative overflow-hidden rounded-3xl shadow-premium h-[450px] sm:h-[550px] lg:h-[750px] w-full">
                 <img 
                   src={traceyPortrait} 
                   alt={`${SITE_INFO.owner} - Clinical Hypnotherapist`} 
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-full object-cover object-[center_20%]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-teal/90 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-10 text-white">
-                  <h3 className="font-heading text-3xl font-bold mb-1">{SITE_INFO.owner}</h3>
-                  <p className="font-body text-sm uppercase tracking-[0.3em] text-gold-light font-bold">Clinical Hypnotherapist & Coach</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-teal/80 via-transparent to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10 text-white">
+                  <h3 className="font-heading text-2xl lg:text-3xl font-bold mb-1">{SITE_INFO.owner}</h3>
+                  <p className="font-body text-xs uppercase tracking-[0.3em] text-gold-light font-bold">Clinical Hypnotherapist & Coach</p>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Text Content Column */}
           <div className="w-full lg:w-1/2">
             <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">The Heart of Derry Hypnosis</span>
             <h2 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-8 leading-tight">
