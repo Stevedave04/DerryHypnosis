@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { SERVICES, SERVICE_IMAGES } from '../constants';
 import { ArrowRight } from 'lucide-react';
@@ -6,6 +7,9 @@ import { Link, useLocation } from 'react-router-dom';
 const Services: React.FC = () => {
   const location = useLocation();
   const isServicesPage = location.pathname === '/services';
+
+  // Filter to show limited services on home page, all on services page
+  const displayServices = isServicesPage ? SERVICES : SERVICES.slice(0, 6);
 
   return (
     <section className={`py-24 bg-cream-light ${isServicesPage ? 'pt-40' : ''}`}>
@@ -17,43 +21,41 @@ const Services: React.FC = () => {
             <span className="italic font-medium text-teal-light text-3xl md:text-4xl">Positive, Lasting Change.</span>
           </h2>
           <p className="font-body text-lg text-slate-800/60 leading-relaxed">
-            We offer a range of specialized treatments designed to help you overcome life's obstacles and unlock your subconscious potential.
+            Personalised treatment plans designed to help you overcome subconscious barriers and unlock your true potential.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES.map((service, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {displayServices.map((service, index) => (
             <Link 
               to={`/services/${service.slug}`}
               key={index} 
-              className="group bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-premium transition-all duration-500 hover:-translate-y-1 flex flex-col h-full border border-cream/50"
+              className="group bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-premium transition-all duration-300 hover:-translate-y-1 flex flex-col h-full border border-cream/30"
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
                 <img 
                   src={SERVICE_IMAGES[service.slug]} 
                   alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                   loading="lazy"
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop`;
+                    // Use a more generic but unique fallback for each if possible
+                    (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop`;
                   }}
                 />
-                <div className="absolute inset-0 bg-teal/5 group-hover:bg-transparent transition-colors duration-500"></div>
               </div>
               
-              <div className="p-8 flex flex-col flex-grow">
-                <h3 className="font-heading text-2xl font-bold text-teal mb-3 group-hover:text-gold transition-colors duration-300">
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <h3 className="font-heading text-xl md:text-2xl font-bold text-teal mb-3">
                   {service.title}
                 </h3>
-                <p className="font-body text-slate-800/60 mb-8 leading-relaxed text-sm flex-grow">
+                <p className="font-body text-slate-800/60 mb-6 leading-relaxed text-sm flex-grow">
                   {service.description}
                 </p>
                 
-                <div className="flex items-center justify-between pt-6 border-t border-cream">
-                  <span className="text-gold font-bold font-body text-sm uppercase tracking-wider">Learn More</span>
-                  <div className="w-8 h-8 rounded-full bg-cream-light flex items-center justify-center text-teal group-hover:bg-teal group-hover:text-white transition-all">
-                    <ArrowRight size={16} />
-                  </div>
+                <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
+                  Discover More
+                  <ArrowRight size={14} />
                 </div>
               </div>
             </Link>

@@ -1,11 +1,12 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, RotateCcw, ArrowDown, ArrowUp, Circle, Award, CheckCircle, Users, TrendingUp, Pause, Info } from 'lucide-react';
 
 const PHASES = [
-  { label: 'Inhale', icon: <ArrowDown size={20} />, color: 'bg-teal' },
-  { label: 'Hold', icon: <Circle size={10} fill="currentColor" />, color: 'bg-gold' },
-  { label: 'Exhale', icon: <ArrowUp size={20} />, color: 'bg-teal-light' },
-  { label: 'Hold', icon: <Circle size={10} fill="currentColor" />, color: 'bg-gold-dark' }
+  { label: 'Inhale', icon: <ArrowDown size={20} />, color: 'bg-teal', glow: 'shadow-[0_0_40px_rgba(44,95,93,0.3)]' },
+  { label: 'Hold', icon: <Circle size={10} fill="currentColor" />, color: 'bg-gold', glow: 'shadow-[0_0_40px_rgba(212,165,116,0.3)]' },
+  { label: 'Exhale', icon: <ArrowUp size={20} />, color: 'bg-teal-light', glow: 'shadow-[0_0_40px_rgba(74,124,122,0.3)]' },
+  { label: 'Hold', icon: <Circle size={10} fill="currentColor" />, color: 'bg-gold-dark', glow: 'shadow-[0_0_40px_rgba(184,138,88,0.3)]' }
 ];
 
 const BreathingApplet: React.FC = () => {
@@ -52,149 +53,114 @@ const BreathingApplet: React.FC = () => {
   const currentPhase = PHASES[phaseIndex];
 
   return (
-    <div id="breathing-applet" className="py-32 bg-cream-light/50 border-y border-cream scroll-mt-24">
+    <div id="breathing-applet" className="py-24 bg-cream-light/50 border-y border-cream scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Mindfulness Tool</span>
-            <h2 className="font-heading text-5xl md:text-7xl font-bold text-teal mb-6">Box Breathing</h2>
-            <p className="font-body text-xl text-slate-800/60 max-w-xl mx-auto leading-relaxed">
-              A powerful technique used by professionals to regulate the nervous system and clear mental fog in seconds.
+            <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Mindfulness Tool</span>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-teal mb-6">Box Breathing</h2>
+            <p className="font-body text-lg text-slate-800/60 max-w-xl mx-auto leading-relaxed">
+              A rhythmic technique to regulate your nervous system and find mental clarity in seconds.
             </p>
           </div>
 
-          {/* Step-by-Step Instructions */}
-          <div className="bg-white/80 backdrop-blur-sm border border-gold/20 rounded-3xl p-8 mb-16 shadow-soft max-w-2xl mx-auto">
-            <div className="flex items-center gap-3 mb-6 text-teal font-bold uppercase tracking-widest text-sm">
-              <Info size={18} className="text-gold" />
-              <span>How to Perform Box Breathing</span>
+          <div className="bg-white rounded-2xl p-6 md:p-10 mb-16 shadow-soft max-w-2xl mx-auto border border-cream/50">
+            <div className="flex items-center gap-3 mb-8 text-teal font-bold uppercase tracking-widest text-[10px]">
+              <Info size={14} className="text-gold" />
+              <span>Step-by-step Guide</span>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors duration-500 ${phaseIndex === 0 && isActive ? 'bg-teal/10 border border-teal/20' : 'bg-transparent'}`}>
-                <span className="w-8 h-8 rounded-full bg-teal text-white flex items-center justify-center font-bold text-sm">1</span>
-                <p className="font-body text-slate-800 text-sm"><strong>Inhale</strong> slowly for 4 seconds</p>
-              </div>
-              <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors duration-500 ${phaseIndex === 1 && isActive ? 'bg-gold/10 border border-gold/20' : 'bg-transparent'}`}>
-                <span className="w-8 h-8 rounded-full bg-gold text-white flex items-center justify-center font-bold text-sm">2</span>
-                <p className="font-body text-slate-800 text-sm"><strong>Hold</strong> your breath for 4 seconds</p>
-              </div>
-              <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors duration-500 ${phaseIndex === 2 && isActive ? 'bg-teal-light/10 border border-teal-light/20' : 'bg-transparent'}`}>
-                <span className="w-8 h-8 rounded-full bg-teal-light text-white flex items-center justify-center font-bold text-sm">3</span>
-                <p className="font-body text-slate-800 text-sm"><strong>Exhale</strong> slowly for 4 seconds</p>
-              </div>
-              <div className={`flex items-center gap-4 p-3 rounded-xl transition-colors duration-500 ${phaseIndex === 3 && isActive ? 'bg-gold-dark/10 border border-gold-dark/20' : 'bg-transparent'}`}>
-                <span className="w-8 h-8 rounded-full bg-gold-dark text-white flex items-center justify-center font-bold text-sm">4</span>
-                <p className="font-body text-slate-800 text-sm"><strong>Hold</strong> empty for 4 seconds</p>
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              {PHASES.map((p, i) => (
+                <div key={i} className={`p-4 rounded-xl transition-all duration-300 ${phaseIndex === i && isActive ? 'bg-cream-light border border-gold/20' : 'opacity-40'}`}>
+                  <span className={`w-6 h-6 rounded-full ${p.color} text-white flex items-center justify-center font-bold text-[10px] mx-auto mb-3`}>{i + 1}</span>
+                  <p className="font-body text-slate-800 text-[10px] font-bold uppercase tracking-widest">{p.label}</p>
+                </div>
+              ))}
             </div>
           </div>
           
           <div className="flex flex-col items-center">
-            {/* Immersive Breathing Circle */}
-            <div className="relative w-96 h-96 flex items-center justify-center">
-              {/* Pulsing Aura */}
+            <div className="relative w-80 h-80 md:w-96 md:h-96 flex items-center justify-center">
+              {/* Pulse effect */}
               <div className={`absolute inset-0 rounded-full transition-all duration-[4000ms] ${
-                isActive ? 'opacity-20 scale-125' : 'opacity-0 scale-100'
+                isActive ? 'opacity-10 scale-125' : 'opacity-0 scale-100'
               } ${currentPhase.color}`}></div>
               
-              <div className="absolute inset-0 rounded-full bg-white shadow-premium opacity-50"></div>
+              <div className="absolute inset-4 rounded-full border border-cream"></div>
               
-              <div className="absolute inset-6 rounded-full border border-teal/5"></div>
-              <div className="absolute inset-12 rounded-full border border-teal/5"></div>
-              
-              <svg className="absolute inset-0 w-full h-full -rotate-90 scale-[0.85]">
+              <svg className="absolute inset-0 w-full h-full -rotate-90 scale-[0.9]">
                 <circle
-                  cx="192"
-                  cy="192"
-                  r="160"
+                  cx="50%"
+                  cy="50%"
+                  r="44%"
                   fill="transparent"
-                  stroke="#E5E7EB"
+                  stroke="#EDE7D9"
                   strokeWidth="1"
-                  className="opacity-40"
                 />
                 <circle
-                  cx="192"
-                  cy="192"
-                  r="160"
+                  cx="50%"
+                  cy="50%"
+                  r="44%"
                   fill="transparent"
                   stroke="currentColor"
-                  strokeWidth="8"
+                  strokeWidth="4"
                   strokeLinecap="round"
-                  className={`${isActive ? 'transition-all duration-1000 linear' : 'transition-none'} ${phaseIndex % 2 === 0 ? 'text-teal' : 'text-gold'}`}
+                  className={`transition-all duration-1000 linear ${phaseIndex % 2 === 0 ? 'text-teal' : 'text-gold'}`}
                   style={{
-                    strokeDasharray: '1005',
-                    strokeDashoffset: isActive ? 1005 - (1005 * (4 - secondsLeft + 1) / 4) : 1005,
+                    strokeDasharray: '276%', // Approx for circle math
+                    strokeDashoffset: isActive ? 276 - (276 * (4 - secondsLeft + 1) / 4) : 276,
                   }}
                 />
               </svg>
 
-              <div className={`w-72 h-72 rounded-full shadow-2xl flex flex-col items-center justify-center text-white transition-all duration-[1000ms] ease-in-out ${
-                isActive ? (phaseIndex === 0 ? 'scale-110 shadow-teal/30' : phaseIndex === 2 ? 'scale-90 shadow-slate-900/10' : 'scale-100') : 'scale-100'
-              } ${currentPhase.color}`}>
+              <div className={`w-64 h-64 md:w-72 md:h-72 rounded-full shadow-2xl flex flex-col items-center justify-center text-white transition-all duration-[1000ms] ease-in-out ${
+                isActive ? `${currentPhase.glow} ${phaseIndex === 0 ? 'scale-110' : phaseIndex === 2 ? 'scale-90' : 'scale-100'}` : 'scale-100 bg-teal'
+              } ${isActive ? currentPhase.color : 'bg-teal'}`}>
                 <div className="relative">
-                   <span className="text-8xl font-heading font-bold mb-1 tracking-tighter tabular-nums drop-shadow-lg">{secondsLeft}</span>
-                   {isActive && (
-                     <div className="absolute -top-4 -right-4 w-6 h-6 bg-white/20 rounded-full animate-ping"></div>
-                   )}
+                   <span className="text-7xl md:text-8xl font-heading font-bold mb-1 tracking-tighter tabular-nums">{secondsLeft}</span>
                 </div>
-                <span className="text-2xl font-body uppercase tracking-[0.3em] font-light opacity-90 drop-shadow-md">{currentPhase.label}</span>
+                <span className="text-lg md:text-xl font-body uppercase tracking-[0.3em] font-light opacity-90">{currentPhase.label}</span>
               </div>
             </div>
 
-            <div className="flex gap-6 mt-20 items-center">
-              {PHASES.map((p, i) => (
-                <div 
-                  key={i} 
-                  className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${
-                    phaseIndex === i 
-                    ? `${p.color} text-white scale-110 shadow-xl border-white/20` 
-                    : 'bg-white text-slate-800/20 border-transparent'
-                  }`}
-                >
-                  {p.icon}
-                </div>
-              ))}
-            </div>
-
-            <p className="mt-10 font-body text-slate-800/40 font-bold uppercase tracking-widest text-sm">
+            <p className="mt-16 font-body text-slate-800/40 font-bold uppercase tracking-widest text-[10px]">
               <span className="text-teal">{cycles}</span> Completed Cycles
             </p>
 
-            <div className="flex flex-wrap justify-center gap-6 mt-16">
+            <div className="flex gap-4 mt-12">
               <button
                 onClick={handleStart}
-                className={`font-bold py-5 px-12 rounded-2xl shadow-xl transition-all flex items-center gap-3 transform hover:-translate-y-1 active:scale-95 ${
-                  isActive ? 'bg-slate-800 text-white hover:bg-slate-900' : 'bg-teal text-white hover:bg-teal-dark'
+                className={`font-bold py-4 px-10 rounded-full shadow-lg transition-all flex items-center gap-3 transform hover:-translate-y-1 active:scale-95 text-sm ${
+                  isActive ? 'bg-slate-800 text-white' : 'bg-teal text-white hover:bg-teal-dark'
                 }`}
               >
-                {isActive ? 'Pause Session' : 'Start Session'}
-                {isActive ? <Pause size={20} /> : <Play size={20} fill="currentColor" />}
+                {isActive ? 'Pause' : 'Start'}
+                {isActive ? <Pause size={18} /> : <Play size={18} fill="currentColor" />}
               </button>
               <button
                 onClick={handleReset}
-                className="bg-white hover:bg-cream border border-cream-dark text-slate-800 font-bold py-5 px-12 rounded-2xl transition-all flex items-center gap-3 active:scale-95"
+                className="bg-white hover:bg-cream border border-cream-dark text-slate-800 font-bold py-4 px-10 rounded-full transition-all flex items-center gap-3 active:scale-95 text-sm"
               >
                 Reset
-                <RotateCcw size={20} />
+                <RotateCcw size={18} />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 mt-40">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mt-32">
           {[
-            { label: "Clinical Expert", sub: "Accredited by IA Hypnotherapists", icon: <Award className="text-gold" size={32} /> },
-            { label: "Personalised", sub: "Tailored to your subconscious needs", icon: <CheckCircle className="text-gold" size={32} /> },
-            { label: "Community", sub: "500+ Lives transformed in Derry", icon: <Users className="text-gold" size={32} /> },
-            { label: "Proven", sub: "95% Satisfaction and success rate", icon: <TrendingUp className="text-gold" size={32} /> }
+            { label: "Clinical Expert", sub: "Fully Accredited", icon: <Award className="text-gold" size={24} /> },
+            { label: "Personalised", sub: "Subconscious Alignment", icon: <CheckCircle className="text-gold" size={24} /> },
+            { label: "Community", sub: "Derry & Letterkenny", icon: <Users className="text-gold" size={24} /> },
+            { label: "Proven", sub: "Rapid Results", icon: <TrendingUp className="text-gold" size={24} /> }
           ].map((stat, i) => (
-            <div key={i} className="flex flex-col items-center text-center group">
-              <div className="w-16 h-16 bg-cream rounded-3xl flex items-center justify-center mb-8 transition-all duration-500 group-hover:bg-teal group-hover:text-white group-hover:-translate-y-2 group-hover:shadow-xl">
+            <div key={i} className="text-center group">
+              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mx-auto mb-6 shadow-soft group-hover:bg-teal group-hover:text-white transition-all duration-500">
                 {stat.icon}
               </div>
-              <h3 className="font-heading font-bold text-slate-800 mb-3 text-xl">{stat.label}</h3>
-              <p className="font-body text-sm text-slate-800/50 leading-relaxed font-medium uppercase tracking-tight">{stat.sub}</p>
+              <h3 className="font-heading font-bold text-slate-800 mb-2 text-base">{stat.label}</h3>
+              <p className="font-body text-[10px] text-slate-800/40 font-bold uppercase tracking-widest">{stat.sub}</p>
             </div>
           ))}
         </div>

@@ -1,3 +1,4 @@
+
 import { NavItem, ServiceItem, TestimonialItem, ContactOption } from './types';
 
 export const SITE_INFO = {
@@ -16,7 +17,9 @@ export const SERVICE_IMAGES: Record<string, string> = {
   'personal-development': 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop',
   'sleep-insomnia': 'https://images.unsplash.com/photo-1541480601022-2308c0f02487?q=80&w=1200&auto=format&fit=crop',
   'phobia-release': 'https://images.unsplash.com/photo-1502134249126-9f3755a50d78?q=80&w=1200&auto=format&fit=crop',
-  'sports-performance': 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop'
+  'sports-performance': 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop',
+  'ibs-management': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop',
+  'public-speaking': 'https://images.unsplash.com/photo-1475721027187-4024733923f9?q=80&w=1200&auto=format&fit=crop'
 };
 
 export const NAV_ITEMS: NavItem[] = [
@@ -109,6 +112,38 @@ export const SERVICES: ServiceItem[] = [
     category: "general"
   },
   {
+    slug: "ibs-management",
+    title: "IBS Management",
+    description: "Manage irritable bowel syndrome symptoms through clinical gut-directed hypnotherapy.",
+    longDescription: "Gut-directed hypnotherapy is a scientifically proven treatment for Irritable Bowel Syndrome (IBS). The gut and the brain are deeply connected through the vagus nerve.\n\nBy teaching you how to relax the smooth muscles of the digestive system and modulating the sensitivity of the gut, we can significantly reduce pain, bloating, and irregular bowel habits. This programme is designed to complement medical advice and provide long-term relief.",
+    benefits: [
+      "Significant reduction in abdominal pain and bloating",
+      "Normalise digestive patterns and regularity",
+      "Reduce stress-related gut flare-ups",
+      "Improve quality of life and social confidence",
+      "Clinically proven long-term effectiveness"
+    ],
+    price: "From £120 per session",
+    icon: "flower",
+    category: "general"
+  },
+  {
+    slug: "public-speaking",
+    title: "Public Speaking Confidence",
+    description: "Speak with authority, clarity, and ease in any professional or social setting.",
+    longDescription: "Fear of public speaking is one of the most common anxieties, but it can be a major barrier to career progression.\n\nOur sessions help you dismantle the fear of judgment and the physiological 'freeze' response. We install a new subconscious script of confidence and presence, allowing you to access your best thoughts and communicate them with impact. Whether it's a board meeting, a wedding speech, or a presentation, you will learn to enjoy the stage.",
+    benefits: [
+      "Eliminate 'shaky voice' and physical nerves",
+      "Improve mental recall and verbal fluency",
+      "Project natural authority and warmth",
+      "Master high-performance breathing for speaking",
+      "Build unshakeable confidence in your message"
+    ],
+    price: "From £120 per session",
+    icon: "sun",
+    category: "general"
+  },
+  {
     slug: "sports-performance",
     title: "Sports Performance",
     description: "Master the 'Inner Game' to achieve peak performance and mental toughness.",
@@ -149,6 +184,13 @@ export const TESTIMONIALS: TestimonialItem[] = [
     category: "anxiety"
   },
   {
+    text: "The IBS management sessions were the only thing that worked after years of trying diets. My symptoms have reduced by about 80%.",
+    author: "David G.",
+    location: "Derry",
+    rating: 5,
+    category: "general"
+  },
+  {
     text: "I used to be terrified of spiders. After two sessions, I can now calmly remove them from my house. I never thought it was possible.",
     author: "Gareth P.",
     location: "Derry",
@@ -166,6 +208,13 @@ export const TESTIMONIALS: TestimonialItem[] = [
     text: "The sleep sessions have been a miracle. For the first time in a decade, I am waking up before my alarm feeling actually rested.",
     author: "Peter R.",
     location: "Derry",
+    rating: 5,
+    category: "general"
+  },
+  {
+    text: "As a professional golfer, the mental edge I gained from hypnotherapy was noticeable within weeks. My focus is unshakeable.",
+    author: "Sean B.",
+    location: "Buncrana",
     rating: 5,
     category: "general"
   }
