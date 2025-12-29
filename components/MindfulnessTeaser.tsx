@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Sparkles, ArrowRight } from 'lucide-react';
 
@@ -61,7 +62,7 @@ const MindfulnessTeaser: React.FC = () => {
             </h2>
             
             <p className="font-body text-xl text-slate-800/70 mb-10 leading-relaxed">
-              Experience the immediate benefits of "Box Breathing," a proven clinical technique used by elite performers to reset the nervous system. Our interactive applet below provides a guided visual experience to help you find your center.
+              Experience the immediate benefits of "Box Breathing," a proven clinical technique used by elite performers to reset the nervous system. Our interactive applet below provides a guided visual experience to help you find your centre.
             </p>
             
             <div className="space-y-6 mb-12">

@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { CONTACT_OPTIONS, SITE_INFO } from '../constants';
 import { Phone, MapPin, Video, Calendar, ShieldCheck, Mail, ArrowRight } from 'lucide-react';
@@ -12,13 +13,9 @@ const Booking: React.FC = () => {
       script.id = 'calendly-script';
       script.src = "https://assets.calendly.com/assets/external/widget.js";
       script.async = true;
-      // Use try-catch or event listeners for safer injection
       script.onload = () => console.debug("Booking widget initialised.");
       document.body.appendChild(script);
     }
-    
-    // The "runtime.lastError" is often a browser extension issue (like AdBlock or Ghostery) 
-    // interfering with the iframe's port. This is usually non-breaking.
   }, []);
 
   const getIcon = (iconName: string) => {
@@ -37,7 +34,7 @@ const Booking: React.FC = () => {
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Take the First Step</span>
           <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6">Connect With Us</h1>
           <p className="font-body text-xl text-slate-800/60 leading-relaxed max-w-2xl mx-auto">
-            Ready to reclaim control? Book a free discovery call, visit our clinic in Derry, or start your session online.
+            Ready to reclaim control? Book a consultation, visit our clinic in Derry, or start your session online.
           </p>
         </div>
 
@@ -49,20 +46,11 @@ const Booking: React.FC = () => {
               <div className="space-y-8">
                 <div className="flex gap-4 items-start">
                   <div className="w-10 h-10 rounded-lg bg-gold/5 flex items-center justify-center text-gold flex-shrink-0">
-                    <Phone size={18} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-slate-800/40 font-bold mb-1">Phone</p>
-                    <a href={`tel:${SITE_INFO.phone}`} className="text-teal font-bold hover:text-gold transition-colors">{SITE_INFO.phone}</a>
-                  </div>
-                </div>
-                <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-lg bg-gold/5 flex items-center justify-center text-gold flex-shrink-0">
                     <Mail size={18} />
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-slate-800/40 font-bold mb-1">Email</p>
-                    <a href={`mailto:${SITE_INFO.email}`} className="text-teal font-bold hover:text-gold transition-colors">{SITE_INFO.email}</a>
+                    <a href={`mailto:${SITE_INFO.email}`} className="text-teal font-bold hover:text-gold transition-colors break-all">{SITE_INFO.email}</a>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
@@ -71,7 +59,7 @@ const Booking: React.FC = () => {
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-slate-800/40 font-bold mb-1">Clinic</p>
-                    <p className="text-teal font-bold">{SITE_INFO.location}</p>
+                    <p className="text-teal font-bold leading-snug">{SITE_INFO.location}</p>
                   </div>
                 </div>
               </div>
@@ -93,14 +81,14 @@ const Booking: React.FC = () => {
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white p-2 rounded-2xl shadow-soft border border-cream h-[400px] overflow-hidden">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d73539.52627409244!2d-7.387902462310103!3d54.99616223838466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485fe187c3f309ef%3A0xc3927237e199859c!2sDerry%2C%20UK!5e0!3m2!1sen!2sie!4v1716301234567!5m2!1sen!2sie" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2298.1147570440623!2d-7.3242!3d54.9918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTTCsDU5JzMwLjUiTiA3wrAxOScyNy4xIlc!5e0!3m2!1sen!2suk!4v1716301234567!5m2!1sen!2suk" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0, borderRadius: '1rem' }} 
                 allowFullScreen={true} 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Derry Hypnosis - Derry Location Map"
+                title="Derry Hypnosis - Foyle Road Location Map"
               ></iframe>
             </div>
 

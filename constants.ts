@@ -4,9 +4,8 @@ import { NavItem, ServiceItem, TestimonialItem, ContactOption, FAQItem } from '.
 export const SITE_INFO = {
   title: "Derry Hypnosis",
   tagline: "Transform Your Life Through the Power of Your Mind",
-  phone: "(028) 7134 9045",
   email: "hello@derryhypnosis.co.uk",
-  location: "Derry/Londonderry, Northern Ireland",
+  location: "2-4 Foyle Rd, Londonderry BT48 6AX - Centre of Wellbeing",
   owner: "Tracey McGill"
 };
 
@@ -194,14 +193,14 @@ export const TESTIMONIALS: TestimonialItem[] = [
 export const CONTACT_OPTIONS: ContactOption[] = [
   {
     title: "Discovery Call",
-    description: "Book a free 15-minute phone consultation to discuss your goals and how we can help.",
-    ctaText: "Book Call",
+    description: "Book a free 15-minute consultation to discuss your goals and how we can help.",
+    ctaText: "Request Call",
     ctaUrl: "/contact",
-    icon: "phone"
+    icon: "video"
   },
   {
     title: "Clinic Visit",
-    description: "Visit our professional, private clinic rooms located centrally in Derry/Londonderry.",
+    description: "Visit our professional, private clinic rooms at the Centre of Wellbeing in Derry.",
     ctaText: "Find Us",
     ctaUrl: "/contact",
     icon: "map"
@@ -239,5 +238,25 @@ export const FAQS: FAQItem[] = [
   {
     question: "Is hypnotherapy safe for children?",
     answer: "Yes, hypnotherapy is very safe and often highly effective for children and teenagers. They usually have great imaginations, which makes the process very natural for them. We work with young people on issues like exam stress, confidence, and habit breaking. All practitioners at Derry Hypnosis are fully vetted."
+  },
+  {
+    question: "How should I prepare for my first session?",
+    answer: "There isn't much formal preparation needed. We recommend wearing comfortable clothing and ensuring you are in a relatively quiet frame of mind. If your session is online, please ensure you have a private space where you won't be interrupted and a stable internet connection. Most importantly, bring an open mind and a genuine desire for change."
+  },
+  {
+    question: "Can I drive straight after a hypnotherapy session?",
+    answer: "Yes, absolutely. While hypnotherapy involves deep relaxation, it is not a state of sleep or sedation. Once the session is concluded, we use a 're-alerting' process to ensure you are fully awake, alert, and grounded. You will feel calm but entirely capable of driving and continuing with your normal daily activities."
+  },
+  {
+    question: "What if I have an 'analytical' mind that won't switch off?",
+    answer: "Many of our clients are high-achievers with very active, analytical minds. You don't need to 'stop thinking' for hypnotherapy to work. In fact, we can use that mental energy as part of the process. We use specific techniques designed to bypass the critical conscious mind, allowing the therapeutic suggestions to reach the subconscious regardless of how busy your thoughts feel."
+  },
+  {
+    question: "Are the results of hypnotherapy permanent?",
+    answer: "Hypnotherapy aims for long-term transformation by changing the subconscious 'blueprints' that drive your behaviour. Once a new, healthier perspective is fully integrated, it typically becomes your new 'normal'. We also provide you with self-hypnosis tools and techniques to maintain and reinforce your results long after our sessions have finished."
+  },
+  {
+    question: "Do you offer evening or weekend appointments in Derry?",
+    answer: "We understand that many of our clients have busy work and family schedules. To accommodate this, we offer a limited number of evening and weekend slots at our Foyle Road clinic. We recommend booking these well in advance as they are our most popular times. You can check current availability through our online booking system."
   }
 ];

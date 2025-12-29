@@ -50,7 +50,7 @@ const About: React.FC = () => {
                 I am a fully accredited Clinical Hypnotherapist, but I see myself as more of a catalyst for your change. I combine the latest neuroscientific understanding of the mind with time-tested clinical hypnotherapy techniques to provide a treatment that isn't just relaxing, but deeply transformative.
               </p>
               <p>
-                I don't believe in 'one size fits all'. Every session at Derry Hypnosis is custom-tailored to your unique life experience, your specific triggers, and your ultimate vision for your future. Whether you're here to stop smoking, lose weight, or finally silence the voice of anxiety, I am honored to walk this path with you.
+                I don't believe in 'one size fits all'. Every session at Derry Hypnosis is custom-tailored to your unique life experience, your specific triggers, and your ultimate vision for your future. Whether you're here to stop smoking, lose weight, or finally silence the voice of anxiety, I am honoured to walk this path with you.
               </p>
             </div>
 
@@ -99,7 +99,7 @@ const About: React.FC = () => {
                 </div>
                 <h4 className="font-heading text-xl font-bold text-teal mb-4">Discovery</h4>
                 <p className="font-body text-slate-800/70 text-sm leading-relaxed">
-                  We begin by uncovering the deep-rooted subconscious scripts that are currently driving your behavior.
+                  We begin by uncovering the deep-rooted subconscious scripts that are currently driving your behaviour.
                 </p>
               </div>
               <div className="text-center">

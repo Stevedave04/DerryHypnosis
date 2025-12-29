@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, Calendar } from 'lucide-react';
+import { Menu, X, Mail, Calendar } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { NAV_ITEMS } from '../constants';
 import Logo from './Logo';
@@ -72,8 +73,8 @@ const Navbar: React.FC = () => {
                   : 'bg-teal text-white hover:bg-teal-dark'
               }`}
             >
-              <Phone size={16} />
-              <span>Book Consultation</span>
+              <Mail size={16} />
+              <span>Get in Touch</span>
             </Link>
           </div>
         </div>

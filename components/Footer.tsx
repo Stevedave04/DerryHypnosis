@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { SITE_INFO, SERVICES } from '../constants';
-import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, MapPin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -14,10 +14,16 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-heading text-2xl font-bold mb-6 text-gold">{SITE_INFO.title}</h3>
             <p className="text-gray-400 font-body mb-6">
-              Specialised hypnotherapy serving Derry/Londonderry. Helping you achieve weight loss, stop smoking, and overcome anxiety.
+              Specialised clinical hypnotherapy serving Derry/Londonderry. Helping you achieve lasting positive change.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" aria-label="Facebook">
+              <a 
+                href="https://www.facebook.com/profile.php?id=100071225175331" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" 
+                aria-label="Facebook"
+              >
                 <Facebook size={20} />
               </a>
               <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" aria-label="Instagram">
@@ -35,15 +41,11 @@ const Footer: React.FC = () => {
             <div className="space-y-4">
               <div className="flex items-start gap-3 text-gray-400">
                 <MapPin className="text-gold mt-1 flex-shrink-0" size={18} />
-                <span>{SITE_INFO.location}</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-400">
-                <Phone className="text-gold flex-shrink-0" size={18} />
-                <a href={`tel:${SITE_INFO.phone.replace(/\s/g, '')}`} className="hover:text-white transition-colors">{SITE_INFO.phone}</a>
+                <span className="leading-relaxed">{SITE_INFO.location}</span>
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <Mail className="text-gold flex-shrink-0" size={18} />
-                <a href={`mailto:${SITE_INFO.email}`} className="hover:text-white transition-colors">{SITE_INFO.email}</a>
+                <a href={`mailto:${SITE_INFO.email}`} className="hover:text-white transition-colors break-all">{SITE_INFO.email}</a>
               </div>
             </div>
           </div>
