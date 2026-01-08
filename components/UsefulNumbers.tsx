@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, Phone, ExternalLink, AlertTriangle, Clock, Filter, Info } from 'lucide-react';
+import { Search, Phone, ExternalLink, AlertTriangle, Clock, Filter, Info, Heart, ShieldAlert } from 'lucide-react';
 
 const helplines = [
   {
@@ -238,6 +238,19 @@ const categories = [
   "General Advice"
 ];
 
+const categoryColors: Record<string, { bg: string; border: string; accent: string; pill: string }> = {
+  "Crisis & Safety": { bg: "bg-red-50", border: "border-red-200", accent: "text-red-700", pill: "bg-red-100 text-red-800" },
+  "Mental Health": { bg: "bg-purple-50", border: "border-purple-200", accent: "text-purple-700", pill: "bg-purple-100 text-purple-800" },
+  "Children & Young People": { bg: "bg-amber-50", border: "border-amber-200", accent: "text-amber-700", pill: "bg-amber-100 text-amber-800" },
+  "Family & Carers": { bg: "bg-pink-50", border: "border-pink-200", accent: "text-pink-700", pill: "bg-pink-100 text-pink-800" },
+  "Health & Disability": { bg: "bg-blue-50", border: "border-blue-200", accent: "text-blue-700", pill: "bg-blue-100 text-blue-800" },
+  "Bereavement": { bg: "bg-slate-50", border: "border-slate-200", accent: "text-slate-700", pill: "bg-slate-100 text-slate-800" },
+  "Financial & Housing": { bg: "bg-green-50", border: "border-green-200", accent: "text-green-700", pill: "bg-green-100 text-green-800" },
+  "Elderly & Vulnerable": { bg: "bg-teal-50", border: "border-teal-200", accent: "text-teal-700", pill: "bg-teal-100 text-teal-800" },
+  "LGBTQ+ Support": { bg: "bg-indigo-50", border: "border-indigo-200", accent: "text-indigo-700", pill: "bg-indigo-100 text-indigo-800" },
+  "General Advice": { bg: "bg-gray-50", border: "border-gray-200", accent: "text-gray-700", pill: "bg-gray-100 text-gray-800" }
+};
+
 const UsefulNumbers: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
@@ -257,183 +270,219 @@ const UsefulNumbers: React.FC = () => {
         
         {/* Header Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Community Resources</span>
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6">Helplines NI</h1>
-          <p className="font-body text-xl text-slate-800/60 leading-relaxed max-w-2xl mx-auto">
-            Free, confidential support services across Northern Ireland. Help is available whenever you need it.
+          <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block animate-reveal">Community Support</span>
+          <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6 animate-reveal stagger-1">Useful Numbers</h1>
+          <p className="font-body text-xl text-slate-800/60 leading-relaxed max-w-2xl mx-auto animate-reveal stagger-2">
+            A curated directory of free, confidential support services for the people of Northern Ireland. Help is always available.
           </p>
         </div>
 
-        {/* Emergency Banner */}
-        <div className="max-w-6xl mx-auto bg-slate-900 rounded-[2rem] shadow-premium overflow-hidden mb-16 border-l-8 border-gold">
-          <div className="bg-red-600/10 p-4 border-b border-white/5 flex items-center justify-center gap-2">
-            <AlertTriangle className="text-red-500" size={20} />
-            <span className="text-white font-bold text-sm tracking-wide">In immediate danger? Always call 999 first.</span>
-          </div>
-          <div className="p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex-1">
-              <h3 className="text-white font-heading text-2xl font-bold mb-2">Crisis Support</h3>
-              <p className="text-gray-400 font-body text-sm">Dedicated 24/7 helplines for immediate mental health or safety support.</p>
+        {/* Emergency Dashboard */}
+        <div className="max-w-6xl mx-auto mb-16 animate-reveal stagger-3">
+          <div className="bg-slate-900 rounded-[2.5rem] shadow-premium overflow-hidden border-l-8 border-gold">
+            {/* Immediate Danger Alert */}
+            <div className="bg-red-600 px-6 py-3 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-white">
+              <ShieldAlert size={20} className="animate-pulse" />
+              <span className="font-bold text-sm uppercase tracking-widest text-center">In immediate danger or facing a medical emergency? Call 999 immediately.</span>
             </div>
-            <div className="flex flex-wrap gap-4 justify-center">
-              {featuredHelplines.map(h => (
-                <a 
-                  key={h.name}
-                  href={`tel:${h.phone.replace(/\s/g, '')}`}
-                  className="bg-gold hover:bg-gold-dark text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg flex items-center gap-3 transform hover:-translate-y-1"
-                >
-                  <Phone size={18} />
-                  {h.name}: {h.phone}
-                </a>
-              ))}
+            
+            <div className="p-8 md:p-12">
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+                <div className="max-w-md">
+                  <div className="flex items-center gap-3 text-gold mb-4">
+                    <Heart size={24} fill="currentColor" />
+                    <h2 className="font-heading text-2xl font-bold text-white">Crisis Support 24/7</h2>
+                  </div>
+                  <p className="text-gray-400 font-body leading-relaxed">
+                    If you are struggling and need someone to talk to right away, these dedicated Northern Ireland services are available 365 days a year.
+                  </p>
+                </div>
+                
+                <div className="flex flex-wrap gap-4">
+                  {featuredHelplines.map(h => (
+                    <a 
+                      key={h.name}
+                      href={`tel:${h.phone.replace(/\s/g, '')}`}
+                      className="flex-1 min-w-[280px] bg-white hover:bg-cream-light text-slate-900 px-8 py-5 rounded-2xl font-bold transition-all shadow-xl flex items-center justify-between group transform hover:-translate-y-1"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center">
+                          <Phone size={18} />
+                        </div>
+                        <div className="text-left">
+                          <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold mb-0.5">{h.name}</p>
+                          <p className="text-lg text-teal">{h.phone}</p>
+                        </div>
+                      </div>
+                      <ExternalLink size={16} className="text-gold opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="max-w-6xl mx-auto">
-          {/* Controls Bar */}
-          <div className="bg-white p-8 rounded-3xl shadow-soft border border-cream mb-12">
-            <div className="flex flex-col lg:flex-row gap-8 items-center justify-between">
+          {/* Controls & Filter Bar */}
+          <div className="bg-white p-8 md:p-10 rounded-[2rem] shadow-soft border border-cream mb-12">
+            <div className="flex flex-col lg:flex-row gap-8 items-end justify-between">
               
-              {/* Search */}
-              <div className="relative w-full lg:w-96">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gold" size={20} />
-                <input
-                  type="text"
-                  placeholder="Search organisations..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-6 py-4 rounded-xl border border-cream bg-cream-light/50 focus:bg-white focus:border-gold outline-none transition-all font-body text-teal"
-                />
+              {/* Search Box */}
+              <div className="w-full lg:w-1/3">
+                <label className="block text-[10px] font-bold text-slate-800/40 uppercase tracking-widest mb-3">Find an organisation</label>
+                <div className="relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gold" size={20} />
+                  <input
+                    type="text"
+                    placeholder="Search by name or keyword..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full pl-12 pr-6 py-4 rounded-xl border border-cream bg-cream-light/50 focus:bg-white focus:border-gold outline-none transition-all font-body text-teal placeholder:text-slate-300"
+                  />
+                </div>
               </div>
 
-              {/* Category Filter */}
-              <div className="flex items-center gap-3 w-full lg:w-auto">
-                <Filter size={18} className="text-gold flex-shrink-0" />
+              {/* Category Filter Desktop */}
+              <div className="w-full lg:w-2/3">
+                <div className="flex items-center justify-between mb-3">
+                  <label className="block text-[10px] font-bold text-slate-800/40 uppercase tracking-widest">Filter by category</label>
+                  <button 
+                    onClick={() => { setActiveCategory("All"); setSearchTerm(""); }}
+                    className="text-[10px] font-bold text-gold uppercase tracking-widest hover:text-teal transition-colors"
+                  >
+                    Clear All
+                  </button>
+                </div>
                 <div className="flex flex-wrap gap-2">
-                  {categories.slice(0, 4).map(category => (
+                  {categories.map(category => (
                     <button
                       key={category}
                       onClick={() => setActiveCategory(category)}
-                      className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all border ${
+                      className={`px-4 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all border ${
                         activeCategory === category
                           ? 'bg-teal text-white border-teal shadow-md'
-                          : 'bg-white text-slate-800 border-cream hover:border-gold'
+                          : 'bg-white text-slate-800 border-cream hover:border-gold hover:bg-cream-light/50'
                       }`}
                     >
                       {category}
                     </button>
                   ))}
-                  {/* Dropdown for more categories if needed, for now just show all tags */}
                 </div>
               </div>
             </div>
-
-            {/* All Category Tags */}
-            <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-cream">
-              {categories.map(category => (
-                <button
-                  key={category}
-                  onClick={() => setActiveCategory(category)}
-                  className={`px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${
-                    activeCategory === category
-                      ? 'bg-teal text-white'
-                      : 'bg-cream-light text-slate-800/60 hover:bg-gold hover:text-white'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
           </div>
 
-          {/* Results Count */}
-          <div className="flex items-center justify-between mb-8 px-2">
-             <p className="font-body text-slate-800/40 font-bold uppercase tracking-[0.2em] text-[10px]">
-                Found {filteredHelplines.length} Service{filteredHelplines.length !== 1 ? 's' : ''}
-                {activeCategory !== "All" && ` in ${activeCategory}`}
-             </p>
+          {/* Results Metadata */}
+          <div className="flex items-center justify-between mb-8 px-4">
+             <div className="flex items-center gap-2">
+                <Info size={14} className="text-gold" />
+                <p className="font-body text-slate-800/60 font-bold uppercase tracking-[0.2em] text-[10px]">
+                  Showing {filteredHelplines.length} Service{filteredHelplines.length !== 1 ? 's' : ''}
+                  {activeCategory !== "All" && <span className="text-teal"> in {activeCategory}</span>}
+                </p>
+             </div>
           </div>
 
           {/* Helplines Grid */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredHelplines.map((helpline) => (
-              <div
-                key={helpline.name}
-                className="bg-white border border-cream rounded-2xl p-6 hover:shadow-premium hover:border-gold/30 transition-all duration-300 group flex flex-col h-full"
-              >
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <h3 className="font-heading font-bold text-teal text-xl leading-snug group-hover:text-gold transition-colors">
-                    {helpline.name}
-                  </h3>
-                  {helpline.is24h && (
-                    <span className="bg-success/10 text-success text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-widest border border-success/20">
-                      24/7
-                    </span>
-                  )}
-                </div>
+            {filteredHelplines.map((helpline) => {
+              const colors = categoryColors[helpline.category] || categoryColors["General Advice"];
+              
+              return (
+                <div
+                  key={helpline.name}
+                  className={`bg-white border-2 border-cream rounded-[2rem] p-8 hover:shadow-premium hover:border-gold/30 transition-all duration-500 group flex flex-col h-full relative overflow-hidden`}
+                >
+                  {/* Category Accent Stripe */}
+                  <div className={`absolute top-0 left-0 w-full h-1.5 ${colors.pill.split(' ')[0]}`}></div>
+                  
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <h3 className="font-heading font-bold text-teal text-xl md:text-2xl leading-tight group-hover:text-gold transition-colors">
+                      {helpline.name}
+                    </h3>
+                    {helpline.is24h && (
+                      <span className="flex-shrink-0 bg-success/10 text-success text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-success/20">
+                        24/7
+                      </span>
+                    )}
+                  </div>
 
-                <div className="flex-grow space-y-4">
-                  <a
-                    href={`tel:${helpline.phone.replace(/\s/g, '')}`}
-                    className="text-2xl font-bold text-teal flex items-center gap-3 hover:text-gold transition-colors"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                      <Phone size={14} />
-                    </div>
-                    {helpline.phone}
-                  </a>
-
-                  <div className="space-y-2">
-                    <div className="flex items-start gap-2 text-slate-800/60 text-sm font-body">
-                      <Clock size={14} className="mt-1 text-gold flex-shrink-0" />
-                      <span>{helpline.hours}</span>
-                    </div>
+                  <div className="flex-grow space-y-6">
                     <a
-                      href={`https://${helpline.website}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-start gap-2 text-gold hover:text-teal transition-colors text-sm font-body break-all"
+                      href={`tel:${helpline.phone.replace(/\s/g, '')}`}
+                      className={`text-2xl md:text-3xl font-bold ${colors.accent} flex items-center gap-3 hover:scale-105 transition-transform origin-left`}
                     >
-                      <ExternalLink size={14} className="mt-1 flex-shrink-0" />
-                      <span>{helpline.website}</span>
+                      <Phone size={20} className="text-gold" />
+                      {helpline.phone}
                     </a>
+
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3 text-slate-800/70 text-sm font-body leading-relaxed">
+                        <Clock size={16} className="mt-0.5 text-gold flex-shrink-0" />
+                        <span>{helpline.hours}</span>
+                      </div>
+                      <a
+                        href={`https://${helpline.website}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-start gap-3 text-teal/60 hover:text-gold transition-colors text-sm font-body break-all"
+                      >
+                        <ExternalLink size={16} className="mt-0.5 flex-shrink-0" />
+                        <span className="underline decoration-gold/30 underline-offset-4">{helpline.website}</span>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-6 border-t border-cream flex items-center justify-between">
+                    <span className={`${colors.pill} text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest`}>
+                      {helpline.category}
+                    </span>
+                    <div className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></div>
                   </div>
                 </div>
-
-                <div className="mt-6 pt-6 border-t border-cream flex items-center justify-between">
-                  <span className="text-[10px] font-bold text-slate-800/40 uppercase tracking-widest">
-                    {helpline.category}
-                  </span>
-                  <div className="w-2 h-2 rounded-full bg-gold/30"></div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Empty State */}
           {filteredHelplines.length === 0 && (
-            <div className="text-center py-24 bg-white rounded-3xl border-2 border-dashed border-cream">
-              <Info size={48} className="text-gold/20 mx-auto mb-4" />
-              <h3 className="font-heading text-2xl font-bold text-teal mb-2">No Services Found</h3>
-              <p className="text-slate-800/40 font-body">Try adjusting your search or category filters.</p>
+            <div className="text-center py-32 bg-white rounded-[3rem] border-2 border-dashed border-cream">
+              <div className="w-20 h-20 bg-cream-light rounded-full flex items-center justify-center mx-auto mb-6 text-gold/30">
+                <Search size={40} />
+              </div>
+              <h3 className="font-heading text-3xl font-bold text-teal mb-3">No matching services</h3>
+              <p className="text-slate-800/40 font-body text-lg">We couldn't find any results for "{searchTerm}".</p>
               <button 
                 onClick={() => { setSearchTerm(""); setActiveCategory("All"); }}
-                className="mt-6 text-gold font-bold hover:underline"
+                className="mt-8 bg-gold text-white px-8 py-3 rounded-full font-bold hover:bg-gold-dark transition-all"
               >
-                Clear all filters
+                Reset all filters
               </button>
             </div>
           )}
 
-          {/* Footer Info */}
-          <div className="mt-20 p-10 bg-white rounded-[2rem] shadow-soft border border-cream text-center">
-            <p className="text-slate-800/60 font-body mb-2">
-              Information sourced from <a href="https://www.helplinesni.com" target="_blank" rel="noopener noreferrer" className="text-teal font-bold hover:text-gold transition-colors">Helplines NI</a>
+          {/* Informational Footer */}
+          <div className="mt-20 p-12 bg-white rounded-[2.5rem] shadow-soft border border-cream text-center">
+            <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 text-gold">
+              <Info size={24} />
+            </div>
+            <p className="text-slate-800/70 font-body mb-4 text-lg">
+              This directory is maintained for our local community in <span className="text-teal font-bold">Derry/Londonderry</span> and across Northern Ireland.
             </p>
-            <p className="text-slate-800/40 text-xs font-body max-w-xl mx-auto leading-relaxed">
-              All calls to 0800 and 116 numbers are free from UK landlines and mobiles. Derry Hypnosis provides this list for community support purposes; please contact the individual organisations for specific service details.
+            <p className="text-slate-800/40 text-sm font-body max-w-2xl mx-auto leading-relaxed italic">
+              Information is sourced via Helplines NI. Calls to 0800, 0808 and 116 numbers are free from UK landlines and mobiles. Derry Hypnosis provides this list as a resource only and does not administer these external services.
             </p>
+            <div className="mt-10 pt-10 border-t border-cream">
+              <a 
+                href="https://www.helplinesni.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center gap-2 text-gold font-bold uppercase tracking-widest text-xs hover:text-teal transition-colors"
+              >
+                Visit Helplines NI Website <ExternalLink size={14} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
