@@ -2,6 +2,7 @@
 export interface NavItem {
   label: string;
   url: string;
+  children?: { label: string; url: string; }[];
 }
 
 export interface ServiceItem {
@@ -28,7 +29,7 @@ export interface ContactOption {
   description: string;
   ctaText: string;
   ctaUrl: string;
-  icon: 'phone' | 'map' | 'video';
+  icon: 'phone' | 'map' | 'video' | 'calendar';
 }
 
 export interface FAQItem {

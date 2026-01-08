@@ -8,6 +8,7 @@ import ServiceDetail from './components/ServiceDetail';
 import About from './components/About';
 import Testimonials from './components/Testimonials';
 import Booking from './components/Booking';
+import UsefulNumbers from './components/UsefulNumbers';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
 import Footer from './components/Footer';
@@ -35,6 +36,7 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Booking />} />
+            <Route path="/useful-numbers" element={<UsefulNumbers />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
           </Routes>

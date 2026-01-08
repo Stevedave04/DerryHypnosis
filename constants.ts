@@ -25,7 +25,14 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "About", url: "/about" },
   { label: "Services", url: "/services" },
   { label: "Success Stories", url: "/testimonials" },
-  { label: "Contact", url: "/contact" }
+  { 
+    label: "Contact", 
+    url: "/contact",
+    children: [
+      { label: "Contact Us", url: "/contact" },
+      { label: "Useful Numbers", url: "/useful-numbers" }
+    ]
+  }
 ];
 
 export const SERVICES: ServiceItem[] = [
