@@ -19,7 +19,7 @@ const ServiceDetail: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Immersive Hero Section with Service Image */}
-      <section className="relative h-[65vh] flex items-center overflow-hidden">
+      <section className="relative h-[65vh] flex items-center overflow-hidden bg-teal">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -27,6 +27,9 @@ const ServiceDetail: React.FC = () => {
             alt={service.title} 
             className="w-full h-full object-cover scale-105 animate-float"
             style={{ animationDuration: '20s' }}
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.opacity = '0';
+            }}
           />
           <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-[1px]"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>

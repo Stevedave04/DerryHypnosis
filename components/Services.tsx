@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { SERVICES, SERVICE_IMAGES } from '../constants';
 import { ArrowRight } from 'lucide-react';
@@ -31,15 +32,16 @@ const Services: React.FC = () => {
               key={index} 
               className="group bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-premium transition-all duration-300 hover:-translate-y-1 flex flex-col h-full border border-cream/30"
             >
-              <div className="relative h-56 overflow-hidden bg-cream">
+              <div className="relative h-56 overflow-hidden bg-teal/20">
                 <img 
                   src={SERVICE_IMAGES[service.slug]} 
                   alt={service.title}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   loading="lazy"
                   onError={(e) => {
-                    // Unique fallback strategy using a calm nature visual
-                    (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop`;
+                    // Fallback to a brand color background if the specific service image fails
+                    const target = e.target as HTMLImageElement;
+                    target.src = "https://images.unsplash.com/photo-1510442650500-93217e634e4c?q=80&w=1200&auto=format&fit=crop"; // Generic but relevant "stop" visual
                   }}
                 />
                 <div className="absolute inset-0 bg-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

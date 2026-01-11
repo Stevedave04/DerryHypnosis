@@ -53,7 +53,7 @@ const BreathingApplet: React.FC = () => {
   const currentPhase = PHASES[phaseIndex];
 
   return (
-    <div id="breathing-applet" className="py-16 md:py-24 bg-cream-light/30 border-y border-cream relative overflow-hidden scroll-mt-24">
+    <div id="breathing-applet" className="py-16 md:py-20 bg-cream-light/30 border-y border-cream relative overflow-hidden scroll-mt-24">
       {/* Decorative background elements to fill space */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-teal/5 rounded-full blur-[120px] pointer-events-none animate-float"></div>
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-gold/5 rounded-full blur-[120px] pointer-events-none animate-float" style={{ animationDelay: '2s' }}></div>
