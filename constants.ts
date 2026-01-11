@@ -48,7 +48,7 @@ export const SERVICES: ServiceItem[] = [
       "Boost motivation to exercise and stay active",
       "Develop a deep sense of self-worth and body confidence"
     ],
-    price: "From £120 per session",
+    price: "From £150 per session",
     icon: "flower",
     category: "weight"
   },
@@ -80,7 +80,7 @@ export const SERVICES: ServiceItem[] = [
       "Quiet the 'inner critic' and negative self-talk",
       "Build resilience against daily stressors"
     ],
-    price: "From £120 per session",
+    price: "From £150 per session",
     icon: "waves",
     category: "anxiety"
   },
@@ -96,7 +96,7 @@ export const SERVICES: ServiceItem[] = [
       "Improve overall energy and mood",
       "Reset your internal circadian rhythm"
     ],
-    price: "From £120 per session",
+    price: "From £150 per session",
     icon: "waves",
     category: "general"
   },
@@ -112,7 +112,7 @@ export const SERVICES: ServiceItem[] = [
       "Permanent shift in perception",
       "Simple, painless, and effective"
     ],
-    price: "From £120 per session",
+    price: "From £150 per session",
     icon: "sun",
     category: "general"
   },
@@ -128,7 +128,7 @@ export const SERVICES: ServiceItem[] = [
       "Improve quality of life and social confidence",
       "Clinically proven long-term effectiveness"
     ],
-    price: "From £120 per session",
+    price: "From £150 per session",
     icon: "flower",
     category: "general"
   },
@@ -144,7 +144,7 @@ export const SERVICES: ServiceItem[] = [
       "Master high-performance breathing for speaking",
       "Build unshakeable confidence in your message"
     ],
-    price: "From £120 per session",
+    price: "From £150 per session",
     icon: "sun",
     category: "general"
   },
@@ -160,7 +160,7 @@ export const SERVICES: ServiceItem[] = [
       "Develop unshakeable self-belief",
       "Enter 'The Flow State' on demand"
     ],
-    price: "From £120 per session",
+    price: "From £150 per session",
     icon: "sun",
     category: "general"
   }

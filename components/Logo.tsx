@@ -7,85 +7,56 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ className = "h-12", variant = 'dark' }) => {
-  const textColor = variant === 'light' ? '#FFFFFF' : '#1e293b'; 
-  const eyeStroke = variant === 'light' ? '#FFFFFF' : '#1e293b';
+  const textColor = variant === 'light' ? '#FFFFFF' : '#0F172A'; 
+  const eyeStroke = variant === 'light' ? '#FFFFFF' : '#0F172A';
 
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
-      viewBox="0 0 240 160" 
+      viewBox="0 0 240 180" 
       className={className} 
       preserveAspectRatio="xMidYMid meet"
     >
       <defs>
         <linearGradient id="irisGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: '#4f46e5', stopOpacity: 1 }} />
-          <stop offset="50%" style={{ stopColor: '#7c3aed', stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: '#db2777', stopOpacity: 1 }} />
+          <stop offset="0%" style={{ stopColor: '#312e81', stopOpacity: 1 }} />
+          <stop offset="100%" style={{ stopColor: '#5b21b6', stopOpacity: 1 }} />
         </linearGradient>
-        <filter id="eyeShadow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="1" />
-          <feOffset dx="0" dy="1" result="offsetblur" />
-          <feComponentTransfer>
-            <feFuncA type="linear" slope="0.3" />
-          </feComponentTransfer>
-          <feMerge>
-            <feMergeNode />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
       </defs>
 
       {/* Eye Group */}
-      <g transform="translate(120, 50)">
+      <g transform="translate(120, 45)">
         {/* Eye Outline */}
         <path 
-          d="M-60,0 C-30,-35 30,-35 60,0 C30,35 -30,35 -60,0 Z" 
+          d="M-50,0 C-25,-30 25,-30 50,0 C25,30 -25,30 -50,0 Z" 
           fill="none" 
           stroke={eyeStroke} 
-          strokeWidth="1.5" 
+          strokeWidth="2.5" 
         />
         
-        {/* Iris Background (White part of eye) */}
-        <path 
-          d="M-58,0 C-28,-33 28,-33 58,0 C28,33 -28,33 -58,0 Z" 
-          fill="white" 
-          opacity={variant === 'light' ? '0.1' : '1'}
-        />
-
         {/* Iris */}
         <circle 
           cx="0" 
           cy="0" 
-          r="22" 
+          r="18" 
           fill="url(#irisGradient)" 
-          filter="url(#eyeShadow)"
         />
         
         {/* Pupil */}
         <circle 
           cx="0" 
           cy="0" 
-          r="10" 
-          fill="#0f172a" 
+          r="8" 
+          fill="#000000" 
         />
         
-        {/* Inner Glint */}
+        {/* Shine */}
         <circle 
-          cx="3" 
-          cy="-3" 
-          r="4" 
-          fill="white" 
-          opacity="0.4"
-        />
-        
-        {/* Outer Highlight */}
-        <circle 
-          cx="-8" 
-          cy="-8" 
+          cx="4" 
+          cy="-4" 
           r="3" 
           fill="white" 
-          opacity="0.8"
+          opacity="0.6"
         />
       </g>
 
@@ -94,12 +65,12 @@ const Logo: React.FC<LogoProps> = ({ className = "h-12", variant = 'dark' }) => 
         {/* DERRY */}
         <text 
           x="0" 
-          y="-10" 
+          y="0" 
           fontFamily="'Playfair Display', serif" 
-          fontSize="46" 
+          fontSize="52" 
           fontWeight="700" 
           fill={textColor}
-          letterSpacing="1"
+          letterSpacing="2"
         >
           DERRY
         </text>
@@ -107,12 +78,12 @@ const Logo: React.FC<LogoProps> = ({ className = "h-12", variant = 'dark' }) => 
         {/* HYPNOSIS */}
         <text 
           x="0" 
-          y="35" 
+          y="40" 
           fontFamily="'Plus Jakarta Sans', sans-serif" 
-          fontSize="26" 
+          fontSize="28" 
           fontWeight="400" 
           fill={textColor}
-          letterSpacing="8"
+          letterSpacing="10"
         >
           HYPNOSIS
         </text>

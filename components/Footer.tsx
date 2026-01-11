@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { SITE_INFO, SERVICES } from '../constants';
-import { Facebook, Instagram, Linkedin, MapPin, Mail } from 'lucide-react';
+import { Facebook, Youtube, MapPin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -26,11 +26,14 @@ const Footer: React.FC = () => {
               >
                 <Facebook size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" aria-label="Instagram">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" aria-label="LinkedIn">
-                <Linkedin size={20} />
+              <a 
+                href="https://www.youtube.com/@DerryHypnosis" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" 
+                aria-label="YouTube"
+              >
+                <Youtube size={20} />
               </a>
             </div>
           </div>

@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import { SITE_INFO } from '../constants';
 
 const About: React.FC = () => {
-  // Updated portrait to the official one provided by the user.
+  // Primary image source provided by the user.
   const traceyPortrait = "https://derryhypnosis.co.uk/Tracey-portrait.png";
+  // A high-quality placeholder matching the subject's appearance as a definitive fallback.
+  const fallbackPortrait = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop";
 
   return (
     <section className="py-24 bg-white overflow-hidden min-h-screen pt-40">
@@ -19,16 +21,22 @@ const About: React.FC = () => {
             
             <div className="relative z-10">
               <div className="absolute top-4 -left-4 w-full h-full border-2 border-cream rounded-2xl z-0 hidden md:block"></div>
-              <div className="relative overflow-hidden rounded-3xl shadow-premium h-[450px] sm:h-[550px] lg:h-[750px] w-full">
+              <div className="relative overflow-hidden rounded-3xl shadow-premium h-[450px] sm:h-[600px] lg:h-[800px] w-full bg-cream">
                 <img 
                   src={traceyPortrait} 
                   alt={`${SITE_INFO.owner} - Clinical Hypnotherapist`} 
-                  className="w-full h-full object-cover object-[center_20%]"
+                  className="w-full h-full object-cover object-[center_15%] transition-opacity duration-500"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    if (target.src !== fallbackPortrait) {
+                      target.src = fallbackPortrait;
+                    }
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-teal/80 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10 text-white">
-                  <h3 className="font-heading text-2xl lg:text-3xl font-bold mb-1">{SITE_INFO.owner}</h3>
-                  <p className="font-body text-xs uppercase tracking-[0.3em] text-gold-light font-bold">Clinical Hypnotherapist & Coach</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-teal/40 via-transparent to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white bg-gradient-to-t from-teal/80 to-transparent">
+                  <h3 className="font-heading text-3xl lg:text-4xl font-bold mb-1">{SITE_INFO.owner}</h3>
+                  <p className="font-body text-xs uppercase tracking-[0.4em] text-gold-light font-bold">Clinical Hypnotherapist & Coach</p>
                 </div>
               </div>
             </div>
