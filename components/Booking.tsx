@@ -1,7 +1,8 @@
 
 import React, { useEffect } from 'react';
 import { CONTACT_OPTIONS, SITE_INFO } from '../constants';
-import { Phone, MapPin, Video, Calendar, ShieldCheck, Mail, ArrowRight } from 'lucide-react';
+import { Phone, MapPin, Video, Calendar, ShieldCheck, Mail, ArrowRight, Star, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Booking: React.FC = () => {
   useEffect(() => {
@@ -31,9 +32,9 @@ const Booking: React.FC = () => {
     <section className="py-24 bg-cream-light min-h-screen pt-40">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Take the First Step</span>
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6">Connect With Us</h1>
-          <p className="font-body text-xl text-slate-800/60 leading-relaxed max-w-2xl mx-auto">
+          <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block animate-reveal">Take the First Step</span>
+          <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6 animate-reveal stagger-1">Connect With Us</h1>
+          <p className="font-body text-xl text-slate-800/60 leading-relaxed max-w-2xl mx-auto animate-reveal stagger-2">
             Ready to reclaim control? Book a consultation, visit our clinic in Derry, or start your session online.
           </p>
         </div>
@@ -75,6 +76,25 @@ const Booking: React.FC = () => {
                 Trusted Practitioner
               </div>
             </div>
+            
+            {/* Added Trust Signal in Sidebar for Mobile/Small Screens */}
+            <Link to="/testimonials" className="block bg-white p-6 rounded-2xl border border-gold/20 shadow-soft group hover:bg-gold/5 transition-all">
+              <div className="flex items-center gap-4">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3].map(i => (
+                    <div key={i} className="w-8 h-8 rounded-full bg-cream-dark border-2 border-white flex items-center justify-center text-[10px] font-bold text-teal">
+                      {String.fromCharCode(64 + i)}
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <div className="flex gap-0.5 text-gold mb-1">
+                    {[1, 2, 3, 4, 5].map(i => <Star key={i} size={10} fill="currentColor" />)}
+                  </div>
+                  <p className="text-[10px] font-bold text-teal uppercase tracking-widest group-hover:text-gold transition-colors">Read Success Stories</p>
+                </div>
+              </div>
+            </Link>
           </div>
 
           {/* Right: Map & Booking */}
@@ -92,10 +112,25 @@ const Booking: React.FC = () => {
               ></iframe>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-soft border border-cream overflow-hidden">
-              <div className="p-6 bg-cream-light border-b border-cream flex items-center justify-between">
-                <h3 className="font-heading text-lg font-bold text-teal">Select Appointment Type</h3>
-                <Calendar size={20} className="text-gold" />
+            <div className="bg-white rounded-2xl shadow-soft border border-cream overflow-hidden relative">
+              {/* Trust Signal integrated near the booking header */}
+              <div className="p-6 bg-cream-light border-b border-cream flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <h3 className="font-heading text-lg font-bold text-teal">Select Appointment Type</h3>
+                  <div className="flex items-center gap-2 mt-1">
+                    <div className="flex text-gold">
+                      {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} fill="currentColor" />)}
+                    </div>
+                    <Link to="/testimonials" className="text-[10px] font-bold text-teal/40 uppercase tracking-widest hover:text-gold transition-colors">
+                      Trusted by 100+ clients
+                    </Link>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-full border border-cream shadow-sm">
+                  <Users size={16} className="text-gold" />
+                  <span className="text-[10px] font-bold text-teal uppercase tracking-widest">Derry Clinic</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-success animate-pulse"></div>
+                </div>
               </div>
               <div 
                 className="calendly-inline-widget" 
