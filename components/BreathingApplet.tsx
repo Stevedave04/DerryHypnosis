@@ -1,12 +1,40 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, RotateCcw, ArrowDown, ArrowUp, Circle, Award, CheckCircle, Users, TrendingUp, Pause, Info, Wind, Brain, Activity, Shield } from 'lucide-react';
+import { Play, RotateCcw, ArrowDown, ArrowUp, Circle, Award, CheckCircle, Users, TrendingUp, Pause, Info, Wind, Brain, Activity, Shield, Sparkles } from 'lucide-react';
 
 const PHASES = [
-  { label: 'Inhale', icon: <ArrowDown size={20} />, color: 'bg-teal', glow: 'shadow-[0_0_40px_rgba(44,95,93,0.3)]', instruction: 'Breathe in through your nose.' },
-  { label: 'Hold', icon: <Circle size={10} fill="currentColor" />, color: 'bg-gold', glow: 'shadow-[0_0_40px_rgba(212,165,116,0.3)]', instruction: 'Keep the air in your lungs.' },
-  { label: 'Exhale', icon: <ArrowUp size={20} />, color: 'bg-teal-light', glow: 'shadow-[0_0_40px_rgba(74,124,122,0.3)]', instruction: 'Breathe out slowly through the mouth.' },
-  { label: 'Hold', icon: <Circle size={10} fill="currentColor" />, color: 'bg-gold-dark', glow: 'shadow-[0_0_40px_rgba(184,138,88,0.3)]', instruction: 'Wait before the next breath.' }
+  { 
+    label: 'Inhale', 
+    icon: <ArrowDown size={20} />, 
+    color: 'bg-teal', 
+    glow: 'shadow-[0_0_60px_rgba(44,95,93,0.4)]', 
+    instruction: 'Fill your lungs deeply through the nose.',
+    text: 'Breathe In'
+  },
+  { 
+    label: 'Hold', 
+    icon: <Circle size={10} fill="currentColor" />, 
+    color: 'bg-gold', 
+    glow: 'shadow-[0_0_60px_rgba(212,165,116,0.4)]', 
+    instruction: 'Keep the air in, suspended and calm.',
+    text: 'Hold'
+  },
+  { 
+    label: 'Exhale', 
+    icon: <ArrowUp size={20} />, 
+    color: 'bg-teal-light', 
+    glow: 'shadow-[0_0_60px_rgba(74,124,122,0.4)]', 
+    instruction: 'Release slowly through your mouth.',
+    text: 'Release'
+  },
+  { 
+    label: 'Hold', 
+    icon: <Circle size={10} fill="currentColor" />, 
+    color: 'bg-gold-dark', 
+    glow: 'shadow-[0_0_60px_rgba(184,138,88,0.4)]', 
+    instruction: 'Rest in the stillness before the next breath.',
+    text: 'Stillness'
+  }
 ];
 
 const BreathingApplet: React.FC = () => {
@@ -53,186 +81,216 @@ const BreathingApplet: React.FC = () => {
   const currentPhase = PHASES[phaseIndex];
 
   return (
-    <div id="breathing-applet" className="py-16 md:py-20 bg-cream-light/30 border-y border-cream relative overflow-hidden scroll-mt-24">
-      {/* Decorative background elements to fill space */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-teal/5 rounded-full blur-[120px] pointer-events-none animate-float"></div>
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-gold/5 rounded-full blur-[120px] pointer-events-none animate-float" style={{ animationDelay: '2s' }}></div>
+    <div id="breathing-applet" className="py-24 md:py-32 bg-cream-light/40 border-y border-cream relative overflow-hidden scroll-mt-24">
+      {/* Dynamic Background Ambiance */}
+      <div className={`absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none transition-all duration-[3000ms] ${isActive ? 'bg-teal/10 opacity-100' : 'bg-teal/5 opacity-50'}`}></div>
+      <div className={`absolute bottom-1/4 -right-20 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none transition-all duration-[3000ms] ${isActive ? 'bg-gold/10 opacity-100' : 'bg-gold/5 opacity-50'}`} style={{ animationDelay: '2s' }}></div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-12 md:mb-16">
-          <span className="text-gold font-bold tracking-[0.2em] uppercase text-[10px] md:text-xs mb-4 block animate-reveal">The Art of Self-Regulation</span>
-          <h2 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6">Box Breathing</h2>
-          <p className="font-body text-lg text-slate-800/60 max-w-xl mx-auto leading-relaxed">
-            Harness the clinical technique used by elite performers to silence stress and regain focus in seconds.
+        {/* Superior Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-24">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 rounded-full text-gold font-bold text-xs uppercase tracking-[0.2em] mb-8 animate-reveal">
+            <Sparkles size={14} />
+            Clinical Breathing Tool
+          </div>
+          <h2 className="font-heading text-5xl md:text-7xl font-bold text-teal mb-8 leading-tight">
+            Master Your Focus with <br />
+            <span className="italic font-medium text-teal-light">Tactical Box Breathing.</span>
+          </h2>
+          <p className="font-body text-xl text-slate-800/60 leading-relaxed">
+            A high-performance technique to recalibrate your nervous system. Used by clinical practitioners and elite teams to achieve instant clarity and calm.
           </p>
         </div>
 
-        <div className="flex flex-col xl:flex-row items-center xl:items-start justify-center gap-12 xl:gap-20 max-w-[1400px] mx-auto">
+        <div className="flex flex-col xl:flex-row items-center justify-center gap-16 xl:gap-24 max-w-7xl mx-auto">
           
-          {/* LEFT COLUMN: Clinical Insights */}
-          <div className="hidden xl:flex flex-col gap-6 w-80 animate-reveal stagger-1">
-            <div className="bg-white p-6 rounded-2xl border border-cream shadow-soft hover:shadow-premium transition-all">
-              <div className="w-10 h-10 bg-teal/5 rounded-lg flex items-center justify-center text-teal mb-4">
-                <Brain size={20} />
+          {/* LEFT PANEL: The Science */}
+          <div className="hidden xl:flex flex-col gap-8 w-80 animate-reveal stagger-1">
+            <div className="bg-white p-8 rounded-3xl border border-cream shadow-soft hover:shadow-premium transition-all group">
+              <div className="w-12 h-12 bg-teal/5 rounded-2xl flex items-center justify-center text-teal mb-6 group-hover:bg-teal group-hover:text-white transition-all">
+                <Brain size={24} />
               </div>
-              <h4 className="font-heading font-bold text-teal text-lg mb-2">The Vagus Nerve</h4>
+              <h4 className="font-heading font-bold text-teal text-xl mb-3">Neural Reset</h4>
               <p className="text-sm text-slate-800/60 leading-relaxed font-body">
-                Box breathing stimulates the vagus nerve, which signals your brain to transition from "fight-or-flight" to "rest-and-digest" mode.
+                By equalising the rhythm of your breath, you manually override the stress center of your brain, inducing a physiological state of calm.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-2xl border border-cream shadow-soft hover:shadow-premium transition-all">
-              <div className="w-10 h-10 bg-gold/5 rounded-lg flex items-center justify-center text-gold mb-4">
-                <Shield size={20} />
+            <div className="bg-white p-8 rounded-3xl border border-cream shadow-soft hover:shadow-premium transition-all group">
+              <div className="w-12 h-12 bg-gold/5 rounded-lg flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-white transition-all">
+                <Shield size={24} />
               </div>
-              <h4 className="font-heading font-bold text-teal text-lg mb-2">Tactical Use</h4>
+              <h4 className="font-heading font-bold text-teal text-xl mb-3">Safe Haven</h4>
               <p className="text-sm text-slate-800/60 leading-relaxed font-body">
-                Also known as "Tactical Breathing," it is a staple training for Navy SEALs to maintain calm and peak cognitive performance under pressure.
+                Consistent practice strengthens your emotional resilience, making it easier to return to this center during times of high stress.
               </p>
             </div>
           </div>
 
-          {/* CENTER COLUMN: The Breathing Applet */}
-          <div className="flex flex-col items-center flex-1 max-w-2xl w-full">
-            {/* Step Indicators - Now Interactive */}
-            <div className="bg-white rounded-3xl p-6 md:p-8 mb-12 shadow-premium border border-cream w-full">
-              <div className="flex items-center gap-3 mb-6 text-teal font-bold uppercase tracking-widest text-[9px]">
-                <Activity size={12} className="text-gold" />
-                <span>Active Phase Guidance</span>
-              </div>
-              <div className="grid grid-cols-4 gap-2 md:gap-4 text-center">
+          {/* CENTER PANEL: The Breathing Core */}
+          <div className="flex flex-col items-center flex-1 w-full max-w-3xl">
+            {/* Phase Visualiser */}
+            <div className="w-full bg-white/80 backdrop-blur-md rounded-[2.5rem] p-4 md:p-6 mb-16 shadow-premium border border-cream/50 relative overflow-hidden">
+               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal/20 via-gold/20 to-teal/20 opacity-30"></div>
+               <div className="grid grid-cols-4 gap-3 md:gap-4 relative z-10">
                 {PHASES.map((p, i) => (
-                  <div key={i} className={`p-3 md:p-4 rounded-xl transition-all duration-500 border ${
+                  <div key={i} className={`relative p-3 md:p-5 rounded-2xl transition-all duration-700 border ${
                     phaseIndex === i && isActive 
-                      ? `${p.color} bg-opacity-10 border-gold shadow-sm scale-105` 
-                      : 'border-transparent bg-cream-light opacity-30 scale-95'
+                      ? 'bg-cream-light border-gold/30 shadow-sm scale-[1.02]' 
+                      : 'border-transparent opacity-40 grayscale-[0.5]'
                   }`}>
-                    <span className={`w-6 h-6 rounded-full ${p.color} text-white flex items-center justify-center font-bold text-[10px] mx-auto mb-2 shadow-sm`}>{i + 1}</span>
-                    <p className={`font-body text-[9px] font-bold uppercase tracking-widest ${phaseIndex === i && isActive ? 'text-teal' : 'text-slate-800'}`}>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-3 text-white shadow-lg transition-transform duration-500 ${phaseIndex === i && isActive ? 'scale-110' : 'scale-90'} ${p.color}`}>
+                       {p.icon}
+                    </div>
+                    <p className={`font-body text-[10px] font-bold uppercase tracking-[0.2em] ${phaseIndex === i && isActive ? 'text-teal' : 'text-slate-400'}`}>
                       {p.label}
                     </p>
+                    {phaseIndex === i && isActive && (
+                       <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-gold rounded-full shadow-[0_0_10px_#D4A574]"></div>
+                    )}
                   </div>
                 ))}
               </div>
-              {isActive && (
-                <p className="mt-4 text-center text-xs text-gold font-bold italic animate-pulse">
-                  {currentPhase.instruction}
-                </p>
-              )}
             </div>
 
-            <div className="relative w-72 h-72 md:w-96 md:h-96 flex items-center justify-center">
-              {/* Outer pulse effect */}
+            {/* The Sphere */}
+            <div className="relative w-80 h-80 md:w-[450px] md:h-[450px] flex items-center justify-center">
+              {/* Outer Energy Pulse */}
               <div className={`absolute inset-0 rounded-full transition-all duration-[4000ms] ${
-                isActive ? 'opacity-10 scale-125' : 'opacity-0 scale-100'
+                isActive ? 'opacity-20 scale-[1.3]' : 'opacity-0 scale-100'
               } ${currentPhase.color}`}></div>
+              <div className={`absolute inset-0 rounded-full border border-teal/5 transition-all duration-[4000ms] ${
+                isActive ? 'scale-[1.15]' : 'scale-100'
+              }`}></div>
               
-              <div className="absolute inset-4 rounded-full border border-cream/50"></div>
-              
-              {/* Progress Circle SVG */}
-              <svg className="absolute inset-0 w-full h-full -rotate-90 scale-[0.92]">
+              {/* Main Progress Track */}
+              <svg className="absolute inset-0 w-full h-full -rotate-90 scale-[0.96]">
                 <circle
                   cx="50%"
                   cy="50%"
-                  r="44%"
-                  fill="transparent"
+                  r="46%"
+                  fill="none"
                   stroke="#EDE7D9"
-                  strokeWidth="1"
-                  opacity="0.3"
+                  strokeWidth="2"
+                  strokeDasharray="4 8"
+                  opacity="0.4"
                 />
                 <circle
                   cx="50%"
                   cy="50%"
-                  r="44%"
-                  fill="transparent"
+                  r="46%"
+                  fill="none"
                   stroke="currentColor"
-                  strokeWidth="4"
+                  strokeWidth="8"
                   strokeLinecap="round"
                   className={`transition-all duration-1000 linear ${phaseIndex % 2 === 0 ? 'text-teal' : 'text-gold'}`}
                   style={{
-                    strokeDasharray: '276%', 
-                    strokeDashoffset: isActive ? 276 - (276 * (4 - secondsLeft + 1) / 4) : 276,
+                    strokeDasharray: '289%', 
+                    strokeDashoffset: isActive ? 289 - (289 * (4 - secondsLeft + 1) / 4) : 289,
                   }}
                 />
               </svg>
 
-              {/* Central Core */}
-              <div className={`w-56 h-56 md:w-72 md:h-72 rounded-full shadow-premium flex flex-col items-center justify-center text-white transition-all duration-[1000ms] ease-in-out ${
+              {/* The Central Breathing Sphere */}
+              <div className={`relative w-64 h-64 md:w-80 md:h-80 rounded-full shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] flex flex-col items-center justify-center text-white transition-all duration-[1000ms] ease-in-out z-10 overflow-hidden ${
                 isActive ? `${currentPhase.glow} ${phaseIndex === 0 ? 'scale-110' : phaseIndex === 2 ? 'scale-90' : 'scale-100'}` : 'scale-100 bg-teal'
               } ${isActive ? currentPhase.color : 'bg-teal'}`}>
-                <div className="relative">
-                   <span className="text-7xl md:text-9xl font-heading font-bold mb-1 tracking-tighter tabular-nums">{secondsLeft}</span>
+                {/* Visual Depth Gradients */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-white/10 opacity-40"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.2),transparent)]"></div>
+                
+                <div className="relative z-20 flex flex-col items-center">
+                   <div className="font-heading text-8xl md:text-[9rem] font-bold tracking-tighter tabular-nums leading-none">
+                     {secondsLeft}
+                   </div>
+                   <div className="h-px w-12 bg-white/30 my-4 md:my-6"></div>
+                   <div className="text-sm md:text-lg font-body uppercase tracking-[0.5em] font-medium text-white/90">
+                     {currentPhase.text}
+                   </div>
                 </div>
-                <span className="text-sm md:text-xl font-body uppercase tracking-[0.4em] font-light opacity-90">{currentPhase.label}</span>
+              </div>
+
+              {/* Instruction Banner - Context Sensitive */}
+              <div className={`absolute -bottom-2 md:-bottom-8 left-1/2 -translate-x-1/2 w-full text-center transition-all duration-700 ${isActive ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+                <p className="font-body text-teal font-bold text-lg md:text-xl italic">
+                  "{currentPhase.instruction}"
+                </p>
               </div>
             </div>
 
-            <div className="mt-12 flex flex-col items-center">
-              <div className="flex items-center gap-3 px-6 py-2 bg-white rounded-full border border-cream shadow-sm mb-8">
-                <span className="font-body text-teal font-bold text-sm">{cycles}</span>
-                <span className="text-[10px] text-slate-800/40 font-bold uppercase tracking-widest">Completed Cycles</span>
+            {/* Controls */}
+            <div className="mt-24 md:mt-32 flex flex-col items-center w-full">
+              <div className="flex items-center gap-4 px-8 py-3 bg-white rounded-2xl border border-cream shadow-soft mb-12">
+                 <div className="flex -space-x-1">
+                    {[...Array(Math.min(cycles, 5))].map((_, i) => (
+                      <div key={i} className="w-2.5 h-2.5 rounded-full bg-gold border border-white"></div>
+                    ))}
+                 </div>
+                 <span className="text-xs text-slate-800/40 font-bold uppercase tracking-[0.2em]">
+                  <span className="text-teal text-base mr-2">{cycles}</span> 
+                  Cycles Mastered
+                </span>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex flex-wrap justify-center gap-6">
                 <button
                   onClick={handleStart}
-                  className={`font-bold py-4 px-10 rounded-full shadow-premium transition-all flex items-center gap-3 transform hover:-translate-y-1 active:scale-95 text-sm ${
+                  className={`min-w-[220px] font-bold py-6 px-12 rounded-full shadow-premium transition-all flex items-center justify-center gap-4 transform hover:-translate-y-1 active:scale-95 text-lg ${
                     isActive ? 'bg-slate-900 text-white' : 'bg-teal text-white hover:bg-teal-dark'
                   }`}
                 >
-                  {isActive ? 'Pause Session' : 'Start Session'}
-                  {isActive ? <Pause size={18} /> : <Play size={18} fill="currentColor" />}
+                  {isActive ? 'Pause Flow' : 'Begin Flow'}
+                  {isActive ? <Pause size={24} /> : <Play size={24} fill="currentColor" />}
                 </button>
                 <button
                   onClick={handleReset}
-                  className="bg-white hover:bg-cream border border-cream-dark text-slate-800 font-bold py-4 px-10 rounded-full transition-all flex items-center gap-3 active:scale-95 text-sm"
+                  className="bg-white hover:bg-cream-light border-2 border-cream text-slate-800 font-bold py-6 px-12 rounded-full transition-all flex items-center justify-center gap-4 active:scale-95 text-lg group"
                 >
                   Reset
-                  <RotateCcw size={18} />
+                  <RotateCcw size={22} className="group-hover:rotate-[-45deg] transition-transform" />
                 </button>
               </div>
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Practice Tips */}
-          <div className="hidden xl:flex flex-col gap-6 w-80 animate-reveal stagger-2">
-             <div className="bg-white p-6 rounded-2xl border border-cream shadow-soft hover:shadow-premium transition-all">
-              <div className="w-10 h-10 bg-teal/5 rounded-lg flex items-center justify-center text-teal mb-4">
-                <Wind size={20} />
+          {/* RIGHT PANEL: Expert Tips */}
+          <div className="hidden xl:flex flex-col gap-8 w-80 animate-reveal stagger-2">
+             <div className="bg-white p-8 rounded-3xl border border-cream shadow-soft hover:shadow-premium transition-all group">
+              <div className="w-12 h-12 bg-teal/5 rounded-lg flex items-center justify-center text-teal mb-6 group-hover:bg-teal group-hover:text-white transition-all">
+                <Wind size={24} />
               </div>
-              <h4 className="font-heading font-bold text-teal text-lg mb-2">Posture Tip</h4>
+              <h4 className="font-heading font-bold text-teal text-xl mb-3">Airflow Path</h4>
               <p className="text-sm text-slate-800/60 leading-relaxed font-body">
-                Sit upright with your feet flat. This allows for unrestricted diaphragm movement, increasing oxygen intake and grounding the body.
+                Visualise the air as a cool, clear stream entering your body, and a warm, weighted mist leaving it.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-2xl border border-cream shadow-soft hover:shadow-premium transition-all">
-              <div className="w-10 h-10 bg-gold/5 rounded-lg flex items-center justify-center text-gold mb-4">
-                <Info size={20} />
+            <div className="bg-white p-8 rounded-3xl border border-cream shadow-soft hover:shadow-premium transition-all group">
+              <div className="w-12 h-12 bg-gold/5 rounded-lg flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-white transition-all">
+                <Info size={24} />
               </div>
-              <h4 className="font-heading font-bold text-teal text-lg mb-2">Eye Position</h4>
+              <h4 className="font-heading font-bold text-teal text-xl mb-3">Quiet Eyes</h4>
               <p className="text-sm text-slate-800/60 leading-relaxed font-body">
-                Gently close your eyes or fix your gaze on the central circle. Reducing visual stimuli helps the mind enter a meditative state faster.
+                Maintain a "soft focus" or close your eyes. Reducing external visual data allows the brain to process internal changes more effectively.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Stats Grid - Now fills the bottom space nicely */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 mt-24 md:mt-32">
+        {/* Tactical Proof Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mt-32 md:mt-48">
           {[
-            { label: "Clinical Expert", sub: "Fully Accredited", icon: <Award className="text-gold" size={24} /> },
-            { label: "Personalised", sub: "Subconscious Alignment", icon: <CheckCircle className="text-gold" size={24} /> },
-            { label: "Community", sub: "Derry & Letterkenny", icon: <Users className="text-gold" size={24} /> },
-            { label: "Proven", sub: "Rapid Results", icon: <TrendingUp className="text-gold" size={24} /> }
+            { label: "Elite Performance", sub: "Tactical Roots", icon: <Award className="text-gold" size={28} /> },
+            { label: "Neural Symmetry", sub: "Balanced Rhythms", icon: <CheckCircle className="text-gold" size={28} /> },
+            { label: "Subconscious Gate", sub: "Deep Receptivity", icon: <Users className="text-gold" size={28} /> },
+            { label: "Instant Recalibration", sub: "Rapid Impact", icon: <TrendingUp className="text-gold" size={28} /> }
           ].map((stat, i) => (
-            <div key={i} className="text-center group bg-white/40 backdrop-blur-sm p-8 rounded-3xl border border-white/50 hover:bg-white hover:border-cream transition-all duration-500 shadow-soft">
-              <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mx-auto mb-6 shadow-soft group-hover:bg-teal group-hover:text-white transition-all duration-500">
+            <div key={i} className="text-center group bg-white p-10 rounded-[2.5rem] border border-cream-dark/10 hover:border-gold/30 transition-all duration-500 shadow-soft hover:shadow-premium">
+              <div className="w-16 h-16 bg-cream-light rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-soft group-hover:bg-teal group-hover:text-white transition-all duration-700">
                 {stat.icon}
               </div>
-              <h3 className="font-heading font-bold text-slate-800 mb-2 text-base">{stat.label}</h3>
-              <p className="font-body text-[10px] text-slate-800/40 font-bold uppercase tracking-widest">{stat.sub}</p>
+              <h3 className="font-heading font-bold text-teal mb-3 text-lg leading-tight">{stat.label}</h3>
+              <p className="font-body text-[10px] text-slate-800/40 font-bold uppercase tracking-[0.25em]">{stat.sub}</p>
             </div>
           ))}
         </div>
