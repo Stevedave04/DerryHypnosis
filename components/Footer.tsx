@@ -86,6 +86,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
           <p>© {new Date().getFullYear()} Derry Hypnosis. All rights reserved.</p>
           <div className="flex gap-6">
+            <Link to="/stop-smoking" className="hover:text-white transition-colors">Stop Smoking Program</Link>
             <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
           </div>

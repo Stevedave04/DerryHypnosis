@@ -11,6 +11,7 @@ import Booking from './components/Booking';
 import UsefulNumbers from './components/UsefulNumbers';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
+import StopSmokingLanding from './components/StopSmokingLanding';
 import Footer from './components/Footer';
 
 // Wrapper to handle scroll to top on route change
@@ -39,6 +40,7 @@ const App: React.FC = () => {
             <Route path="/useful-numbers" element={<UsefulNumbers />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
+            <Route path="/stop-smoking" element={<StopSmokingLanding />} />
           </Routes>
         </main>
         <Footer />
