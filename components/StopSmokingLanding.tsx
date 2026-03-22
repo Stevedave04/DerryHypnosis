@@ -1,14 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Clock, ShieldCheck, ArrowRight, XCircle } from 'lucide-react';
+import { CheckCircle, Clock, ShieldCheck, ArrowRight, XCircle, BookOpen } from 'lucide-react';
+import EbookModal from './EbookModal';
 
 const StopSmokingLanding: React.FC = () => {
+  const [ebookOpen, setEbookOpen] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0); // Ensure the page starts at the top
   }, []);
 
   return (
     <div className="font-body text-slate-800 bg-white">
+      <EbookModal isOpen={ebookOpen} onClose={() => setEbookOpen(false)} />
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-slate-900 text-white">
         <div className="absolute inset-0 z-0">
@@ -27,7 +31,7 @@ const StopSmokingLanding: React.FC = () => {
           <h1 className="font-heading text-5xl md:text-7xl font-bold leading-tight mb-8">
             Go From Smoker To <span className="text-gold italic">Non-Smoker</span> In One Session With Hypnotherapy
           </h1>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact"
               className="inline-flex bg-gold hover:bg-gold-dark text-white font-bold py-5 px-10 rounded-full transition-all shadow-2xl hover:shadow-gold/40 items-center justify-center gap-3 transform hover:-translate-y-1 text-lg w-full sm:w-auto"
@@ -35,6 +39,13 @@ const StopSmokingLanding: React.FC = () => {
               Click Here To Become A Non-Smoker
               <ArrowRight size={20} />
             </Link>
+            <button
+              onClick={() => setEbookOpen(true)}
+              className="inline-flex bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold py-5 px-8 rounded-full transition-all items-center justify-center gap-3 text-lg w-full sm:w-auto"
+            >
+              <BookOpen size={20} />
+              Free Quit Smoking Ebook
+            </button>
           </div>
         </div>
       </section>
