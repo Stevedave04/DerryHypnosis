@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FCFAF7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.stagger-1 { animation-delay: 100ms; }
+.stagger-2 { animation-delay: 300ms; }
+.stagger-3 { animation-delay: 500ms; }
+.stagger-4 { animation-delay: 700ms; }
