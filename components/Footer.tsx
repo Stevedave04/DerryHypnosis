@@ -83,12 +83,29 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500">
           <p>© {new Date().getFullYear()} Derry Hypnosis. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link to="/stop-smoking" className="hover:text-white transition-colors">Stop Smoking Program</Link>
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+          <div className="flex flex-col sm:flex-row items-center gap-6">
+            <div className="flex gap-6">
+              <Link to="/stop-smoking" className="hover:text-white transition-colors">Stop Smoking Program</Link>
+              <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            </div>
+            <a
+              href="https://EAPH.ie"
+              title="European Association of Professional Hypnotherapists Accredited Member"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="opacity-80 hover:opacity-100 transition-opacity flex-shrink-0"
+            >
+              <img
+                src="https://eaph.ie/wp-content/uploads/2019/06/eaph-website-badge-250x.jpg"
+                width={125}
+                height={44}
+                alt="Accredited Member of the European Association of Professional Hypnotherapists"
+                className="rounded"
+              />
+            </a>
           </div>
         </div>
       </div>
