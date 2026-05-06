@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { SITE_INFO, SERVICES } from '../constants';
-import { Facebook, Youtube, MapPin, Mail } from 'lucide-react';
+import { FacebookIcon, YoutubeIcon, InstagramIcon, MapPin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -17,23 +17,32 @@ const Footer: React.FC = () => {
               Specialised clinical hypnotherapy serving Derry/Londonderry. Helping you achieve lasting positive change.
             </p>
             <div className="flex gap-4">
-              <a 
-                href="https://www.facebook.com/profile.php?id=100071225175331" 
-                target="_blank" 
+              <a
+                href="https://www.facebook.com/profile.php?id=100071225175331"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" 
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer"
                 aria-label="Facebook"
               >
-                <Facebook size={20} />
+                <FacebookIcon size={20} />
               </a>
-              <a 
-                href="https://www.youtube.com/@DerryHypnosis" 
-                target="_blank" 
+              <a
+                href="https://www.youtube.com/@DerryHypnosis"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer" 
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer"
                 aria-label="YouTube"
               >
-                <Youtube size={20} />
+                <YoutubeIcon size={20} />
+              </a>
+              <a
+                href="https://www.instagram.com/derryhypnosis/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-gold transition-colors cursor-pointer"
+                aria-label="Instagram"
+              >
+                <InstagramIcon size={20} />
               </a>
             </div>
           </div>
