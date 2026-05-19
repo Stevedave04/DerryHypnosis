@@ -14,6 +14,7 @@ import TermsAndConditions from './components/TermsAndConditions';
 import StopSmokingLanding from './components/StopSmokingLanding';
 import NotFound from './components/NotFound';
 import FloatingActions from './components/FloatingActions';
+import CookieBanner from './components/CookieBanner';
 import Footer from './components/Footer';
 
 // Scroll to top and trigger scroll-reveal animations on every route change
@@ -60,6 +61,7 @@ const App: React.FC = () => {
       <div className="min-h-screen bg-white text-slate-800 font-body flex flex-col">
         <Navbar />
         <FloatingActions />
+        <CookieBanner />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />

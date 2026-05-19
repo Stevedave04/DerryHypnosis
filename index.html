@@ -2,11 +2,26 @@
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0F1PBT4FD1"></script>
+    <!-- GA Consent Mode v2 — must run before gtag.js loads -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
+      // Restore consent for returning visitors before GA script executes
+      if (localStorage.getItem('dh_cookie_consent') === 'accepted') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0F1PBT4FD1"></script>
+    <script>
       gtag('js', new Date());
       gtag('config', 'G-0F1PBT4FD1');
     </script>
@@ -24,7 +39,10 @@
     <meta property="og:url" content="https://derryhypnosis.co.uk" />
     <meta property="og:title" content="Derry Hypnosis | Specialised Hypnotherapy in Derry/Londonderry" />
     <meta property="og:description" content="Clinical hypnotherapy in Derry/Londonderry with Tracey McGill. Specialising in weight loss, quit smoking, anxiety relief, sleep, and more." />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=85&w=1200&h=630&fit=crop&auto=format" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Serene forest path — Derry Hypnosis clinical hypnotherapy" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content="Derry Hypnosis" />
 
@@ -32,7 +50,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Derry Hypnosis | Specialised Hypnotherapy in Derry/Londonderry" />
     <meta name="twitter:description" content="Clinical hypnotherapy in Derry/Londonderry with Tracey McGill. Specialising in weight loss, quit smoking, anxiety relief, sleep, and more." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=85&w=1200&h=630&fit=crop&auto=format" />
+    <meta name="twitter:image:alt" content="Serene forest path — Derry Hypnosis clinical hypnotherapy" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
