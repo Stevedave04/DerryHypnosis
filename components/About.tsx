@@ -6,9 +6,10 @@ import { SITE_INFO } from '../constants';
 
 const About: React.FC = () => {
   // Primary image source provided by the user.
-  const traceyPortrait = "https://derryhypnosis.co.uk/Tracey-portrait.png";
-  // A high-quality placeholder matching the subject's appearance as a definitive fallback.
-  const fallbackPortrait = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop";
+  // Facebook CDN URL — expires ~May 2026. When it does, upload the photo to
+  // derryhypnosis.co.uk/Tracey-portrait.png and swap the src back to that.
+  const traceyPortrait = "https://scontent.fedi1-1.fna.fbcdn.net/v/t39.30808-6/653706184_973872744996889_8957164927032850411_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=wewHvefhjLkQ7kNvwEaDp61&_nc_oc=AdqXSpVCfjwDxAL9VRcs-SGzYHlQDt1C6kD8PAGDZldMbb0Aggv-AQ5H6w9PycHLQjHLJBrN5rqiEaBnh7cHTT7o&_nc_zt=23&_nc_ht=scontent.fedi1-1.fna&oh=00_Af5Q4zdPsRLMmcfjlpLmnXBoc3Y-jkEKbJsfGCfnIWbjug&oe=6A128324";
+  const fallbackPortrait = "https://derryhypnosis.co.uk/Tracey-portrait.png";
 
   return (
     <section className="py-24 bg-white overflow-hidden min-h-screen pt-40">
