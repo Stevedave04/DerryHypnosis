@@ -14,7 +14,7 @@ const PrivacyPolicy: React.FC = () => {
             </div>
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-teal mb-4">Privacy Policy</h1>
             <p className="font-body text-slate-800/60 uppercase tracking-widest text-sm font-bold">
-              Last Updated: {new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
+              Last Updated: May 2025
             </p>
           </header>
 

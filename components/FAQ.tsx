@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FAQS } from '../constants';
+import { FAQS, SITE_INFO } from '../constants';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 
 const FAQ: React.FC = () => {
@@ -30,7 +30,7 @@ const FAQ: React.FC = () => {
                 <h4 className="font-bold text-sm uppercase tracking-wider">Need more help?</h4>
               </div>
               <p className="text-sm text-slate-800/70 mb-4">If your question isn't answered here, feel free to reach out to us directly.</p>
-              <a href="mailto:hello@derryhypnosis.co.uk" className="text-teal font-bold text-sm hover:text-gold transition-colors">Contact Tracey McGill</a>
+              <a href={`mailto:${SITE_INFO.email}`} className="text-teal font-bold text-sm hover:text-gold transition-colors">Contact Tracey McGill</a>
             </div>
           </div>
 

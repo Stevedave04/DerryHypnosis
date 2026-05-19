@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Clock, ShieldCheck, ArrowRight, XCircle, BookOpen } from 'lucide-react';
+import { CheckCircle, Clock, ShieldCheck, ArrowRight, XCircle, BookOpen, Star } from 'lucide-react';
 import EbookModal from './EbookModal';
-import { STOP_SMOKING_FAQS } from '../constants';
+import { STOP_SMOKING_FAQS, TESTIMONIALS } from '../constants';
 
 const StopSmokingLanding: React.FC = () => {
   const [ebookOpen, setEbookOpen] = useState(false);
@@ -153,24 +153,24 @@ const StopSmokingLanding: React.FC = () => {
             Here's What Others Are Saying
           </h2>
           <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-slate-50 p-8 rounded-2xl shadow-sm text-left">
-              <div className="flex text-gold mb-4">{"★★★★★"}</div>
-              <p className="text-slate-700 text-lg italic mb-6">
-                "I smoked for 20 years and quit after one session. I haven't wanted a cigarette since."
-              </p>
-              <p className="font-bold text-slate-900">- Former 20-Year Smoker</p>
-            </div>
-            <div className="bg-slate-50 p-8 rounded-2xl shadow-sm text-left">
-              <div className="flex text-gold mb-4">{"★★★★★"}</div>
-              <p className="text-slate-700 text-lg italic mb-6">
-                "I tried patches and vaping before. Hypnotherapy finally worked for me."
-              </p>
-              <p className="font-bold text-slate-900">- Finally Free</p>
-            </div>
+            {TESTIMONIALS.filter(t => t.category === 'smoking').map(t => (
+              <div key={t.author} className="bg-cream-light p-8 rounded-2xl border border-cream text-left">
+                <div className="flex gap-1 text-gold mb-4">
+                  {[...Array(t.rating)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
+                </div>
+                <p className="text-slate-700 text-lg italic mb-6">"{t.text}"</p>
+                <div className="flex items-center justify-between">
+                  <p className="font-bold text-teal">— {t.author}, {t.location}</p>
+                  {t.source === 'facebook' && (
+                    <span className="text-[#1877F2] text-[10px] font-bold uppercase tracking-wider">Facebook</span>
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
           <Link
             to="/contact"
-            className="inline-flex bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg items-center justify-center gap-3"
+            className="inline-flex bg-teal hover:bg-teal-dark text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg items-center justify-center gap-3"
           >
             Click Here To Become A Non-Smoker
           </Link>

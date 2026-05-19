@@ -330,10 +330,11 @@ const UsefulNumbers: React.FC = () => {
               
               {/* Search Box */}
               <div className="w-full lg:w-1/3">
-                <label className="block text-[10px] font-bold text-slate-800/40 uppercase tracking-widest mb-3">Find an organisation</label>
+                <label htmlFor="helpline-search" className="block text-[10px] font-bold text-slate-800/40 uppercase tracking-widest mb-3">Find an organisation</label>
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gold" size={20} />
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gold" size={20} aria-hidden="true" />
                   <input
+                    id="helpline-search"
                     type="text"
                     placeholder="Search by name or keyword..."
                     value={searchTerm}

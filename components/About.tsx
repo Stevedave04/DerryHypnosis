@@ -45,10 +45,10 @@ const About: React.FC = () => {
           {/* Text Content Column */}
           <div className="w-full lg:w-1/2">
             <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">The Heart of Derry Hypnosis</span>
-            <h2 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-8 leading-tight">
+            <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-8 leading-tight">
               Compassionate Therapy <br />
               <span className="italic font-medium text-teal-light text-3xl md:text-5xl">Grounded in Science.</span>
-            </h2>
+            </h1>
             
             <div className="space-y-6 font-body text-lg text-slate-800/80 leading-relaxed mb-10">
               <p>

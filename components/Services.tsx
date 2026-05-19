@@ -16,10 +16,17 @@ const Services: React.FC<ServicesProps> = ({ preview = false }) => {
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mb-16">
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Expertise</span>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-teal leading-tight mb-6">
-            Clinical Hypnotherapy for <br />
-            <span className="italic font-medium text-teal-light text-3xl md:text-4xl">Positive, Lasting Change.</span>
-          </h2>
+          {preview ? (
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-teal leading-tight mb-6">
+              Clinical Hypnotherapy for <br />
+              <span className="italic font-medium text-teal-light text-3xl md:text-4xl">Positive, Lasting Change.</span>
+            </h2>
+          ) : (
+            <h1 className="font-heading text-4xl md:text-5xl font-bold text-teal leading-tight mb-6">
+              Clinical Hypnotherapy for <br />
+              <span className="italic font-medium text-teal-light text-3xl md:text-4xl">Positive, Lasting Change.</span>
+            </h1>
+          )}
           <p className="font-body text-lg text-slate-800/60 leading-relaxed">
             Personalised treatment plans designed to help you overcome subconscious barriers and unlock your true potential.
           </p>

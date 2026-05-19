@@ -270,12 +270,12 @@ const Booking: React.FC = () => {
               </div>
               <h3 className="font-heading text-lg font-bold text-teal mb-2">{option.title}</h3>
               <p className="font-body text-xs text-slate-800/60 mb-6 leading-relaxed">{option.description}</p>
-              <a
-                href={option.ctaUrl}
+              <Link
+                to={option.ctaUrl}
                 className="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-[0.2em] group-hover:gap-4 transition-all"
               >
                 {option.ctaText} <ArrowRight size={14} />
-              </a>
+              </Link>
             </div>
           ))}
         </div>
