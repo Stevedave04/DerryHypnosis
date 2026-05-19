@@ -12,6 +12,7 @@ import UsefulNumbers from './components/UsefulNumbers';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
 import StopSmokingLanding from './components/StopSmokingLanding';
+import NotFound from './components/NotFound';
 import Footer from './components/Footer';
 
 // Scroll to top and trigger scroll-reveal animations on every route change
@@ -69,6 +70,7 @@ const App: React.FC = () => {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/stop-smoking" element={<StopSmokingLanding />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

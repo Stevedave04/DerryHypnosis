@@ -36,8 +36,8 @@ const MindfulnessTeaser: React.FC = () => {
                     <div className="absolute top-1/2 -left-6 -translate-y-1/2 bg-white shadow-lg px-4 py-1 rounded-full border border-cream text-teal font-bold text-xs uppercase tracking-widest -rotate-90">Hold</div>
                   </div>
 
-                  <h4 className="font-heading text-2xl font-bold text-teal mb-2">Live Session Mockup</h4>
-                  <p className="font-body text-slate-800/40 text-sm uppercase tracking-[0.2em]">Designed for Modern Clarity</p>
+                  <h4 className="font-heading text-2xl font-bold text-teal mb-2">Box Breathing</h4>
+                  <p className="font-body text-slate-800/40 text-sm uppercase tracking-[0.2em]">4 sec · 4 phases · 1 min</p>
                 </div>
               </div>
               
@@ -53,7 +53,7 @@ const MindfulnessTeaser: React.FC = () => {
           <div className="w-full lg:w-1/2 text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 rounded-full text-gold font-bold text-xs uppercase tracking-[0.2em] mb-6">
               <Sparkles size={14} />
-              Featured Mindfulness Tool
+              Free Calming Tool
             </div>
             
             <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-teal mb-8 leading-tight">
