@@ -1,23 +1,47 @@
 
-import React, { useEffect } from 'react';
-import { CONTACT_OPTIONS, SITE_INFO } from '../constants';
-import { Phone, MapPin, Video, Calendar, ShieldCheck, Mail, ArrowRight, Star, Users } from 'lucide-react';
+import React, { useState } from 'react';
+import { CONTACT_OPTIONS, SITE_INFO, SERVICES, FORM_ENDPOINT } from '../constants';
+import { Phone, MapPin, Video, Calendar, ShieldCheck, Mail, ArrowRight, Star, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+type FormState = 'idle' | 'submitting' | 'success' | 'error';
+
 const Booking: React.FC = () => {
-  useEffect(() => {
-    // Check if script already exists to avoid duplicate messaging ports
-    const existingScript = document.getElementById('calendly-script');
-    
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.id = 'calendly-script';
-      script.src = "https://assets.calendly.com/assets/external/widget.js";
-      script.async = true;
-      script.onload = () => console.debug("Booking widget initialised.");
-      document.body.appendChild(script);
+  const [formState, setFormState] = useState<FormState>('idle');
+  const [values, setValues] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState('submitting');
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          ...values,
+          _subject: `New enquiry from ${values.name} — Derry Hypnosis`,
+        }),
+      });
+      if (res.ok) {
+        setFormState('success');
+        setValues({ name: '', email: '', phone: '', service: '', message: '' });
+      } else {
+        setFormState('error');
+      }
+    } catch {
+      setFormState('error');
     }
-  }, []);
+  };
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -28,6 +52,9 @@ const Booking: React.FC = () => {
     }
   };
 
+  const inputClass =
+    'w-full px-4 py-3 rounded-xl border border-cream bg-cream-light focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal font-body text-sm transition-all placeholder:text-slate-400';
+
   return (
     <section className="py-24 bg-cream-light min-h-screen pt-40">
       <div className="container mx-auto px-6">
@@ -35,11 +62,12 @@ const Booking: React.FC = () => {
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block animate-reveal">Take the First Step</span>
           <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6 animate-reveal stagger-1">Connect With Us</h1>
           <p className="font-body text-xl text-slate-800/60 leading-relaxed max-w-2xl mx-auto animate-reveal stagger-2">
-            Ready to reclaim control? Book a consultation, visit our clinic in Derry, or start your session online.
+            Ready to reclaim control? Send us a message and Tracey will be in touch within 24 hours.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
+
           {/* Left: Contact Info */}
           <div className="lg:col-span-1 space-y-6">
             <div className="bg-white p-8 rounded-2xl shadow-soft border border-cream">
@@ -76,8 +104,7 @@ const Booking: React.FC = () => {
                 Trusted Practitioner
               </div>
             </div>
-            
-            {/* Added Trust Signal in Sidebar for Mobile/Small Screens */}
+
             <Link to="/testimonials" className="block bg-white p-6 rounded-2xl border border-gold/20 shadow-soft group hover:bg-gold/5 transition-all">
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-2">
@@ -97,47 +124,141 @@ const Booking: React.FC = () => {
             </Link>
           </div>
 
-          {/* Right: Map & Booking */}
-          <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white p-2 rounded-2xl shadow-soft border border-cream h-[400px] overflow-hidden">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2298.1147570440623!2d-7.3242!3d54.9918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTTCsDU5JzMwLjUiTiA3wrAxOScyNy4xIlc!5e0!3m2!1sen!2suk!4v1716301234567!5m2!1sen!2suk" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0, borderRadius: '1rem' }} 
-                allowFullScreen={true} 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Derry Hypnosis - Foyle Road Location Map"
-              ></iframe>
-            </div>
-
-            <div className="bg-white rounded-2xl shadow-soft border border-cream overflow-hidden relative">
-              {/* Trust Signal integrated near the booking header */}
-              <div className="p-6 bg-cream-light border-b border-cream flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div>
-                  <h3 className="font-heading text-lg font-bold text-teal">Select Appointment Type</h3>
-                  <div className="flex items-center gap-2 mt-1">
-                    <div className="flex text-gold">
-                      {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} fill="currentColor" />)}
-                    </div>
-                    <Link to="/testimonials" className="text-[10px] font-bold text-teal/40 uppercase tracking-widest hover:text-gold transition-colors">
-                      Trusted by 100+ clients
-                    </Link>
+          {/* Right: Contact Form */}
+          <div className="lg:col-span-2">
+            {formState === 'success' ? (
+              <div className="bg-white rounded-2xl shadow-soft border border-cream p-16 flex flex-col items-center text-center h-full justify-center">
+                <div className="w-20 h-20 rounded-full bg-teal/10 flex items-center justify-center mb-6">
+                  <CheckCircle2 size={40} className="text-teal" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-teal mb-3">Message Sent!</h3>
+                <p className="font-body text-slate-800/60 max-w-sm leading-relaxed mb-8">
+                  Thank you for reaching out. Tracey will be in touch within 24 hours.
+                </p>
+                <button
+                  onClick={() => setFormState('idle')}
+                  className="text-gold font-bold text-xs uppercase tracking-[0.2em] hover:text-gold-dark transition-colors"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} noValidate className="bg-white rounded-2xl shadow-soft border border-cream overflow-hidden">
+                <div className="p-6 bg-cream-light border-b border-cream flex items-center justify-between">
+                  <div>
+                    <h3 className="font-heading text-lg font-bold text-teal">Send a Message</h3>
+                    <p className="text-[11px] text-slate-800/40 font-body mt-0.5">We reply within 24 hours</p>
+                  </div>
+                  <div className="flex gap-0.5 text-gold">
+                    {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} fill="currentColor" />)}
                   </div>
                 </div>
-                <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-full border border-cream shadow-sm">
-                  <Users size={16} className="text-gold" />
-                  <span className="text-[10px] font-bold text-teal uppercase tracking-widest">Derry Clinic</span>
-                  <div className="w-1.5 h-1.5 rounded-full bg-success animate-pulse"></div>
+
+                <div className="p-8 space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-800/50 mb-2">Full Name *</label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        autoComplete="name"
+                        value={values.name}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        className={inputClass}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-800/50 mb-2">Email *</label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        autoComplete="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        placeholder="your@email.com"
+                        className={inputClass}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="phone" className="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-800/50 mb-2">Phone <span className="normal-case tracking-normal text-slate-800/30">(optional)</span></label>
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        autoComplete="tel"
+                        value={values.phone}
+                        onChange={handleChange}
+                        placeholder="+44 28..."
+                        className={inputClass}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="service" className="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-800/50 mb-2">Interested In</label>
+                      <select
+                        id="service"
+                        name="service"
+                        value={values.service}
+                        onChange={handleChange}
+                        className={`${inputClass} appearance-none cursor-pointer`}
+                      >
+                        <option value="">Select a service...</option>
+                        {SERVICES.map(s => (
+                          <option key={s.slug} value={s.title}>{s.title}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-[10px] font-bold uppercase tracking-[0.2em] text-slate-800/50 mb-2">Message *</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      required
+                      value={values.message}
+                      onChange={handleChange}
+                      placeholder="Tell us a little about what you'd like help with..."
+                      className={`${inputClass} resize-none`}
+                    />
+                  </div>
+
+                  {formState === 'error' && (
+                    <div className="flex items-start gap-3 text-red-700 bg-red-50 p-4 rounded-xl border border-red-100">
+                      <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
+                      <p className="text-sm font-medium">
+                        Something went wrong. Please email us directly at{' '}
+                        <a href={`mailto:${SITE_INFO.email}`} className="underline">{SITE_INFO.email}</a>
+                      </p>
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={formState === 'submitting'}
+                    className="w-full bg-teal hover:bg-teal-dark text-white font-bold py-4 px-8 rounded-full transition-all shadow-lg hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                  >
+                    {formState === 'submitting' ? 'Sending…' : 'Send Message'}
+                    {formState !== 'submitting' && <ArrowRight size={18} aria-hidden="true" />}
+                  </button>
+
+                  <p className="text-center text-xs text-slate-800/40">
+                    Or email directly at{' '}
+                    <a href={`mailto:${SITE_INFO.email}`} className="text-teal font-semibold hover:text-gold transition-colors">
+                      {SITE_INFO.email}
+                    </a>
+                  </p>
                 </div>
-              </div>
-              <div 
-                className="calendly-inline-widget" 
-                data-url="https://calendly.com/stephen_mc_gill/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=2c5f5d" 
-                style={{ minWidth: '320px', height: '600px' }}
-              ></div>
-            </div>
+              </form>
+            )}
           </div>
         </div>
 
@@ -149,7 +270,7 @@ const Booking: React.FC = () => {
               </div>
               <h3 className="font-heading text-lg font-bold text-teal mb-2">{option.title}</h3>
               <p className="font-body text-xs text-slate-800/60 mb-6 leading-relaxed">{option.description}</p>
-              <a 
+              <a
                 href={option.ctaUrl}
                 className="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-[0.2em] group-hover:gap-4 transition-all"
               >

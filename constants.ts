@@ -9,6 +9,10 @@ export const SITE_INFO = {
   owner: "Tracey McGill"
 };
 
+// Sign up at https://formspree.io, create a form, and paste your endpoint here.
+// e.g. "https://formspree.io/f/abcdefgh"
+export const FORM_ENDPOINT = "https://formspree.io/f/mbdbdojz";
+
 export const SERVICE_IMAGES: Record<string, string> = {
   'weight-loss': 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop',
   'quit-smoking': 'https://images.unsplash.com/photo-1527099908998-5b73a5fe2a0d?q=80&w=2352&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
