@@ -22,6 +22,7 @@ export interface TestimonialItem {
   location: string;
   rating: number;
   category: 'weight' | 'smoking' | 'anxiety' | 'general';
+  source?: 'facebook';
 }
 
 export interface ContactOption {

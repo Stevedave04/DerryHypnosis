@@ -200,6 +200,30 @@ export const TESTIMONIALS: TestimonialItem[] = [
     location: "Strabane",
     rating: 5,
     category: 'general'
+  },
+  {
+    text: "My mum had hypnosis a few weeks ago to stop smoking. She was very nervous though really enjoyed it and hasn't smoked since. It's early days though she is so glad she tried it and couldn't speak more highly of Tracey.",
+    author: "Joey Mc Dermott",
+    location: "Derry",
+    rating: 5,
+    category: 'smoking',
+    source: 'facebook'
+  },
+  {
+    text: "I had hypnosis with Tracey a few months ago and she has changed my life. I didn't think it was possible to make the change I've tried to make my whole life. I had hypnosis twice before with no success. I was a bit skeptical while being 100% committed. So now a few months on I know I won't go backwards and I'm looking forward to working on my next annoying habit. Thank you for changing my life 🫶",
+    author: "Toire Harkin",
+    location: "Derry",
+    rating: 5,
+    category: 'general',
+    source: 'facebook'
+  },
+  {
+    text: "Highly skilled and knowledgeable in all things hypnosis.",
+    author: "TheraMarketing",
+    location: "Derry",
+    rating: 5,
+    category: 'general',
+    source: 'facebook'
   }
 ];
 
