@@ -82,17 +82,17 @@ const Hero: React.FC = () => {
               Professional Clinical Hypnotherapy
             </span>
           </div>
-          
-          <h1 className="font-heading text-6xl md:text-8xl text-white font-bold leading-[1.1] mb-8 animate-reveal stagger-1">
+
+          <h1 className="font-heading text-6xl md:text-8xl text-white font-bold leading-[1.1] mb-8 animate-hero-reveal hero-stagger-1">
             Unlock the Power of <br />
             <span className="text-white italic font-medium">Your Mind.</span>
           </h1>
 
-          <p className="font-body text-xl md:text-2xl text-cream-light/90 mb-12 max-w-2xl leading-relaxed animate-reveal stagger-2">
+          <p className="font-body text-xl md:text-2xl text-cream-light/90 mb-12 max-w-2xl leading-relaxed animate-hero-reveal hero-stagger-2">
             Break free from old habits and limiting beliefs. Specialised hypnotherapy for Weight Loss, Smoking Cessation, and Anxiety in Derry.
           </p>
 
-          <div className="flex flex-wrap gap-6 animate-reveal stagger-3">
+          <div className="flex flex-wrap gap-6 animate-hero-reveal hero-stagger-3">
             <Link
               to="/contact"
               className="bg-gold hover:bg-gold-dark text-white font-bold py-5 px-10 rounded-full transition-all shadow-2xl hover:shadow-gold/40 flex items-center gap-3 transform hover:-translate-y-1 active:translate-y-0"

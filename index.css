@@ -38,6 +38,20 @@ body {
 .stagger-3 { animation-delay: 500ms; }
 .stagger-4 { animation-delay: 700ms; }
 
+/* Hero above-the-fold animations — fire on mount, no IntersectionObserver needed.
+   Re-fires correctly when key={currentImageIndex} remounts the content div. */
+.animate-hero-reveal {
+  animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-stagger-1 { animation-delay: 200ms; }
+.hero-stagger-2 { animation-delay: 500ms; }
+.hero-stagger-3 { animation-delay: 800ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-reveal { animation: none; opacity: 1; }
+}
+
 /* Honour reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
   .animate-reveal,
