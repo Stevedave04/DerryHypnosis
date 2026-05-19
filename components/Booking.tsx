@@ -56,7 +56,7 @@ const Booking: React.FC = () => {
     'w-full px-4 py-3 rounded-xl border border-cream bg-cream-light focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal font-body text-sm transition-all placeholder:text-slate-400';
 
   return (
-    <section className="py-24 bg-cream-light min-h-screen pt-40">
+    <section id="contact-form" className="py-24 bg-cream-light min-h-screen pt-40">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block animate-reveal">Take the First Step</span>

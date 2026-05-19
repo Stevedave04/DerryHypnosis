@@ -253,6 +253,22 @@ const BreathingApplet: React.FC = () => {
             </div>
           </div>
 
+          {/* Mobile tip cards — shown below xl where side panels are hidden */}
+          <div className="xl:hidden w-full max-w-xl mx-auto mt-8 grid grid-cols-2 gap-4">
+            {[
+              { icon: <Brain size={18} />, title: "Neural Reset", body: "Equalising your breath rhythm manually overrides the brain's stress centre, inducing calm." },
+              { icon: <Shield size={18} />, title: "Safe Haven", body: "Consistent practice strengthens emotional resilience under high stress." },
+              { icon: <Wind size={18} />, title: "Airflow Path", body: "Visualise cool air entering and warm, weighted mist leaving on each exhale." },
+              { icon: <Info size={18} />, title: "Quiet Eyes", body: "Soft focus or closed eyes lets the brain process internal changes more effectively." },
+            ].map((card, i) => (
+              <div key={i} className="bg-white p-5 rounded-2xl border border-cream shadow-soft">
+                <div className="w-8 h-8 rounded-lg bg-teal/5 flex items-center justify-center text-teal mb-3">{card.icon}</div>
+                <h4 className="font-heading font-bold text-teal text-sm mb-1">{card.title}</h4>
+                <p className="text-xs text-slate-800/60 leading-relaxed font-body">{card.body}</p>
+              </div>
+            ))}
+          </div>
+
           {/* RIGHT PANEL: Expert Tips */}
           <div className="hidden xl:flex flex-col gap-8 w-80 animate-reveal stagger-2">
              <div className="bg-white p-8 rounded-3xl border border-cream shadow-soft hover:shadow-premium transition-all group">
@@ -277,13 +293,13 @@ const BreathingApplet: React.FC = () => {
           </div>
         </div>
 
-        {/* Tactical Proof Grid */}
+        {/* Fact Grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mt-32 md:mt-48">
           {[
-            { label: "Elite Performance", sub: "Tactical Roots", icon: <Award className="text-gold" size={28} /> },
-            { label: "Neural Symmetry", sub: "Balanced Rhythms", icon: <CheckCircle className="text-gold" size={28} /> },
-            { label: "Subconscious Gate", sub: "Deep Receptivity", icon: <Users className="text-gold" size={28} /> },
-            { label: "Instant Recalibration", sub: "Rapid Impact", icon: <TrendingUp className="text-gold" size={28} /> }
+            { label: "16 Seconds", sub: "One complete cycle", icon: <Award className="text-gold" size={28} /> },
+            { label: "4 Equal Phases", sub: "Inhale · Hold · Exhale · Hold", icon: <CheckCircle className="text-gold" size={28} /> },
+            { label: "Navy SEAL Method", sub: "Combat stress protocol", icon: <Users className="text-gold" size={28} /> },
+            { label: "5–10 Minutes", sub: "Recommended daily practice", icon: <TrendingUp className="text-gold" size={28} /> }
           ].map((stat, i) => (
             <div key={i} className="text-center group bg-white p-10 rounded-[2.5rem] border border-cream-dark/10 hover:border-gold/30 transition-all duration-500 shadow-soft hover:shadow-premium">
               <div className="w-16 h-16 bg-cream-light rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-soft group-hover:bg-teal group-hover:text-white transition-all duration-700">

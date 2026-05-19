@@ -69,7 +69,7 @@ const ServiceDetail: React.FC = () => {
               <h2 className="font-heading text-4xl font-bold text-teal mb-8">About This Programme</h2>
               <div className="font-body text-lg text-slate-800/80 leading-relaxed mb-10 space-y-6">
                 {service.longDescription.split('\n').filter(p => p.trim() !== '').map((paragraph, i) => (
-                  <p key={i} className="first-letter:text-4xl first-letter:font-heading first-letter:float-left first-letter:mr-3 first-letter:text-gold first-letter:font-bold">
+                  <p key={i} className={i === 0 ? 'first-letter:text-4xl first-letter:font-heading first-letter:float-left first-letter:mr-3 first-letter:text-gold first-letter:font-bold' : ''}>
                     {paragraph}
                   </p>
                 ))}

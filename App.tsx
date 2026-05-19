@@ -13,6 +13,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
 import StopSmokingLanding from './components/StopSmokingLanding';
 import NotFound from './components/NotFound';
+import FloatingActions from './components/FloatingActions';
 import Footer from './components/Footer';
 
 // Scroll to top and trigger scroll-reveal animations on every route change
@@ -58,13 +59,14 @@ const App: React.FC = () => {
       <ScrollToTop />
       <div className="min-h-screen bg-white text-slate-800 font-body flex flex-col">
         <Navbar />
+        <FloatingActions />
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/about" element={<About />} />
-            <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/testimonials" element={<Testimonials standalone />} />
             <Route path="/contact" element={<Booking />} />
             <Route path="/useful-numbers" element={<UsefulNumbers />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />

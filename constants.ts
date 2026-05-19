@@ -5,6 +5,8 @@ export const SITE_INFO = {
   title: "Derry Hypnosis",
   tagline: "Transform Your Life Through the Power of Your Mind",
   email: "hello@derryhypnosis.co.uk",
+  // Replace with the clinic WhatsApp number (digits only, international format, e.g. "447712345678")
+  phone: "",
   location: "2-4 Foyle Rd, Londonderry BT48 6AX - Centre of Wellbeing",
   owner: "Tracey McGill"
 };
