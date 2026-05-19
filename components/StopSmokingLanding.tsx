@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Clock, ShieldCheck, ArrowRight, XCircle, BookOpen } from 'lucide-react';
 import EbookModal from './EbookModal';
+import { STOP_SMOKING_FAQS } from '../constants';
 
 const StopSmokingLanding: React.FC = () => {
   const [ebookOpen, setEbookOpen] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0, 0); // Ensure the page starts at the top
-  }, []);
-
   return (
     <div className="font-body text-slate-800 bg-white">
       <EbookModal isOpen={ebookOpen} onClose={() => setEbookOpen(false)} />
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-slate-900 text-white">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1517436073-3b1b1b1b1b1b?q=80&w=1920&auto=format&fit=crop" // Abstract/calm dark placeholder 
-            alt="Calm abstract background"
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop"
+            alt="Calm forest background"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-900"></div>
@@ -71,9 +69,9 @@ const StopSmokingLanding: React.FC = () => {
                   "Patches and gum didn't work long term",
                   "Vaping just replaced cigarettes with another habit",
                   "You rely on willpower but the cravings come back",
-                  "Stress or alcohol triggers smoking again"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                  "Stress or alcohol triggers smoking again",
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-3">
                     <span className="text-rose-500 mt-1">•</span>
                     <span className="text-slate-700 text-lg">{item}</span>
                   </li>
@@ -113,15 +111,15 @@ const StopSmokingLanding: React.FC = () => {
                   "Reduced or eliminated cravings",
                   "No willpower battle",
                   "No nicotine replacements",
-                  "No long programs"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                  "No long programs",
+                ].map(item => (
+                  <li key={item} className="flex items-start gap-3">
                     <CheckCircle className="text-emerald-500 shrink-0 mt-0.5" size={20} />
                     <span className="text-slate-700 text-lg">{item}</span>
                   </li>
                 ))}
               </ul>
-              
+
               <div className="bg-emerald-50 p-6 rounded-xl border border-emerald-100">
                 <p className="font-bold text-emerald-900 mb-3">The process includes:</p>
                 <ul className="space-y-2 text-emerald-800">
@@ -135,7 +133,7 @@ const StopSmokingLanding: React.FC = () => {
 
           <div className="mt-16 text-center">
             <p className="text-2xl md:text-3xl font-heading text-slate-800 font-medium mb-10 max-w-3xl mx-auto">
-              "Many clients walk out feeling like they simply don’t want cigarettes anymore."
+              "Many clients walk out feeling like they simply don't want cigarettes anymore."
             </p>
             <Link
               to="/contact"
@@ -156,18 +154,14 @@ const StopSmokingLanding: React.FC = () => {
           </h2>
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <div className="bg-slate-50 p-8 rounded-2xl shadow-sm text-left">
-              <div className="flex text-gold mb-4">
-                {"★★★★★"}
-              </div>
+              <div className="flex text-gold mb-4">{"★★★★★"}</div>
               <p className="text-slate-700 text-lg italic mb-6">
-                "I smoked for 20 years and quit after one session. I haven’t wanted a cigarette since."
+                "I smoked for 20 years and quit after one session. I haven't wanted a cigarette since."
               </p>
               <p className="font-bold text-slate-900">- Former 20-Year Smoker</p>
             </div>
             <div className="bg-slate-50 p-8 rounded-2xl shadow-sm text-left">
-              <div className="flex text-gold mb-4">
-                {"★★★★★"}
-              </div>
+              <div className="flex text-gold mb-4">{"★★★★★"}</div>
               <p className="text-slate-700 text-lg italic mb-6">
                 "I tried patches and vaping before. Hypnotherapy finally worked for me."
               </p>
@@ -190,27 +184,10 @@ const StopSmokingLanding: React.FC = () => {
             Frequently Asked Questions
           </h2>
           <div className="space-y-6">
-            {[
-              {
-                q: "Does hypnosis work for everyone?",
-                a: "Almost everyone can be hypnotised as long as they want to stop smoking."
-              },
-              {
-                q: "Will I lose control during hypnosis?",
-                a: "No. You remain aware and in control the entire time."
-              },
-              {
-                q: "What if I still feel cravings?",
-                a: "You’ll receive a reinforcement MP3 to strengthen the results."
-              },
-              {
-                q: "How many sessions are needed?",
-                a: "For most clients, just one session."
-              }
-            ].map((faq, index) => (
-              <div key={index} className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-slate-100">
-                <h3 className="text-xl font-bold text-slate-800 mb-3">{faq.q}</h3>
-                <p className="text-slate-600 leading-relaxed">{faq.a}</p>
+            {STOP_SMOKING_FAQS.map(faq => (
+              <div key={faq.question} className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-slate-100">
+                <h3 className="text-xl font-bold text-slate-800 mb-3">{faq.question}</h3>
+                <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -236,7 +213,7 @@ const StopSmokingLanding: React.FC = () => {
             <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-12">
               Welcome to Derry Hypnosis, where we help smokers become calm, confident non-smokers. Our goal is simple: help people break free from smoking quickly and comfortably.
             </p>
-            
+
             <h3 className="text-2xl font-bold mb-8 text-gold">Why Trust Us?</h3>
             <div className="grid md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto mb-16">
               <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
@@ -267,7 +244,7 @@ const StopSmokingLanding: React.FC = () => {
                 </h4>
               </div>
             </div>
-            
+
             <div className="mt-16">
               <Link
                 to="/contact"

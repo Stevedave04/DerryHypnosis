@@ -2,17 +2,17 @@
 import React from 'react';
 import { SERVICES, SERVICE_IMAGES } from '../constants';
 import { ArrowRight } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Services: React.FC = () => {
-  const location = useLocation();
-  const isServicesPage = location.pathname === '/services';
+interface ServicesProps {
+  preview?: boolean;
+}
 
-  // Filter to show limited services on home page, all on services page
-  const displayServices = isServicesPage ? SERVICES : SERVICES.slice(0, 6);
+const Services: React.FC<ServicesProps> = ({ preview = false }) => {
+  const displayServices = preview ? SERVICES.slice(0, 6) : SERVICES;
 
   return (
-    <section className={`py-24 bg-cream-light ${isServicesPage ? 'pt-40' : ''}`}>
+    <section className={`py-24 bg-cream-light ${!preview ? 'pt-40' : ''}`}>
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mb-16">
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Expertise</span>
@@ -26,27 +26,26 @@ const Services: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {displayServices.map((service, index) => (
-            <Link 
+          {displayServices.map(service => (
+            <Link
               to={`/services/${service.slug}`}
-              key={index} 
+              key={service.slug}
               className="group bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-premium transition-all duration-300 hover:-translate-y-1 flex flex-col h-full border border-cream/30"
             >
               <div className="relative h-56 overflow-hidden bg-teal/20">
-                <img 
-                  src={SERVICE_IMAGES[service.slug]} 
+                <img
+                  src={SERVICE_IMAGES[service.slug]}
                   alt={service.title}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   loading="lazy"
                   onError={(e) => {
-                    // Fallback to a brand color background if the specific service image fails
                     const target = e.target as HTMLImageElement;
-                    target.src = "https://images.unsplash.com/photo-1510442650500-93217e634e4c?q=80&w=1200&auto=format&fit=crop"; // Generic but relevant "stop" visual
+                    target.src = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1200&auto=format&fit=crop";
                   }}
                 />
                 <div className="absolute inset-0 bg-teal/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
-              
+
               <div className="p-6 md:p-8 flex flex-col flex-grow">
                 <h3 className="font-heading text-xl md:text-2xl font-bold text-teal mb-3">
                   {service.title}
@@ -54,7 +53,7 @@ const Services: React.FC = () => {
                 <p className="font-body text-slate-800/60 mb-6 leading-relaxed text-sm flex-grow">
                   {service.description}
                 </p>
-                
+
                 <div className="flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-widest group-hover:gap-4 transition-all">
                   Discover More
                   <ArrowRight size={14} />
@@ -64,10 +63,10 @@ const Services: React.FC = () => {
           ))}
         </div>
 
-        {!isServicesPage && (
+        {preview && (
           <div className="mt-20 text-center">
-            <Link 
-              to="/services" 
+            <Link
+              to="/services"
               className="inline-flex items-center gap-4 bg-teal text-white font-bold py-4 px-10 rounded-full hover:bg-teal-dark transition-all shadow-lg hover:-translate-y-1"
             >
               Explore All Treatments

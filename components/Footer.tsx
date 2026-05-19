@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { SITE_INFO, SERVICES } from '../constants';
+import { SITE_INFO, SERVICES, FOOTER_LINKS } from '../constants';
 import { FacebookIcon, YoutubeIcon, InstagramIcon, MapPin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
     <footer className="bg-slate-900 text-white pt-20 pb-8 border-t-8 border-gold">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
+
           {/* Brand Column */}
           <div>
             <h3 className="font-heading text-2xl font-bold mb-6 text-gold">{SITE_INFO.title}</h3>
@@ -66,13 +66,8 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-heading text-xl font-bold mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {[
-                  { label: 'About Us', url: '/about' },
-                  { label: 'Our Services', url: '/services' },
-                  { label: 'Success Stories', url: '/testimonials' },
-                  { label: 'Book Online', url: '/contact' }
-              ].map((link, i) => (
-                <li key={i}>
+              {FOOTER_LINKS.map(link => (
+                <li key={link.url}>
                   <Link to={link.url} className="text-gray-400 hover:text-gold transition-colors font-body">{link.label}</Link>
                 </li>
               ))}
@@ -83,8 +78,8 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-heading text-xl font-bold mb-6">Services</h4>
             <ul className="space-y-3">
-              {SERVICES.map((service, i) => (
-                <li key={i}>
+              {SERVICES.map(service => (
+                <li key={service.slug}>
                   <Link to={`/services/${service.slug}`} className="text-gray-400 hover:text-gold transition-colors font-body">{service.title}</Link>
                 </li>
               ))}

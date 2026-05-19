@@ -14,7 +14,7 @@ const Home: React.FC = () => {
       <Hero />
       <MindfulnessTeaser />
       <BreathingApplet />
-      <Services />
+      <Services preview />
       <Testimonials />
       <FAQ />
       <Booking />

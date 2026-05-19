@@ -201,13 +201,39 @@ export const TESTIMONIALS: TestimonialItem[] = [
   }
 ];
 
+export const FOOTER_LINKS: { label: string; url: string }[] = [
+  { label: 'About Us', url: '/about' },
+  { label: 'Our Services', url: '/services' },
+  { label: 'Success Stories', url: '/testimonials' },
+  { label: 'Book Online', url: '/contact' },
+];
+
+export const STOP_SMOKING_FAQS: FAQItem[] = [
+  {
+    question: "Does hypnosis work for everyone?",
+    answer: "Almost everyone can be hypnotised as long as they want to stop smoking.",
+  },
+  {
+    question: "Will I lose control during hypnosis?",
+    answer: "No. You remain aware and in control the entire time.",
+  },
+  {
+    question: "What if I still feel cravings?",
+    answer: "You'll receive a reinforcement MP3 to strengthen the results.",
+  },
+  {
+    question: "How many sessions are needed?",
+    answer: "For most clients, just one session.",
+  },
+];
+
 export const CONTACT_OPTIONS: ContactOption[] = [
   {
     title: "Discovery Call",
     description: "Book a free 15-minute consultation to discuss your goals and how we can help.",
     ctaText: "Request Call",
     ctaUrl: "/contact",
-    icon: "video"
+    icon: "calendar"
   },
   {
     title: "Clinic Visit",
