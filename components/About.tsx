@@ -6,9 +6,7 @@ import { SITE_INFO } from '../constants';
 
 const About: React.FC = () => {
   // Primary image source provided by the user.
-  // Facebook CDN URL — expires ~May 2026. When it does, upload the photo to
-  // derryhypnosis.co.uk/Tracey-portrait.png and swap the src back to that.
-  const traceyPortrait = "https://scontent.fedi1-1.fna.fbcdn.net/v/t39.30808-6/653706184_973872744996889_8957164927032850411_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=wewHvefhjLkQ7kNvwEaDp61&_nc_oc=AdqXSpVCfjwDxAL9VRcs-SGzYHlQDt1C6kD8PAGDZldMbb0Aggv-AQ5H6w9PycHLQjHLJBrN5rqiEaBnh7cHTT7o&_nc_zt=23&_nc_ht=scontent.fedi1-1.fna&oh=00_Af5Q4zdPsRLMmcfjlpLmnXBoc3Y-jkEKbJsfGCfnIWbjug&oe=6A128324";
+  const traceyPortrait = "https://www.image2url.com/r2/default/images/1779222757625-7d6d4e2e-c26a-4084-8e5d-685398d3952d.jpg";
   const fallbackPortrait = "https://derryhypnosis.co.uk/Tracey-portrait.png";
 
   return (
