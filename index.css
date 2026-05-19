@@ -17,7 +17,33 @@ body {
   -webkit-backdrop-filter: blur(12px);
 }
 
+/* Scroll-driven reveal — elements start hidden and animate in when visible.
+   The .is-visible class is added by IntersectionObserver in App.tsx.
+   Using longhand animation properties so stagger delays are not overridden. */
+.animate-reveal {
+  opacity: 0;
+  animation: none;
+}
+
+.animate-reveal.is-visible {
+  animation-name: reveal;
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+
+/* Stagger delays — must come after .is-visible rule to win the cascade */
 .stagger-1 { animation-delay: 100ms; }
 .stagger-2 { animation-delay: 300ms; }
 .stagger-3 { animation-delay: 500ms; }
 .stagger-4 { animation-delay: 700ms; }
+
+/* Honour reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-reveal,
+  .animate-reveal.is-visible {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+}

@@ -13,7 +13,7 @@ const FAQ: React.FC = () => {
     <section className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-16">
-          
+
           {/* Left Column: Heading */}
           <div className="lg:w-1/3">
             <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Understanding the Process</span>
@@ -36,43 +36,54 @@ const FAQ: React.FC = () => {
 
           {/* Right Column: Accordion */}
           <div className="lg:w-2/3 space-y-4">
-            {FAQS.map((faq, index) => (
-              <div 
-                key={index}
-                className={`border rounded-2xl transition-all duration-300 ${
-                  openIndex === index 
-                    ? 'border-gold bg-cream-light shadow-soft' 
-                    : 'border-cream hover:border-gold/30 bg-white'
-                }`}
-              >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full text-left p-6 md:p-8 flex items-center justify-between group"
-                  aria-expanded={openIndex === index}
-                >
-                  <span className={`font-heading text-lg md:text-xl font-bold transition-colors ${
-                    openIndex === index ? 'text-teal' : 'text-slate-800 group-hover:text-teal'
-                  }`}>
-                    {faq.question}
-                  </span>
-                  <div className={`transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-gold' : 'text-slate-800/30'}`}>
-                    <ChevronDown size={24} />
-                  </div>
-                </button>
-                
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+            {FAQS.map((faq, index) => {
+              const isOpen = openIndex === index;
+              const btnId = `faq-btn-${index}`;
+              const panelId = `faq-panel-${index}`;
+
+              return (
+                <div
+                  key={faq.question}
+                  className={`border rounded-2xl transition-all duration-300 ${
+                    isOpen
+                      ? 'border-gold bg-cream-light shadow-soft'
+                      : 'border-cream hover:border-gold/30 bg-white'
                   }`}
                 >
-                  <div className="p-6 md:p-8 pt-0 border-t border-cream/50">
-                    <p className="font-body text-slate-800/70 leading-relaxed text-lg">
-                      {faq.answer}
-                    </p>
+                  <button
+                    id={btnId}
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full text-left p-6 md:p-8 flex items-center justify-between group"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                  >
+                    <span className={`font-heading text-lg md:text-xl font-bold transition-colors ${
+                      isOpen ? 'text-teal' : 'text-slate-800 group-hover:text-teal'
+                    }`}>
+                      {faq.question}
+                    </span>
+                    <div className={`transition-transform duration-300 flex-shrink-0 ml-4 ${isOpen ? 'rotate-180 text-gold' : 'text-slate-800/30'}`}>
+                      <ChevronDown size={24} />
+                    </div>
+                  </button>
+
+                  <div
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={btnId}
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                    }`}
+                  >
+                    <div className="p-6 md:p-8 pt-0 border-t border-cream/50">
+                      <p className="font-body text-slate-800/70 leading-relaxed text-lg">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
         </div>

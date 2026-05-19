@@ -54,12 +54,17 @@ export default {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
-        }
+        },
+        'spin-slow': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
       },
       animation: {
         'reveal': 'reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'slideInRight': 'slideInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'float': 'float 5s ease-in-out infinite',
+        'spin-slow': 'spin-slow 8s linear infinite',
       }
     }
   },

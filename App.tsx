@@ -14,12 +14,40 @@ import TermsAndConditions from './components/TermsAndConditions';
 import StopSmokingLanding from './components/StopSmokingLanding';
 import Footer from './components/Footer';
 
-// Wrapper to handle scroll to top on route change
+// Scroll to top and trigger scroll-reveal animations on every route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
+
   React.useEffect(() => {
     window.scrollTo(0, 0);
+
+    let observer: IntersectionObserver;
+
+    // Wait one frame so the new page has rendered before querying the DOM
+    const raf = requestAnimationFrame(() => {
+      const elements = document.querySelectorAll<HTMLElement>('.animate-reveal');
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      elements.forEach((el) => observer.observe(el));
+    });
+
+    return () => {
+      cancelAnimationFrame(raf);
+      observer?.disconnect();
+    };
   }, [pathname]);
+
   return null;
 };
 
