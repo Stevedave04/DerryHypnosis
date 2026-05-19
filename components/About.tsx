@@ -61,19 +61,26 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
               <div className="flex items-start gap-4 p-4 rounded-xl border border-cream hover:bg-cream-light transition-colors">
-                <Award className="text-gold flex-shrink-0" size={24} />
+                <Award className="text-gold flex-shrink-0 mt-0.5" size={22} />
                 <div>
-                  <h4 className="font-bold text-teal text-sm uppercase tracking-wide">Accredited</h4>
-                  <p className="text-sm text-slate-800/60 font-medium">Certified Clinical Practitioner</p>
+                  <h4 className="font-bold text-teal text-sm uppercase tracking-wide">EAPH Accredited</h4>
+                  <p className="text-sm text-slate-800/60 font-medium">European Association of Professional Hypnotherapists</p>
                 </div>
               </div>
               <div className="flex items-start gap-4 p-4 rounded-xl border border-cream hover:bg-cream-light transition-colors">
-                <Heart className="text-gold flex-shrink-0" size={24} />
+                <ShieldCheck className="text-gold flex-shrink-0 mt-0.5" size={22} />
                 <div>
-                  <h4 className="font-bold text-teal text-sm uppercase tracking-wide">Compassionate</h4>
-                  <p className="text-sm text-slate-800/60 font-medium">Safe, confidential environment</p>
+                  <h4 className="font-bold text-teal text-sm uppercase tracking-wide">Clinical Grade</h4>
+                  <p className="text-sm text-slate-800/60 font-medium">Advanced evidence-based techniques</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4 p-4 rounded-xl border border-cream hover:bg-cream-light transition-colors">
+                <Heart className="text-gold flex-shrink-0 mt-0.5" size={22} />
+                <div>
+                  <h4 className="font-bold text-teal text-sm uppercase tracking-wide">Confidential</h4>
+                  <p className="text-sm text-slate-800/60 font-medium">Safe, private, judgement-free sessions</p>
                 </div>
               </div>
             </div>

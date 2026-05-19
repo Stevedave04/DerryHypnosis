@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { X, BookOpen, CheckCircle2 } from 'lucide-react';
 
 interface EbookModalProps {
@@ -8,6 +8,8 @@ interface EbookModalProps {
 
 const EbookModal: React.FC<EbookModalProps> = ({ isOpen, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -18,9 +20,9 @@ const EbookModal: React.FC<EbookModalProps> = ({ isOpen, onClose }) => {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
-  // Reset success state when modal is reopened
+  // Reset state when modal is reopened
   useEffect(() => {
-    if (isOpen) setSubmitted(false);
+    if (isOpen) { setSubmitted(false); setIsSubmitting(false); }
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -87,14 +89,22 @@ const EbookModal: React.FC<EbookModalProps> = ({ isOpen, onClose }) => {
               Enter your details and we'll send it straight to you — no spam, ever.
             </p>
 
-            {/* Hidden iframe absorbs the native POST so the page doesn't navigate */}
-            <iframe name="ebook-frame" className="hidden" aria-hidden="true" title="form target" />
+            {/* Hidden iframe absorbs the native POST — onLoad fires when the
+                response arrives, which is more reliable than a fixed timeout */}
+            <iframe
+              ref={iframeRef}
+              name="ebook-frame"
+              className="hidden"
+              aria-hidden="true"
+              title="form target"
+              onLoad={() => { if (isSubmitting) setSubmitted(true); }}
+            />
 
             <form
               method="post"
               action="https://systeme.io/embedded/39207857/subscription"
               target="ebook-frame"
-              onSubmit={() => setTimeout(() => setSubmitted(true), 600)}
+              onSubmit={() => setIsSubmitting(true)}
               className="space-y-4"
             >
               <div className="grid grid-cols-2 gap-3">
@@ -135,9 +145,10 @@ const EbookModal: React.FC<EbookModalProps> = ({ isOpen, onClose }) => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gold hover:bg-gold-dark text-white font-bold py-3 px-6 rounded-xl transition-all shadow-lg hover:shadow-gold/30 transform hover:-translate-y-0.5"
+                disabled={isSubmitting}
+                className="w-full bg-gold hover:bg-gold-dark text-white font-bold py-3 px-6 rounded-xl transition-all shadow-lg hover:shadow-gold/30 transform hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Send Me the Free Ebook
+                {isSubmitting ? 'Sending…' : 'Send Me the Free Ebook'}
               </button>
             </form>
 

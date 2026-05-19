@@ -264,8 +264,9 @@ export const CONTACT_OPTIONS: ContactOption[] = [
   {
     title: "Clinic Visit",
     description: "Visit our professional, private clinic rooms at the Centre of Wellbeing in Derry.",
-    ctaText: "Find Us",
+    ctaText: "Get Directions",
     ctaUrl: "/contact",
+    externalUrl: "https://maps.google.com/?q=2-4+Foyle+Rd,+Londonderry+BT48+6AX",
     icon: "map"
   },
   {

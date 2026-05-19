@@ -30,6 +30,7 @@ export interface ContactOption {
   description: string;
   ctaText: string;
   ctaUrl: string;
+  externalUrl?: string;
   icon: 'phone' | 'map' | 'video' | 'calendar';
 }
 
