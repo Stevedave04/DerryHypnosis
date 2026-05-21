@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -15,6 +16,8 @@ import StopSmokingLanding from './components/StopSmokingLanding';
 import NotFound from './components/NotFound';
 import FloatingActions from './components/FloatingActions';
 import CookieBanner from './components/CookieBanner';
+import BlogList from './components/Blog/BlogList';
+import BlogPost from './components/Blog/BlogPost';
 import Footer from './components/Footer';
 
 // Scroll to top and trigger scroll-reveal animations on every route change
@@ -56,6 +59,7 @@ const ScrollToTop = () => {
 
 const App: React.FC = () => {
   return (
+    <HelmetProvider>
     <Router>
       <ScrollToTop />
       <div className="min-h-screen bg-white text-slate-800 font-body flex flex-col">
@@ -73,6 +77,8 @@ const App: React.FC = () => {
             <Route path="/useful-numbers" element={<UsefulNumbers />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
+            <Route path="/blog" element={<BlogList />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/stop-smoking" element={<StopSmokingLanding />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
@@ -80,6 +86,7 @@ const App: React.FC = () => {
         <Footer />
       </div>
     </Router>
+    </HelmetProvider>
   );
 };
 

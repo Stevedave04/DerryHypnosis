@@ -30,9 +30,10 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Home", url: "/" },
   { label: "About", url: "/about" },
   { label: "Services", url: "/services" },
+  { label: "Blog", url: "/blog" },
   { label: "Success Stories", url: "/testimonials" },
-  { 
-    label: "Contact", 
+  {
+    label: "Contact",
     url: "/contact",
     children: [
       { label: "Contact Us", url: "/contact" },
