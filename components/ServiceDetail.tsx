@@ -97,26 +97,44 @@ const ServiceDetail: React.FC = () => {
               </div>
             </div>
 
-            {/* Price & Action Box */}
+            {/* CTA Box */}
             <div className="bg-slate-900 text-white rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row justify-between items-center gap-12 shadow-premium relative overflow-hidden border-b-8 border-gold">
               <div className="absolute top-0 right-0 p-12 opacity-5">
                 <ShieldCheck size={160} />
               </div>
               <div className="relative z-10 text-center md:text-left">
-                <span className="text-gold font-bold uppercase tracking-[0.3em] text-[10px] mb-4 block">Investment in Yourself</span>
+                <span className="text-gold font-bold uppercase tracking-[0.3em] text-[10px] mb-4 block">Ready to Begin?</span>
                 <h3 className="font-heading text-3xl md:text-4xl font-bold mb-4">Start Your Transformation</h3>
-                <p className="font-body text-gray-400 mb-6 max-w-sm">Our specialised sessions are designed to be intensive, empowering, and life-changing.</p>
-                <div className="font-heading text-white text-4xl font-bold">{service.price}</div>
+                <p className="font-body text-gray-400 mb-6 max-w-sm leading-relaxed">
+                  Every programme is built around you — your goals, your timeline, and what will make the difference that lasts.
+                </p>
+                <div className="space-y-2">
+                  {[
+                    'Free 15-minute discovery call — no commitment',
+                    'Tracey will explain exactly what to expect',
+                    'Sessions tailored to your needs from day one',
+                  ].map(item => (
+                    <div key={item} className="flex items-center gap-2.5 text-sm text-gray-300">
+                      <CheckCircle2 size={15} className="text-gold flex-shrink-0" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="relative z-10">
-                <Link 
-                  to="/contact" 
-                  className="bg-gold hover:bg-gold-dark text-white font-bold py-6 px-12 rounded-full shadow-2xl transition-all hover:-translate-y-1 text-center whitespace-nowrap flex items-center gap-3 text-lg"
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <Link
+                  to="/contact"
+                  className="bg-gold hover:bg-gold-dark text-white font-bold py-5 px-12 rounded-full shadow-2xl transition-all hover:-translate-y-1 text-center whitespace-nowrap flex items-center gap-3"
                 >
-                  Book Online Today
-                  <ArrowRight size={20} />
+                  Book Free Discovery Call
+                  <ArrowRight size={18} />
                 </Link>
-                <p className="text-center text-[10px] text-gray-500 mt-4 uppercase tracking-widest">Free 15-Min Discovery Call Available</p>
+                <Link
+                  to="/contact"
+                  className="text-gray-400 hover:text-white text-xs font-bold uppercase tracking-[0.2em] transition-colors"
+                >
+                  Or book a session directly →
+                </Link>
               </div>
             </div>
           </div>
