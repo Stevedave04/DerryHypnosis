@@ -253,7 +253,7 @@ const BreathingApplet: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile tip cards — shown below xl where side panels are hidden */}
+          {/* Mobile tip cards, shown below xl where side panels are hidden */}
           <div className="xl:hidden w-full max-w-xl mx-auto mt-8 grid grid-cols-2 gap-4">
             {[
               { icon: <Brain size={18} />, title: "Neural Reset", body: "Equalising your breath rhythm manually overrides the brain's stress centre, inducing calm." },

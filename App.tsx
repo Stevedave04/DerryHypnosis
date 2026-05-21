@@ -19,7 +19,7 @@ import CookieBanner from './components/CookieBanner';
 import Footer from './components/Footer';
 
 // Lazy-load blog chunks so marked + DOMPurify only download when a visitor
-// navigates to /blog — keeps the main bundle lean for the home page.
+// navigates to /blog, keeping the main bundle lean for the home page.
 const BlogList = React.lazy(() => import('./components/Blog/BlogList'));
 const BlogPost = React.lazy(() => import('./components/Blog/BlogPost'));
 

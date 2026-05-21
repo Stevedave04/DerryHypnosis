@@ -106,11 +106,11 @@ const ServiceDetail: React.FC = () => {
                 <span className="text-gold font-bold uppercase tracking-[0.3em] text-[10px] mb-4 block">Ready to Begin?</span>
                 <h3 className="font-heading text-3xl md:text-4xl font-bold mb-4">Start Your Transformation</h3>
                 <p className="font-body text-gray-400 mb-6 max-w-sm leading-relaxed">
-                  Every programme is built around you — your goals, your timeline, and what will make the difference that lasts.
+                  Every programme is built around you: your goals, your timeline, and what will make the difference that lasts.
                 </p>
                 <div className="space-y-2">
                   {[
-                    'Free 15-minute discovery call — no commitment',
+                    'Free 15-minute discovery call, no commitment',
                     'Tracey will explain exactly what to expect',
                     'Sessions tailored to your needs from day one',
                   ].map(item => (

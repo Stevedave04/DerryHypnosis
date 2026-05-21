@@ -21,7 +21,7 @@ const BlogList: React.FC = () => {
         <title>Hypnotherapy Blog | Derry Hypnosis</title>
         <meta
           name="description"
-          content="Expert articles on hypnotherapy for weight loss, quitting smoking, anxiety, and more — from Tracey McGill, Clinical Hypnotherapist in Derry/Londonderry."
+          content="Expert articles on hypnotherapy for weight loss, quitting smoking, anxiety, and more, by Tracey McGill, Clinical Hypnotherapist in Derry/Londonderry."
         />
         <link rel="canonical" href="https://derryhypnosis.co.uk/blog" />
       </Helmet>
@@ -39,7 +39,7 @@ const BlogList: React.FC = () => {
               Hypnotherapy Insights
             </h1>
             <p className="font-body text-xl text-slate-800/60 leading-relaxed">
-              Evidence-based articles on the power of clinical hypnotherapy — written by Tracey McGill for the people of Derry/Londonderry.
+              Evidence-based articles on the power of clinical hypnotherapy, written by Tracey McGill for the people of Derry/Londonderry.
             </p>
           </div>
 
@@ -70,7 +70,7 @@ const BlogList: React.FC = () => {
           ) : (
             <div className="text-center py-24 text-slate-400">
               <BookOpen size={40} className="mx-auto mb-4 opacity-30" />
-              <p className="font-body">No articles in this category yet — check back soon.</p>
+              <p className="font-body">No articles in this category yet. Check back soon.</p>
             </div>
           )}
         </div>

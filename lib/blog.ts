@@ -16,7 +16,7 @@ export interface Post extends PostMeta {
   content: string;
 }
 
-// Simple frontmatter parser — handles the key: value pairs we use in posts.
+// Simple frontmatter parser. Handles the key: value pairs we use in posts.
 // Avoids a gray-matter dependency; adequate for author-controlled content.
 function parseFrontmatter(raw: string): { data: Record<string, unknown>; content: string } {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);

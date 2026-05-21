@@ -64,7 +64,7 @@ const EbookModal: React.FC<EbookModalProps> = ({ isOpen, onClose }) => {
               Ebook on its way!
             </h2>
             <p className="text-slate-500 text-sm mb-6 leading-relaxed">
-              Check your inbox — we've sent your free guide to quitting smoking with hypnotherapy.
+              Check your inbox. We've sent your free guide to quitting smoking with hypnotherapy.
             </p>
             <button
               onClick={onClose}
@@ -86,11 +86,11 @@ const EbookModal: React.FC<EbookModalProps> = ({ isOpen, onClose }) => {
               Free Quit Smoking Ebook
             </h2>
             <p className="text-slate-500 text-center text-sm mb-6">
-              Enter your details and we'll send it straight to you — no spam, ever.
+              Enter your details and we'll send it straight to you. No spam, ever.
             </p>
 
-            {/* Hidden iframe absorbs the native POST — onLoad fires when the
-                response arrives, which is more reliable than a fixed timeout */}
+            {/* Hidden iframe absorbs the native POST. onLoad fires when the
+                response arrives, which is more reliable than a fixed timeout. */}
             <iframe
               ref={iframeRef}
               name="ebook-frame"

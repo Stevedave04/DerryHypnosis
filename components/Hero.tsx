@@ -113,7 +113,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
       </div>
 
-      {/* Slide content — keyed so animations re-fire on each transition */}
+      {/* Slide content: keyed so animations re-fire on each transition */}
       <div className="container mx-auto px-6 relative z-10">
         <div key={currentIndex} className="max-w-3xl">
 
@@ -176,7 +176,7 @@ const Hero: React.FC = () => {
         ))}
       </div>
 
-      {/* Prev / Next arrows — visible on md+ */}
+      {/* Prev / Next arrows, visible on md+ */}
       <button
         onClick={prev}
         aria-label="Previous slide"

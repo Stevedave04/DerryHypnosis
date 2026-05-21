@@ -29,7 +29,7 @@ const Booking: React.FC = () => {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           ...values,
-          _subject: `New enquiry from ${values.name} — Derry Hypnosis`,
+          _subject: `New enquiry from ${values.name} | Derry Hypnosis`,
         }),
       });
       if (res.ok) {

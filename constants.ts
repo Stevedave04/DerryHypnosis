@@ -95,7 +95,7 @@ export const SERVICES: ServiceItem[] = [
     slug: "sleep-insomnia",
     title: "Deep Sleep & Insomnia",
     description: "Retrain your mind to fall asleep naturally and wake up feeling refreshed.",
-    longDescription: "Chronic sleep issues are often caused by an overactive mind that refuses to 'switch off' at night.\n\nOur sleep therapy helps you create a subconscious bridge to rest. We use deep relaxation techniques to clear the mental clutter of the day and install new, healthy sleep patterns. No more tossing and turning or relying on sleep aids—just natural, restorative rest.",
+    longDescription: "Chronic sleep issues are often caused by an overactive mind that refuses to 'switch off' at night.\n\nOur sleep therapy helps you create a subconscious bridge to rest. We use deep relaxation techniques to clear the mental clutter of the day and install new, healthy sleep patterns. No more tossing and turning or relying on sleep aids. Just natural, restorative rest.",
     benefits: [
       "Fall asleep faster and more consistently",
       "Eliminate middle-of-the-night wakefulness",
@@ -282,7 +282,7 @@ export const CONTACT_OPTIONS: ContactOption[] = [
 export const FAQS: FAQItem[] = [
   {
     question: "What actually happens during a hypnotherapy session?",
-    answer: "During a session, you will be guided into a state of deep physical and mental relaxation. While you are in this state, your subconscious mind becomes more receptive to positive suggestions and new ways of thinking. You remain fully aware and in control throughout the entire process—it's very much like a guided meditation but with specific therapeutic goals."
+    answer: "During a session, you will be guided into a state of deep physical and mental relaxation. While you are in this state, your subconscious mind becomes more receptive to positive suggestions and new ways of thinking. You remain fully aware and in control throughout the entire process. It's very much like a guided meditation but with specific therapeutic goals."
   },
   {
     question: "Can everyone be hypnotised?",

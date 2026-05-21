@@ -160,7 +160,7 @@ const StopSmokingLanding: React.FC = () => {
                 </div>
                 <p className="text-slate-700 text-lg italic mb-6">"{t.text}"</p>
                 <div className="flex items-center justify-between">
-                  <p className="font-bold text-teal">— {t.author}, {t.location}</p>
+                  <p className="font-bold text-teal">{t.author}, {t.location}</p>
                   {t.source === 'facebook' && (
                     <span className="text-[#1877F2] text-[10px] font-bold uppercase tracking-wider">Facebook</span>
                   )}
