@@ -16,9 +16,12 @@ import StopSmokingLanding from './components/StopSmokingLanding';
 import NotFound from './components/NotFound';
 import FloatingActions from './components/FloatingActions';
 import CookieBanner from './components/CookieBanner';
-import BlogList from './components/Blog/BlogList';
-import BlogPost from './components/Blog/BlogPost';
 import Footer from './components/Footer';
+
+// Lazy-load blog chunks so marked + DOMPurify only download when a visitor
+// navigates to /blog — keeps the main bundle lean for the home page.
+const BlogList = React.lazy(() => import('./components/Blog/BlogList'));
+const BlogPost = React.lazy(() => import('./components/Blog/BlogPost'));
 
 // Scroll to top and trigger scroll-reveal animations on every route change
 const ScrollToTop = () => {
@@ -77,8 +80,16 @@ const App: React.FC = () => {
             <Route path="/useful-numbers" element={<UsefulNumbers />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
-            <Route path="/blog" element={<BlogList />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/blog" element={
+              <React.Suspense fallback={<div className="min-h-screen bg-cream-light pt-40 flex items-center justify-center"><span className="text-teal/40 text-sm font-body">Loading…</span></div>}>
+                <BlogList />
+              </React.Suspense>
+            } />
+            <Route path="/blog/:slug" element={
+              <React.Suspense fallback={<div className="min-h-screen bg-white pt-40 flex items-center justify-center"><span className="text-teal/40 text-sm font-body">Loading…</span></div>}>
+                <BlogPost />
+              </React.Suspense>
+            } />
             <Route path="/stop-smoking" element={<StopSmokingLanding />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
