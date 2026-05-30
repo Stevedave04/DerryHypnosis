@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Calendar, Clock, ArrowLeft, ArrowRight, Award } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 import { getPostBySlug, renderMarkdown, formatDate } from '../../lib/blog';
 import { getBlogPostingSchema } from '../../lib/schema';
 import { SITE_INFO } from '../../constants';
@@ -109,9 +109,11 @@ const BlogPost: React.FC = () => {
 
             {/* Author bio */}
             <div className="bg-cream-light rounded-2xl p-6 flex gap-5 items-start mb-10">
-              <div className="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center flex-shrink-0">
-                <Award className="text-gold" size={24} />
-              </div>
+              <img
+                src="/images/Tracey-portrait.png"
+                alt={SITE_INFO.owner}
+                className="w-14 h-14 rounded-full object-cover object-[center_15%] flex-shrink-0"
+              />
               <div>
                 <p className="font-bold text-teal text-sm mb-1">{SITE_INFO.owner}</p>
                 <p className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2">

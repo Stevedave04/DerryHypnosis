@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 import { SITE_INFO } from '../constants';
 
 const About: React.FC = () => {
-  // Primary image source provided by the user.
-  const traceyPortrait = "https://www.image2url.com/r2/default/images/1779222757625-7d6d4e2e-c26a-4084-8e5d-685398d3952d.jpg";
-  const fallbackPortrait = "https://derryhypnosis.co.uk/Tracey-portrait.png";
+  const traceyPortrait = "/images/Tracey-portrait.png";
 
   return (
     <section className="py-24 bg-white overflow-hidden min-h-screen pt-40">
@@ -21,16 +19,10 @@ const About: React.FC = () => {
             <div className="relative z-10">
               <div className="absolute top-4 -left-4 w-full h-full border-2 border-cream rounded-2xl z-0 hidden md:block"></div>
               <div className="relative overflow-hidden rounded-3xl shadow-premium h-[450px] sm:h-[600px] lg:h-[800px] w-full bg-cream">
-                <img 
-                  src={traceyPortrait} 
-                  alt={`${SITE_INFO.owner} - Clinical Hypnotherapist`} 
+                <img
+                  src={traceyPortrait}
+                  alt={`${SITE_INFO.owner} - Clinical Hypnotherapist`}
                   className="w-full h-full object-cover object-[center_15%] transition-opacity duration-500"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    if (target.src !== fallbackPortrait) {
-                      target.src = fallbackPortrait;
-                    }
-                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-teal/40 via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white bg-gradient-to-t from-teal/80 to-transparent">
