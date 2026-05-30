@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { SITE_INFO } from '../constants';
 
 const About: React.FC = () => {
-  const traceyPortrait = "/images/Tracey-portrait.png";
+  const traceyPortrait = "/images/Tracey-portrait.jpg";
 
   return (
     <section className="py-24 bg-white overflow-hidden min-h-screen pt-40">

@@ -110,7 +110,7 @@ const BlogPost: React.FC = () => {
             {/* Author bio */}
             <div className="bg-cream-light rounded-2xl p-6 flex gap-5 items-start mb-10">
               <img
-                src="/images/Tracey-portrait.png"
+                src="/images/Tracey-portrait.jpg"
                 alt={SITE_INFO.owner}
                 className="w-14 h-14 rounded-full object-cover object-[center_15%] flex-shrink-0"
               />
