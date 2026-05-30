@@ -3,6 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, Clock, ArrowLeft, ArrowRight, Award } from 'lucide-react';
 import { getPostBySlug, renderMarkdown, formatDate } from '../../lib/blog';
+import { getBlogPostingSchema } from '../../lib/schema';
 import { SITE_INFO } from '../../constants';
 
 // Map blog category → closest service route
@@ -36,6 +37,8 @@ const BlogPost: React.FC = () => {
         <meta property="og:url" content={`https://derryhypnosis.co.uk/blog/${post.slug}`} />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:author" content={SITE_INFO.owner} />
+        {/* BlogPosting structured data: author attribution + entity recognition for AI systems */}
+        <script type="application/ld+json">{getBlogPostingSchema(post)}</script>
       </Helmet>
 
       <article className="bg-white min-h-screen pt-32 pb-24">

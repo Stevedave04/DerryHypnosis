@@ -29,7 +29,7 @@ This article is an honest look at the most common options, including their actua
 
 **How it works:** E-cigarettes deliver nicotine through vapour rather than smoke, removing most of the combustion-related chemicals associated with smoking-related disease.
 
-**What the evidence shows:** Vaping is more effective than NRT for helping people stop smoking combustible cigarettes. A 2019 New England Journal of Medicine study found that e-cigarettes led to abstinence from smoking at one year in about 18% of participants, compared to 9.9% for NRT.
+**What the evidence shows:** Vaping is more effective than NRT for helping people stop smoking combustible cigarettes. [A 2019 New England Journal of Medicine study](https://www.nejm.org/doi/10.1056/NEJMoa1808779) found that e-cigarettes led to abstinence from smoking at one year in about 18% of participants, compared to 9.9% for NRT.
 
 **The fundamental limitation:** Most people who switch to vaping remain dependent on nicotine. They have changed the delivery mechanism, not escaped the addiction. Vaping is also not without health risks. The long-term effects are not yet fully understood, and many people find it difficult to stop vaping once they have started.
 
@@ -49,9 +49,9 @@ For many people, vaping is a harm reduction step, not a cessation strategy.
 
 **What the evidence shows:** The evidence base for hypnotherapy and smoking cessation is more difficult to standardise than pharmaceutical trials, because hypnotherapy is not a uniform intervention. Quality, technique, and the therapeutic relationship vary significantly between practitioners.
 
-That said, a 2012 systematic review in the International Journal of Clinical and Experimental Hypnosis found that hypnotherapy compared favourably with behavioural counselling and NRT when delivered by skilled practitioners. Individual studies report abstinence rates at 12 months ranging from 20% to over 40%.
+That said, [a 2012 systematic review in the International Journal of Clinical and Experimental Hypnosis](https://pubmed.ncbi.nlm.nih.gov/22385349/) found that hypnotherapy compared favourably with behavioural counselling and NRT when delivered by skilled practitioners. Individual studies report abstinence rates at 12 months ranging from 20% to over 40%.
 
-A University of Iowa meta-analysis examining 633 studies on smoking cessation found hypnosis to be the single most effective cessation method, achieving an average success rate more than twice that of nicotine replacement alone.
+[A University of Iowa meta-analysis examining 633 studies on smoking cessation](https://pubmed.ncbi.nlm.nih.gov/1469611/) found hypnosis to be the single most effective cessation method, achieving an average success rate more than twice that of nicotine replacement alone.
 
 **Why it often works when other methods fail:** The key difference is that hypnotherapy addresses the *identity* and *psychology* of smoking, not just the biochemistry. Clients leave feeling like non-smokers, not smokers under strain, which is a fundamentally different and more stable outcome.
 

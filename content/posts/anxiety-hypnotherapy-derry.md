@@ -65,9 +65,9 @@ If you're unsure whether your experience fits any of these categories, don't wor
 
 ## What the Research Shows
 
-Hypnotherapy has a growing evidence base for anxiety treatment. A 2016 study from Stanford University showed that people in a hypnotic state display measurable changes in brain activity, particularly in areas related to self-consciousness and focus, that help explain why the intervention is effective for anxiety and stress.
+Hypnotherapy has a growing evidence base for anxiety treatment. [A 2016 study from Stanford University](https://med.stanford.edu/news/all-news/2016/07/study-identifies-brain-areas-altered-during-hypnotic-trances.html) showed that people in a hypnotic state display measurable changes in brain activity, particularly in areas related to self-consciousness and focus, that help explain why the intervention is effective for anxiety and stress.
 
-Meta-analyses have consistently shown that cognitive-behavioural therapy combined with hypnotherapy produces significantly better outcomes than CBT alone for anxiety disorders. The addition of hypnosis appears to accelerate and deepen the change.
+[Meta-analyses have consistently shown](https://pubmed.ncbi.nlm.nih.gov/7673546/) that cognitive-behavioural therapy combined with hypnotherapy produces significantly better outcomes than CBT alone for anxiety disorders. The addition of hypnosis appears to accelerate and deepen the change.
 
 ## A Note on Courage
 

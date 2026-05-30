@@ -13,7 +13,7 @@ readingTime: 7
 
 The diet industry is worth billions. And it depends on you failing.
 
-Research consistently shows that 95% of people who lose weight through dieting will regain it within five years, often ending up heavier than before. Yet we blame ourselves, assume we lack discipline, and buy the next programme.
+[Research consistently shows](https://pubmed.ncbi.nlm.nih.gov/17469900/) that 95% of people who lose weight through dieting will regain it within five years, often ending up heavier than before. Yet we blame ourselves, assume we lack discipline, and buy the next programme.
 
 The truth is simpler and more uncomfortable: diets don't work because they address what you eat, not *why* you eat.
 
