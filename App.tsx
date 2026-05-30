@@ -17,6 +17,7 @@ import NotFound from './components/NotFound';
 import FloatingActions from './components/FloatingActions';
 import CookieBanner from './components/CookieBanner';
 import Footer from './components/Footer';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Lazy-load blog chunks so marked + DOMPurify only download when a visitor
 // navigates to /blog, keeping the main bundle lean for the home page.
@@ -81,14 +82,32 @@ const App: React.FC = () => {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsAndConditions />} />
             <Route path="/blog" element={
-              <React.Suspense fallback={<div className="min-h-screen bg-cream-light pt-40 flex items-center justify-center"><span className="text-teal/40 text-sm font-body">Loading…</span></div>}>
-                <BlogList />
-              </React.Suspense>
+              <ErrorBoundary>
+                <React.Suspense fallback={
+                  <div className="min-h-screen bg-cream-light pt-40 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-8 h-8 border-2 border-teal/30 border-t-teal rounded-full animate-spin mx-auto mb-4" />
+                      <span className="text-teal/60 text-sm font-body">Loading articles…</span>
+                    </div>
+                  </div>
+                }>
+                  <BlogList />
+                </React.Suspense>
+              </ErrorBoundary>
             } />
             <Route path="/blog/:slug" element={
-              <React.Suspense fallback={<div className="min-h-screen bg-white pt-40 flex items-center justify-center"><span className="text-teal/40 text-sm font-body">Loading…</span></div>}>
-                <BlogPost />
-              </React.Suspense>
+              <ErrorBoundary>
+                <React.Suspense fallback={
+                  <div className="min-h-screen bg-white pt-40 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="w-8 h-8 border-2 border-teal/30 border-t-teal rounded-full animate-spin mx-auto mb-4" />
+                      <span className="text-teal/60 text-sm font-body">Loading article…</span>
+                    </div>
+                  </div>
+                }>
+                  <BlogPost />
+                </React.Suspense>
+              </ErrorBoundary>
             } />
             <Route path="/stop-smoking" element={<StopSmokingLanding />} />
             <Route path="*" element={<NotFound />} />

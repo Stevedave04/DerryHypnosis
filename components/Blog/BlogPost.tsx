@@ -5,6 +5,7 @@ import { Calendar, Clock, ArrowLeft, ArrowRight, Award } from 'lucide-react';
 import { getPostBySlug, renderMarkdown, formatDate } from '../../lib/blog';
 import { getBlogPostingSchema } from '../../lib/schema';
 import { SITE_INFO } from '../../constants';
+import JsonLd from '../JsonLd';
 
 // Map blog category → closest service route
 const CATEGORY_SERVICE: Record<string, { label: string; to: string }> = {
@@ -37,9 +38,9 @@ const BlogPost: React.FC = () => {
         <meta property="og:url" content={`https://derryhypnosis.co.uk/blog/${post.slug}`} />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:author" content={SITE_INFO.owner} />
-        {/* BlogPosting structured data: author attribution + entity recognition for AI systems */}
-        <script type="application/ld+json">{getBlogPostingSchema(post)}</script>
       </Helmet>
+      {/* BlogPosting structured data — inline to avoid Helmet script-child edge cases */}
+      <JsonLd schema={getBlogPostingSchema(post)} />
 
       <article className="bg-white min-h-screen pt-32 pb-24">
 
