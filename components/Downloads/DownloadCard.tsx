@@ -56,7 +56,7 @@ const DownloadCard: React.FC<DownloadCardProps> = ({ product }) => {
         {/* Footer: price + buy button */}
         <div className="flex items-center justify-between pt-4 border-t border-cream mt-auto gap-3">
           <span className="font-heading text-2xl font-bold text-teal">
-            £{product.price}
+            {product.price === 0 ? 'Free' : `£${product.price}`}
           </span>
           <a
             href={`https://payhip.com/b/${product.payhipCode}`}

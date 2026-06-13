@@ -280,7 +280,7 @@ export const DOWNLOAD_PRODUCTS: DownloadProduct[] = [
     title: 'From Smoker to Non-Smoker',
     subtitle: 'A guide by Tracey McGill',
     description: 'Understand what happens in your mind when you quit smoking for good. Clinical insights written by a practising hypnotherapist.',
-    price: 9.99,
+    price: 0,
     type: 'ebook',
     category: 'smoking',
     coverImage: '/images/downloads/smoker-book-cover.png',
