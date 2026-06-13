@@ -1,5 +1,5 @@
 
-import { NavItem, ServiceItem, TestimonialItem, ContactOption, FAQItem } from './types';
+import { NavItem, ServiceItem, TestimonialItem, ContactOption, FAQItem, DownloadProduct } from './types';
 
 export const SITE_INFO = {
   title: "Derry Hypnosis",
@@ -30,6 +30,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Home", url: "/" },
   { label: "About", url: "/about" },
   { label: "Services", url: "/services" },
+  { label: "Downloads", url: "/downloads" },
   { label: "Blog", url: "/blog" },
   { label: "Success Stories", url: "/testimonials" },
   {
@@ -231,8 +232,107 @@ export const TESTIMONIALS: TestimonialItem[] = [
 export const FOOTER_LINKS: { label: string; url: string }[] = [
   { label: 'About Us', url: '/about' },
   { label: 'Our Services', url: '/services' },
+  { label: 'Downloads', url: '/downloads' },
   { label: 'Success Stories', url: '/testimonials' },
   { label: 'Book Online', url: '/contact' },
+];
+
+export const DOWNLOAD_PRODUCTS: DownloadProduct[] = [
+  {
+    id: 'junk-food-cravings',
+    payhipCode: 'NFLo6',
+    title: 'Junk Food Cravings Hypnosis',
+    subtitle: 'Take control of your diet',
+    description: 'Feel more in command around food and experience a profound shift towards healthier choices. Reduce cravings and change your relationship with eating.',
+    price: 9.99,
+    type: 'audio',
+    duration: '30+ min',
+    category: 'weight',
+    coverImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop',
+    benefits: [
+      'Reduce urges for junk food naturally',
+      'Feel more in control around food',
+      'Shift towards healthier choices',
+    ],
+    available: true,
+  },
+  {
+    id: 'fear-of-judgement',
+    payhipCode: 'YuO2N',
+    title: 'Fear of Judgement Hypnosis',
+    subtitle: 'Reclaim your confidence',
+    description: 'Overcome the paralysing fear of others\' opinions. Develop an inner resilience and feel more comfortable and at ease in social or professional situations.',
+    price: 9.99,
+    type: 'audio',
+    duration: '30+ min',
+    category: 'anxiety',
+    coverImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop',
+    benefits: [
+      'Overcome fear of others\' opinions',
+      'Build inner resilience and self-worth',
+      'Feel at ease in social situations',
+    ],
+    available: true,
+  },
+  {
+    id: 'smoker-to-non-smoker',
+    payhipCode: '5a8jT',
+    title: 'From Smoker to Non-Smoker',
+    subtitle: 'A guide by Tracey McGill',
+    description: 'Understand what happens in your mind when you quit smoking for good. Clinical insights written by a practising hypnotherapist.',
+    price: 9.99,
+    type: 'ebook',
+    category: 'smoking',
+    coverImage: '/images/downloads/smoker-book-cover.png',
+    benefits: [
+      'Written by a clinical hypnotherapist',
+      'Understand the psychology of quitting',
+      'Practical insights to support your journey',
+    ],
+    available: true,
+  },
+  {
+    id: 'nervous-system-reset',
+    payhipCode: '',
+    title: 'Nervous System Reset',
+    subtitle: 'Deep calm and restoration',
+    description: 'A guided session to calm an overactive nervous system and restore a natural sense of safety and ease.',
+    price: 9.99,
+    type: 'audio',
+    duration: '30+ min',
+    category: 'anxiety',
+    coverImage: 'https://images.unsplash.com/photo-1602192509154-0b900ee1f851?q=80&w=800&auto=format&fit=crop',
+    benefits: [],
+    available: false,
+  },
+  {
+    id: 'boundary-shield',
+    payhipCode: '',
+    title: 'The Boundary Shield',
+    subtitle: 'Protect your energy',
+    description: 'Build strong personal boundaries and feel empowered to say no without guilt.',
+    price: 9.99,
+    type: 'audio',
+    duration: '30+ min',
+    category: 'confidence',
+    coverImage: 'https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=80&w=800&auto=format&fit=crop',
+    benefits: [],
+    available: false,
+  },
+  {
+    id: 'deep-sleep',
+    payhipCode: '',
+    title: 'Deep Sleep Hypnosis',
+    subtitle: 'Rest that restores',
+    description: 'Retrain your mind to fall asleep naturally, stay asleep, and wake feeling genuinely refreshed.',
+    price: 9.99,
+    type: 'audio',
+    duration: '30+ min',
+    category: 'sleep',
+    coverImage: 'https://images.unsplash.com/photo-1541480601022-2308c0f02487?q=80&w=800&auto=format&fit=crop',
+    benefits: [],
+    available: false,
+  },
 ];
 
 export const STOP_SMOKING_FAQS: FAQItem[] = [

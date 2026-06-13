@@ -12,6 +12,7 @@ import Booking from './components/Booking';
 import UsefulNumbers from './components/UsefulNumbers';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
+import Downloads from './components/Downloads/Downloads';
 import StopSmokingLanding from './components/StopSmokingLanding';
 import NotFound from './components/NotFound';
 import FloatingActions from './components/FloatingActions';
@@ -109,6 +110,7 @@ const App: React.FC = () => {
                 </React.Suspense>
               </ErrorBoundary>
             } />
+            <Route path="/downloads" element={<Downloads />} />
             <Route path="/stop-smoking" element={<StopSmokingLanding />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

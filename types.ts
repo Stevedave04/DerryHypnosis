@@ -38,3 +38,18 @@ export interface FAQItem {
   question: string;
   answer: string;
 }
+
+export interface DownloadProduct {
+  id: string;
+  payhipCode: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  price: number;
+  type: 'audio' | 'ebook';
+  duration?: string;
+  category: 'weight' | 'anxiety' | 'smoking' | 'sleep' | 'confidence' | 'general';
+  coverImage: string;
+  benefits: string[];
+  available: boolean;
+}
