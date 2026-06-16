@@ -4,26 +4,24 @@ import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Services from './components/Services';
-import ServiceDetail from './components/ServiceDetail';
-import About from './components/About';
-import Testimonials from './components/Testimonials';
-import Booking from './components/Booking';
-import UsefulNumbers from './components/UsefulNumbers';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import TermsAndConditions from './components/TermsAndConditions';
-import Downloads from './components/Downloads/Downloads';
-import StopSmokingLanding from './components/StopSmokingLanding';
-import NotFound from './components/NotFound';
+import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
 import CookieBanner from './components/CookieBanner';
-import Footer from './components/Footer';
 import ErrorBoundary from './components/ErrorBoundary';
+import NotFound from './components/NotFound';
 
-// Lazy-load blog chunks so marked + DOMPurify only download when a visitor
-// navigates to /blog, keeping the main bundle lean for the home page.
-const BlogList = React.lazy(() => import('./components/Blog/BlogList'));
-const BlogPost = React.lazy(() => import('./components/Blog/BlogPost'));
+const Services           = React.lazy(() => import('./components/Services'));
+const ServiceDetail      = React.lazy(() => import('./components/ServiceDetail'));
+const About              = React.lazy(() => import('./components/About'));
+const Testimonials       = React.lazy(() => import('./components/Testimonials'));
+const Booking            = React.lazy(() => import('./components/Booking'));
+const UsefulNumbers      = React.lazy(() => import('./components/UsefulNumbers'));
+const PrivacyPolicy      = React.lazy(() => import('./components/PrivacyPolicy'));
+const TermsAndConditions = React.lazy(() => import('./components/TermsAndConditions'));
+const Downloads          = React.lazy(() => import('./components/Downloads/Downloads'));
+const StopSmokingLanding = React.lazy(() => import('./components/StopSmokingLanding'));
+const BlogList           = React.lazy(() => import('./components/Blog/BlogList'));
+const BlogPost           = React.lazy(() => import('./components/Blog/BlogPost'));
 
 // Scroll to top and trigger scroll-reveal animations on every route change
 const ScrollToTop = () => {
@@ -72,48 +70,32 @@ const App: React.FC = () => {
         <FloatingActions />
         <CookieBanner />
         <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/:slug" element={<ServiceDetail />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/testimonials" element={<Testimonials standalone />} />
-            <Route path="/contact" element={<Booking />} />
-            <Route path="/useful-numbers" element={<UsefulNumbers />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<TermsAndConditions />} />
-            <Route path="/blog" element={
-              <ErrorBoundary>
-                <React.Suspense fallback={
-                  <div className="min-h-screen bg-cream-light pt-40 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-8 h-8 border-2 border-teal/30 border-t-teal rounded-full animate-spin mx-auto mb-4" />
-                      <span className="text-teal/60 text-sm font-body">Loading articles…</span>
-                    </div>
-                  </div>
-                }>
-                  <BlogList />
-                </React.Suspense>
-              </ErrorBoundary>
-            } />
-            <Route path="/blog/:slug" element={
-              <ErrorBoundary>
-                <React.Suspense fallback={
-                  <div className="min-h-screen bg-white pt-40 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-8 h-8 border-2 border-teal/30 border-t-teal rounded-full animate-spin mx-auto mb-4" />
-                      <span className="text-teal/60 text-sm font-body">Loading article…</span>
-                    </div>
-                  </div>
-                }>
-                  <BlogPost />
-                </React.Suspense>
-              </ErrorBoundary>
-            } />
-            <Route path="/downloads" element={<Downloads />} />
-            <Route path="/stop-smoking" element={<StopSmokingLanding />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <React.Suspense fallback={
+            <div className="min-h-screen bg-cream-light pt-40 flex items-center justify-center">
+              <div className="w-8 h-8 border-2 border-teal/30 border-t-teal rounded-full animate-spin mx-auto" />
+            </div>
+          }>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/:slug" element={<ServiceDetail />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/testimonials" element={<Testimonials standalone />} />
+              <Route path="/contact" element={<Booking />} />
+              <Route path="/useful-numbers" element={<UsefulNumbers />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
+              <Route path="/terms" element={<TermsAndConditions />} />
+              <Route path="/blog" element={
+                <ErrorBoundary><BlogList /></ErrorBoundary>
+              } />
+              <Route path="/blog/:slug" element={
+                <ErrorBoundary><BlogPost /></ErrorBoundary>
+              } />
+              <Route path="/downloads" element={<Downloads />} />
+              <Route path="/stop-smoking" element={<StopSmokingLanding />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </React.Suspense>
         </main>
         <Footer />
       </div>

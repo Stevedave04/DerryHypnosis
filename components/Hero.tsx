@@ -105,6 +105,7 @@ const Hero: React.FC = () => {
               alt=""
               className="w-full h-full object-cover"
               loading={i === 0 ? 'eager' : 'lazy'}
+              fetchPriority={i === 0 ? 'high' : 'auto'}
               aria-hidden="true"
             />
           </div>

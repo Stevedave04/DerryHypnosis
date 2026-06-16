@@ -5,7 +5,7 @@ date: "2025-06-15"
 category: "General"
 excerpt: "IBS controlling your daily life? Gut-directed hypnotherapy is recognised by NICE as an option for IBS when other treatments have not helped. Here is what the evidence says."
 metaDescription: "IBS controlling your daily life? Gut-directed hypnotherapy is recognised by NICE as an option for IBS when other treatments have not helped. Here is what the evidence says."
-ogImage: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Irritable_bowel_syndrome.jpg"
+ogImage: "/images/blog/ibs-gut-brain.webp"
 readingTime: 7
 ---
 

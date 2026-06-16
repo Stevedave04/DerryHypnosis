@@ -12,5 +12,16 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, '.'),
     }
-  }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+          'vendor-ui': ['@heroui/react', 'framer-motion'],
+          'vendor-helmet': ['react-helmet-async'],
+        },
+      },
+    },
+  },
 });
