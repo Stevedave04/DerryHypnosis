@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const SLIDES = [
   {
-    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=75&w=1200&h=800&fm=webp&fit=crop",
     badge: "Professional Clinical Hypnotherapy",
     headline: "Unlock the Power of",
     highlight: "Your Mind.",
@@ -13,7 +13,7 @@ const SLIDES = [
     secondary: { label: "Explore Services", to: "/services" },
   },
   {
-    image: "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?q=80&w=1920&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?q=75&w=1200&h=800&fm=webp&fit=crop",
     badge: "Anxiety & Stress Relief",
     headline: "Release What No Longer",
     highlight: "Serves You.",
@@ -22,7 +22,7 @@ const SLIDES = [
     secondary: { label: "Anxiety Relief", to: "/services/anxiety-stress" },
   },
   {
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=75&w=1200&h=800&fm=webp&fit=crop",
     badge: "Weight Loss & Smoking Cessation",
     headline: "A Fresh Start",
     highlight: "Begins Here.",
@@ -31,7 +31,7 @@ const SLIDES = [
     secondary: { label: "Success Stories", to: "/testimonials" },
   },
   {
-    image: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=80&w=1920&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=75&w=1200&h=800&fm=webp&fit=crop",
     badge: "Meet Tracey McGill",
     headline: "Your Best Life",
     highlight: "Is Waiting.",
@@ -44,6 +44,12 @@ const SLIDES = [
 const Hero: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [loadedIndices, setLoadedIndices] = useState<Set<number>>(() => new Set([0]));
+
+  useEffect(() => {
+    const nextIdx = (currentIndex + 1) % SLIDES.length;
+    setLoadedIndices(prev => prev.has(nextIdx) ? prev : new Set([...prev, nextIdx]));
+  }, [currentIndex]);
   const indicatorRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const goTo = useCallback((index: number) => {
@@ -100,14 +106,16 @@ const Hero: React.FC = () => {
             }`}
             aria-hidden={i !== currentIndex}
           >
-            <img
-              src={s.image}
-              alt=""
-              className="w-full h-full object-cover"
-              loading={i === 0 ? 'eager' : 'lazy'}
-              fetchPriority={i === 0 ? 'high' : 'auto'}
-              aria-hidden="true"
-            />
+            {loadedIndices.has(i) && (
+              <img
+                src={s.image}
+                alt=""
+                className="w-full h-full object-cover"
+                loading="eager"
+                fetchPriority={i === 0 ? 'high' : 'auto'}
+                aria-hidden="true"
+              />
+            )}
           </div>
         ))}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/75 via-slate-900/45 to-transparent" />
