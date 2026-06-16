@@ -62,7 +62,7 @@ const Booking: React.FC = () => {
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block animate-reveal">Take the First Step</span>
           <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6 animate-reveal stagger-1">Connect With Us</h1>
           <p className="font-body text-xl text-slate-800/60 leading-relaxed max-w-2xl mx-auto animate-reveal stagger-2">
-            Ready to reclaim control? Send us a message and Tracey will be in touch within 24 hours.
+            Most people find the discovery call easier than they expected. There is no pressure and no commitment: just a straightforward conversation about what you want to change and whether hypnotherapy is the right fit. Tracey replies within 24 hours.
           </p>
         </div>
 

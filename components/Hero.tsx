@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 const SLIDES = [
   {
     image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=75&w=1200&h=800&fm=webp&fit=crop",
-    badge: "Professional Clinical Hypnotherapy",
-    headline: "Unlock the Power of",
-    highlight: "Your Mind.",
-    body: "Break free from old habits and limiting beliefs. Specialised clinical hypnotherapy for Weight Loss, Smoking Cessation, and Anxiety in Derry.",
-    primary: { label: "Start Your Journey", to: "/contact" },
-    secondary: { label: "Explore Services", to: "/services" },
+    badge: "Clinical Hypnotherapy | Derry/Londonderry",
+    headline: "What if the habit you've been fighting",
+    highlight: "wasn't a willpower problem?",
+    body: "Hypnotherapy works where willpower can't: directly with the subconscious patterns driving your behaviour. Trusted by clients across Derry, Donegal, and online.",
+    primary: { label: "Book Your Free Discovery Call", to: "/contact" },
+    secondary: { label: "See What's Possible", to: "/services" },
   },
   {
     image: "https://images.unsplash.com/photo-1505144808419-1957a94ca61e?q=75&w=1200&h=800&fm=webp&fit=crop",
@@ -36,7 +36,7 @@ const SLIDES = [
     headline: "Your Best Life",
     highlight: "Is Waiting.",
     body: "Tracey's proven clinical methods help you rewire the beliefs that hold you back, so you can step fully into the person you were always meant to be.",
-    primary: { label: "Start Your Journey", to: "/contact" },
+    primary: { label: "Book Your Free Discovery Call", to: "/contact" },
     secondary: { label: "Meet Tracey", to: "/about" },
   },
 ];
