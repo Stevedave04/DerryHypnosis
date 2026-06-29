@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Lost to Smoking | Derry Hypnosis</title>
+<style>
+  :root {
+    --ink: #1F2A2E;
+    --ink-soft: #4A5A5F;
+    --paper: #F6F4EF;
+    --panel: #FFFFFF;
+    --line: #DCD7CC;
+    --sage: #6E8B7A;
+    --sage-deep: #4F6B5C;
+    --clay: #C97B5A;
+    --clay-soft: #F1E2DA;
+    --sky: #7C97A3;
+    --sky-soft: #E4ECEE;
+    --shadow: rgba(31, 42, 46, 0.08);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+
+  h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .sub {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: var(--ink-soft);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px;
+    box-shadow: 0 4px 24px var(--shadow);
+  }
+
+  .form-card { margin-bottom: 28px; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .grid { grid-template-columns: 1fr; }
+    .card { padding: 24px; }
+  }
+
+  label {
+    display: block;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    margin-bottom: 6px;
+  }
+
+  .field { margin-bottom: 4px; }
+
+  input {
+    width: 100%;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    padding: 11px 13px;
+    border: 1.5px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+    color: var(--ink);
+    transition: border-color 0.15s ease;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--sage);
+  }
+
+  .hint {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 5px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  button {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.15s ease;
+  }
+
+  button:active { transform: scale(0.98); }
+
+  .btn-primary {
+    background: var(--sage-deep);
+    color: #fff;
+    flex: 1;
+  }
+
+  .btn-primary:hover { background: #3D584B; }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink-soft);
+    border: 1.5px solid var(--line);
+  }
+
+  .btn-secondary:hover { border-color: var(--sage); color: var(--sage-deep); }
+
+  #error {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    color: var(--clay);
+    margin-top: 14px;
+    display: none;
+  }
+
+  #results { display: none; }
+
+  .result-name {
+    text-align: center;
+    font-size: 17px;
+    color: var(--ink-soft);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin-bottom: 28px;
+  }
+
+  .result-name strong { color: var(--ink); }
+
+  .hero-stat {
+    text-align: center;
+    background: var(--sage);
+    background: linear-gradient(160deg, var(--sage) 0%, var(--sage-deep) 100%);
+    border-radius: 14px;
+    padding: 40px 24px;
+    color: #fff;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 28px rgba(79, 107, 92, 0.25);
+  }
+
+  .hero-label {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 10px;
+  }
+
+  .hero-number {
+    font-size: clamp(48px, 9vw, 76px);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 6px;
+    font-family: 'Iowan Old Style', Georgia, serif;
+  }
+
+  .hero-caption {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 700px) {
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .stat-box {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 14px;
+    text-align: center;
+  }
+
+  .stat-box .num {
+    font-size: 26px;
+    color: var(--sage-deep);
+    margin-bottom: 4px;
+  }
+
+  .stat-box .lbl {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+
+  .breakdown {
+    border-top: 1px solid var(--line);
+    padding-top: 22px;
+  }
+
+  .breakdown h3 {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--sage-deep);
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  .row:last-child { border-bottom: none; }
+
+  .row .label { color: var(--ink-soft); font-size: 14px; }
+  .row .value { font-size: 16px; font-weight: 600; color: var(--ink); font-family: 'Iowan Old Style', Georgia, serif; }
+
+  .reframe {
+    margin-top: 24px;
+    background: var(--clay-soft);
+    border-left: 3px solid var(--clay);
+    border-radius: 0 8px 8px 0;
+    padding: 18px 20px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .reframe strong { color: var(--clay); }
+
+  footer {
+    text-align: center;
+    margin-top: 32px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+
+  @media print {
+    body { background: #fff; }
+    .form-card, .actions, footer { display: none; }
+    .card { box-shadow: none; border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Derry Hypnosis · Session Tool</p>
+    <h1>Time lost to smoking</h1>
+    <p class="sub">A simple picture of the hours a habit has quietly taken.</p>
+  </header>
+
+  <div class="card form-card">
+    <div class="grid">
+      <div class="field">
+        <label for="name">Client name</label>
+        <input type="text" id="name" placeholder="e.g. John">
+      </div>
+      <div class="field">
+        <label for="age">Current age</label>
+        <input type="number" id="age" placeholder="e.g. 50" min="1" max="120">
+      </div>
+      <div class="field">
+        <label for="startAge">Age started smoking</label>
+        <input type="number" id="startAge" placeholder="e.g. 20" min="1" max="120">
+      </div>
+      <div class="field">
+        <label for="perDay">Cigarettes per day</label>
+        <input type="number" id="perDay" placeholder="e.g. 20" min="1" max="200">
+      </div>
+      <div class="field">
+        <label for="minsEach">Minutes per cigarette</label>
+        <input type="number" id="minsEach" placeholder="e.g. 5" min="1" max="60" step="0.5">
+        <p class="hint">Time spent stopping to smoke it, on average.</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" onclick="calculate()">Calculate</button>
+      <button class="btn-secondary" onclick="resetForm()">Reset</button>
+    </div>
+
+    <p id="error"></p>
+  </div>
+
+  <div id="results">
+    <p class="result-name"><strong id="outName">Client</strong> has spent the following on smoking</p>
+
+    <div class="hero-stat">
+      <div class="hero-label">Total time spent smoking</div>
+      <div class="hero-number" id="heroYears">0</div>
+      <div class="hero-caption" id="heroCaption">years of life, lit cigarette in hand</div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="num" id="statYears">0</div>
+        <div class="lbl">Years smoking</div>
+      </div>
+      <div class="stat-box">
+        <div class="num" id="statTotal">0</div>
+        <div class="lbl">Cigarettes smoked</div>
+      </div>
+      <div class="stat-box">
+        <div class="num" id="statDays">0</div>
+        <div class="lbl">Days of time</div>
+      </div>
+      <div class="stat-box">
+        <div class="num" id="statHours">0</div>
+        <div class="lbl">Hours of time</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="breakdown">
+        <h3>How this was worked out</h3>
+        <div class="row"><span class="label">Years smoking</span><span class="value" id="rowYears"></span></div>
+        <div class="row"><span class="label">Cigarettes per year</span><span class="value" id="rowPerYear"></span></div>
+        <div class="row"><span class="label">Total cigarettes</span><span class="value" id="rowTotalCigs"></span></div>
+        <div class="row"><span class="label">Total minutes</span><span class="value" id="rowMinutes"></span></div>
+        <div class="row"><span class="label">Total hours</span><span class="value" id="rowHours"></span></div>
+        <div class="row"><span class="label">Total days</span><span class="value" id="rowDays"></span></div>
+        <div class="row"><span class="label">Total years</span><span class="value" id="rowYearsFinal"></span></div>
+      </div>
+
+      <div class="reframe" id="reframeBox"></div>
+    </div>
+  </div>
+
+  <footer>Derry Hypnosis &middot; for use in session, not a medical or financial calculation</footer>
+</div>
+
+<script>
+function calculate() {
+  const errorBox = document.getElementById('error');
+  errorBox.style.display = 'none';
+
+  const name = document.getElementById('name').value.trim() || 'This client';
+  const age = parseFloat(document.getElementById('age').value);
+  const startAge = parseFloat(document.getElementById('startAge').value);
+  const perDay = parseFloat(document.getElementById('perDay').value);
+  const minsEach = parseFloat(document.getElementById('minsEach').value);
+
+  if ([age, startAge, perDay, minsEach].some(v => isNaN(v) || v <= 0)) {
+    errorBox.textContent = 'Please fill in all fields with numbers greater than zero.';
+    errorBox.style.display = 'block';
+    document.getElementById('results').style.display = 'none';
+    return;
+  }
+
+  if (startAge >= age) {
+    errorBox.textContent = 'Age started smoking must be less than current age.';
+    errorBox.style.display = 'block';
+    document.getElementById('results').style.display = 'none';
+    return;
+  }
+
+  const yearsSmoking = age - startAge;
+  const cigsPerYear = perDay * 365;
+  const totalCigs = yearsSmoking * cigsPerYear;
+  const totalMinutes = totalCigs * minsEach;
+  const totalHours = totalMinutes / 60;
+  const totalDays = totalHours / 24;
+  const totalYears = totalDays / 365;
+
+  const fmt = (n) => Math.round(n).toLocaleString('en-GB');
+  const fmtDec = (n, d) => n.toLocaleString('en-GB', { maximumFractionDigits: d });
+
+  document.getElementById('outName').textContent = name;
+  document.getElementById('heroYears').textContent = fmtDec(totalYears, 2);
+  document.getElementById('heroCaption').textContent =
+    `${fmtDec(totalDays, 1)} days, lit cigarette in hand`;
+
+  document.getElementById('statYears').textContent = fmt(yearsSmoking);
+  document.getElementById('statTotal').textContent = fmt(totalCigs);
+  document.getElementById('statDays').textContent = fmtDec(totalDays, 1);
+  document.getElementById('statHours').textContent = fmt(totalHours);
+
+  document.getElementById('rowYears').textContent =
+    `${age} − ${startAge} = ${fmt(yearsSmoking)} years`;
+  document.getElementById('rowPerYear').textContent =
+    `${perDay} × 365 = ${fmt(cigsPerYear)}`;
+  document.getElementById('rowTotalCigs').textContent =
+    `${fmt(yearsSmoking)} × ${fmt(cigsPerYear)} = ${fmt(totalCigs)}`;
+  document.getElementById('rowMinutes').textContent =
+    `${fmt(totalCigs)} × ${minsEach} min = ${fmt(totalMinutes)} min`;
+  document.getElementById('rowHours').textContent =
+    `${fmt(totalMinutes)} ÷ 60 = ${fmt(totalHours)} hrs`;
+  document.getElementById('rowDays').textContent =
+    `${fmt(totalHours)} ÷ 24 = ${fmtDec(totalDays, 1)} days`;
+  document.getElementById('rowYearsFinal').textContent =
+    `${fmtDec(totalDays, 1)} ÷ 365 = ${fmtDec(totalYears, 4)} years`;
+
+  document.getElementById('reframeBox').innerHTML =
+    `<strong>${fmtDec(totalYears, 2)} years.</strong> That is time ${name === 'This client' ? 'spent' : name + ' spent'} standing outside, waiting for a cigarette to burn down, that could have gone anywhere else.`;
+
+  document.getElementById('results').style.display = 'block';
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function resetForm() {
+  document.querySelectorAll('input').forEach(i => i.value = '');
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('error').style.display = 'none';
+}
+
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') calculate();
+  });
+});
+</script>
+
+</body>
+</html>
