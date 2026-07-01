@@ -2,29 +2,8 @@
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
-    <!-- GA Consent Mode v2: must run before gtag.js loads -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        wait_for_update: 500
-      });
-      // Restore consent for returning visitors before GA script executes
-      if (localStorage.getItem('dh_cookie_consent') === 'accepted') {
-        gtag('consent', 'update', { analytics_storage: 'granted' });
-      }
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0F1PBT4FD1"></script>
-    <script>
-      gtag('js', new Date());
-      gtag('config', 'G-0F1PBT4FD1');
-    </script>
+    <!-- GA Consent Mode v2 + dynamic script loading (CSP hash-compatible) -->
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});if(localStorage.getItem('dh_cookie_consent')==='accepted'){gtag('consent','update',{analytics_storage:'granted'});}(function(){var ga=document.createElement('script');ga.async=true;ga.src='https://www.googletagmanager.com/gtag/js?id=G-0F1PBT4FD1';document.head.appendChild(ga);document.addEventListener('DOMContentLoaded',function(){var fl=document.querySelector('link[as="style"]');if(fl)fl.rel='stylesheet';var ph=document.createElement('script');ph.src='https://payhip.com/payhip.js';document.body.appendChild(ph);});})();gtag('js',new Date());gtag('config','G-0F1PBT4FD1');</script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,12 +39,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://eaph.ie">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"></noscript>
   </head>
   <body>
     <div id="root"></div>
-    <script src="https://payhip.com/payhip.js" type="text/javascript" defer></script>
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
