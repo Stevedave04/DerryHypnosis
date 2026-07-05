@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { trackEvent } from '../lib/analytics';
 
 const SLIDES = [
   {
@@ -17,7 +18,7 @@ const SLIDES = [
     badge: "Anxiety & Stress Relief",
     headline: "Release What No Longer",
     highlight: "Serves You.",
-    body: "Discover a life free from anxiety, chronic stress, and self-doubt. Clinical techniques that calm the nervous system and create lasting inner peace.",
+    body: "You stop dreading the things you used to cancel. You walk into the room. You stay. Clinical techniques that calm the nervous system at the level where anxiety actually lives.",
     primary: { label: "Book a Free Call", to: "/contact" },
     secondary: { label: "Anxiety Relief", to: "/services/anxiety-stress" },
   },
@@ -27,15 +28,15 @@ const SLIDES = [
     headline: "A Fresh Start",
     highlight: "Begins Here.",
     body: "Lose weight for good, quit smoking in a single session, or finally sleep soundly again. Lasting change starts in the subconscious mind.",
-    primary: { label: "View Our Services", to: "/services" },
-    secondary: { label: "Success Stories", to: "/testimonials" },
+    primary: { label: "Book Your Free Discovery Call", to: "/contact" },
+    secondary: { label: "View Our Services", to: "/services" },
   },
   {
     image: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?q=75&w=1200&h=800&fm=webp&fit=crop",
     badge: "Meet Tracey McGill",
-    headline: "Your Best Life",
-    highlight: "Is Waiting.",
-    body: "Tracey's proven clinical methods help you rewire the beliefs that hold you back, so you can step fully into the person you were always meant to be.",
+    headline: "The Change You Gave Up On",
+    highlight: "Is Still Possible.",
+    body: "Clients describe it the same way: one day they notice the craving, the dread, the old script is simply not running anymore. Tracey's clinical methods work where willpower never could.",
     primary: { label: "Book Your Free Discovery Call", to: "/contact" },
     secondary: { label: "Meet Tracey", to: "/about" },
   },
@@ -144,6 +145,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-wrap gap-4 animate-hero-reveal hero-stagger-3">
             <Link
               to={slide.primary.to}
+              onClick={() => trackEvent('cta_click', { location: `hero_slide_${currentIndex + 1}`, label: slide.primary.label })}
               className="bg-gold hover:bg-gold-dark text-white font-bold py-4 px-9 rounded-full transition-all shadow-2xl hover:shadow-gold/40 flex items-center gap-3 transform hover:-translate-y-0.5 active:translate-y-0"
             >
               {slide.primary.label}

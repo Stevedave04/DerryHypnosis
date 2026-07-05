@@ -58,7 +58,8 @@ export const SERVICES: ServiceItem[] = [
     ],
     price: "",
     icon: "flower",
-    category: "weight"
+    category: "weight",
+    stakes: "Another diet that fights the symptom will end the way the last one did. The pattern underneath stays untouched."
   },
   {
     slug: "quit-smoking",
@@ -74,7 +75,8 @@ export const SERVICES: ServiceItem[] = [
     ],
     price: "",
     icon: "wind",
-    category: "smoking"
+    category: "smoking",
+    stakes: "Every month of waiting is another month of money spent and health traded for a habit you already want rid of."
   },
   {
     slug: "anxiety-stress",
@@ -90,7 +92,8 @@ export const SERVICES: ServiceItem[] = [
     ],
     price: "",
     icon: "waves",
-    category: "anxiety"
+    category: "anxiety",
+    stakes: "Untreated anxiety tends to narrow life slowly. The things you avoid grow. The life you want shrinks."
   },
   {
     slug: "sleep-insomnia",
@@ -106,7 +109,8 @@ export const SERVICES: ServiceItem[] = [
     ],
     price: "",
     icon: "waves",
-    category: "general"
+    category: "general",
+    stakes: "Every poor night compounds: focus, mood, and health all pay for it the next day."
   },
   {
     slug: "phobia-release",
@@ -122,7 +126,8 @@ export const SERVICES: ServiceItem[] = [
     ],
     price: "",
     icon: "sun",
-    category: "general"
+    category: "general",
+    stakes: "A phobia rarely shrinks on its own. Every avoided flight, lift, or room quietly teaches your brain the fear was justified."
   },
   {
     slug: "ibs-management",
@@ -138,7 +143,8 @@ export const SERVICES: ServiceItem[] = [
     ],
     price: "",
     icon: "flower",
-    category: "general"
+    category: "general",
+    stakes: "Living around IBS means planning your days around it. The longer that continues, the smaller your world gets."
   },
   {
     slug: "public-speaking",
@@ -154,7 +160,8 @@ export const SERVICES: ServiceItem[] = [
     ],
     price: "",
     icon: "sun",
-    category: "general"
+    category: "general",
+    stakes: "Every declined presentation and dodged speech is a door quietly closing. The fear does not fade with avoidance. It settles in."
   },
   {
     slug: "sports-performance",
@@ -170,7 +177,8 @@ export const SERVICES: ServiceItem[] = [
     ],
     price: "",
     icon: "sun",
-    category: "general"
+    category: "general",
+    stakes: "Talent that loses to nerves on the day stays unrewarded. The gap between training and competition does not close by itself."
   }
 ];
 
@@ -420,30 +428,30 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "Do you offer sessions online or only in person?",
-    answer: "We offer both! We have professional clinical rooms in Derry/Londonderry for face-to-face sessions. We also provide highly effective online sessions via secure video calls, which many clients find more convenient and relaxing as they can be in the comfort of their own homes."
+    answer: "I offer both! I have professional clinical rooms in Derry/Londonderry for face-to-face sessions, and I also provide highly effective online sessions via secure video calls, which many clients find more convenient and relaxing as they can be in the comfort of their own homes."
   },
   {
     question: "Is hypnotherapy safe for children?",
-    answer: "Yes, hypnotherapy is very safe and often highly effective for children and teenagers. They usually have great imaginations, which makes the process very natural for them. We work with young people on issues like exam stress, confidence, and habit breaking. All practitioners at Derry Hypnosis are fully vetted."
+    answer: "Yes, hypnotherapy is very safe and often highly effective for children and teenagers. They usually have great imaginations, which makes the process very natural for them. I work with young people on issues like exam stress, confidence, and habit breaking, and I am fully accredited and vetted."
   },
   {
     question: "How should I prepare for my first session?",
-    answer: "There isn't much formal preparation needed. We recommend wearing comfortable clothing and ensuring you are in a relatively quiet frame of mind. If your session is online, please ensure you have a private space where you won't be interrupted and a stable internet connection. Most importantly, bring an open mind and a genuine desire for change."
+    answer: "There isn't much formal preparation needed. I recommend wearing comfortable clothing and ensuring you are in a relatively quiet frame of mind. If your session is online, please ensure you have a private space where you won't be interrupted and a stable internet connection. Most importantly, bring an open mind and a genuine desire for change."
   },
   {
     question: "Can I drive straight after a hypnotherapy session?",
-    answer: "Yes, absolutely. While hypnotherapy involves deep relaxation, it is not a state of sleep or sedation. Once the session is concluded, we use a 're-alerting' process to ensure you are fully awake, alert, and grounded. You will feel calm but entirely capable of driving and continuing with your normal daily activities."
+    answer: "Yes, absolutely. While hypnotherapy involves deep relaxation, it is not a state of sleep or sedation. Once the session is concluded, I use a 're-alerting' process to ensure you are fully awake, alert, and grounded. You will feel calm but entirely capable of driving and continuing with your normal daily activities."
   },
   {
     question: "What if I have an 'analytical' mind that won't switch off?",
-    answer: "Many of our clients are high-achievers with very active, analytical minds. You don't need to 'stop thinking' for hypnotherapy to work. In fact, we can use that mental energy as part of the process. We use specific techniques designed to bypass the critical conscious mind, allowing the therapeutic suggestions to reach the subconscious regardless of how busy your thoughts feel."
+    answer: "Many of my clients are high-achievers with very active, analytical minds. You don't need to 'stop thinking' for hypnotherapy to work. In fact, I can use that mental energy as part of the process. I use specific techniques designed to bypass the critical conscious mind, allowing the therapeutic suggestions to reach the subconscious regardless of how busy your thoughts feel."
   },
   {
     question: "Are the results of hypnotherapy permanent?",
-    answer: "Hypnotherapy aims for long-term transformation by changing the subconscious 'blueprints' that drive your behaviour. Once a new, healthier perspective is fully integrated, it typically becomes your new 'normal'. We also provide you with self-hypnosis tools and techniques to maintain and reinforce your results long after our sessions have finished."
+    answer: "Hypnotherapy aims for long-term transformation by changing the subconscious 'blueprints' that drive your behaviour. Once a new, healthier perspective is fully integrated, it typically becomes your new 'normal'. I also provide you with self-hypnosis tools and techniques to maintain and reinforce your results long after our sessions have finished."
   },
   {
     question: "Do you offer evening or weekend appointments in Derry?",
-    answer: "We understand that many of our clients have busy work and family schedules. To accommodate this, we offer a limited number of evening and weekend slots at our Foyle Road clinic. We recommend booking these well in advance as they are our most popular times. You can check current availability through our online booking system."
+    answer: "I understand that many of my clients have busy work and family schedules. To accommodate this, I offer a limited number of evening and weekend slots at the Foyle Road clinic. I recommend booking these well in advance as they are the most popular times. Just mention your preferred times when you get in touch."
   }
 ];

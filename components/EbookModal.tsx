@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { X, BookOpen, CheckCircle2 } from 'lucide-react';
+import { trackEvent } from '../lib/analytics';
 
 interface EbookModalProps {
   isOpen: boolean;
@@ -97,7 +98,12 @@ const EbookModal: React.FC<EbookModalProps> = ({ isOpen, onClose }) => {
               className="hidden"
               aria-hidden="true"
               title="form target"
-              onLoad={() => { if (isSubmitting) setSubmitted(true); }}
+              onLoad={() => {
+                if (isSubmitting) {
+                  setSubmitted(true);
+                  trackEvent('ebook_signup', { ebook: 'smoker-to-non-smoker' });
+                }
+              }}
             />
 
             <form

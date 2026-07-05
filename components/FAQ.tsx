@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FAQS, SITE_INFO } from '../constants';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
 
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -22,15 +23,24 @@ const FAQ: React.FC = () => {
               <span className="italic font-medium text-teal-light">Questions.</span>
             </h2>
             <p className="font-body text-lg text-slate-800/60 leading-relaxed mb-8">
-              We want you to feel completely comfortable and informed before starting your journey with us.
+              Everything you might be wondering before your first session, answered honestly.
             </p>
             <div className="bg-cream-light p-6 rounded-2xl border border-cream">
               <div className="flex items-center gap-3 mb-3 text-teal">
                 <HelpCircle size={20} className="text-gold" />
                 <h4 className="font-bold text-sm uppercase tracking-wider">Need more help?</h4>
               </div>
-              <p className="text-sm text-slate-800/70 mb-4">If your question isn't answered here, feel free to reach out to us directly.</p>
-              <a href={`mailto:${SITE_INFO.email}`} className="text-teal font-bold text-sm hover:text-gold transition-colors">Contact Tracey McGill</a>
+              <p className="text-sm text-slate-800/70 mb-5">If your question isn't answered here, the easiest way to get an answer is a quick, free chat with Tracey.</p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white font-bold text-xs uppercase tracking-[0.15em] py-3 px-6 rounded-full transition-all shadow-md mb-4"
+              >
+                Book Your Free Discovery Call <ArrowRight size={14} />
+              </Link>
+              <p className="text-xs text-slate-800/50">
+                Or email{' '}
+                <a href={`mailto:${SITE_INFO.email}`} className="text-teal font-semibold hover:text-gold transition-colors">{SITE_INFO.email}</a>
+              </p>
             </div>
           </div>
 

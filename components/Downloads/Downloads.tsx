@@ -36,11 +36,11 @@ const Downloads: React.FC = () => {
               Instant Download &nbsp;&middot;&nbsp; Professional Grade &nbsp;&middot;&nbsp; 30+ Min Sessions
             </span>
             <h1 className="font-heading text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.05]">
-              Take Your Journey <br />
-              <span className="italic font-medium text-gold text-4xl md:text-6xl">Further.</span>
+              Change That Continues <br />
+              <span className="italic font-medium text-gold text-4xl md:text-6xl">Between Sessions.</span>
             </h1>
             <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
-              Professional hypnotherapy sessions crafted by Tracey McGill. Listen at home, at your own pace, as many times as you need.
+              Keep reinforcing the shift at home, at your own pace, as many times as you need. Professional hypnotherapy sessions crafted by Tracey McGill.
             </p>
 
             {/* Trust row */}

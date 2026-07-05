@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { CONTACT_OPTIONS, SITE_INFO, SERVICES, FORM_ENDPOINT } from '../constants';
 import { Phone, MapPin, Video, Calendar, ShieldCheck, Mail, ArrowRight, Star, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { trackEvent } from '../lib/analytics';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -34,6 +35,7 @@ const Booking: React.FC = () => {
       });
       if (res.ok) {
         setFormState('success');
+        trackEvent('generate_lead', { method: 'contact_form', service: values.service || 'unspecified' });
         setValues({ name: '', email: '', phone: '', service: '', message: '' });
       } else {
         setFormState('error');
@@ -63,6 +65,9 @@ const Booking: React.FC = () => {
           <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6 animate-reveal stagger-1">Connect With Us</h1>
           <p className="font-body text-xl text-slate-800/60 leading-relaxed max-w-2xl mx-auto animate-reveal stagger-2">
             Most people find the discovery call easier than they expected. There is no pressure and no commitment: just a straightforward conversation about what you want to change and whether hypnotherapy is the right fit. Tracey replies within 24 hours.
+          </p>
+          <p className="font-body text-sm text-gold-dark font-semibold mt-4 animate-reveal stagger-2">
+            Evening and weekend slots are limited and tend to book first. If you need one, mention it in your message.
           </p>
         </div>
 
@@ -147,7 +152,7 @@ const Booking: React.FC = () => {
                 <div className="p-6 bg-cream-light border-b border-cream flex items-center justify-between">
                   <div>
                     <h3 className="font-heading text-lg font-bold text-teal">Send a Message</h3>
-                    <p className="text-[11px] text-slate-800/40 font-body mt-0.5">We reply within 24 hours</p>
+                    <p className="text-[11px] text-slate-800/40 font-body mt-0.5">Tracey replies within 24 hours</p>
                   </div>
                   <div className="flex gap-0.5 text-gold">
                     {[1, 2, 3, 4, 5].map(i => <Star key={i} size={12} fill="currentColor" />)}
@@ -235,7 +240,7 @@ const Booking: React.FC = () => {
                     <div className="flex items-start gap-3 text-red-700 bg-red-50 p-4 rounded-xl border border-red-100">
                       <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
                       <p className="text-sm font-medium">
-                        Something went wrong. Please email us directly at{' '}
+                        Something went wrong. Please email Tracey directly at{' '}
                         <a href={`mailto:${SITE_INFO.email}`} className="underline">{SITE_INFO.email}</a>
                       </p>
                     </div>

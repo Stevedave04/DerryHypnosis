@@ -4,6 +4,7 @@ import { Menu, X, Mail, Calendar, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { NAV_ITEMS } from '../constants';
 import Logo from './Logo';
+import { trackEvent } from '../lib/analytics';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -107,6 +108,7 @@ const Navbar: React.FC = () => {
             </Link>
             <Link
               to="/contact"
+              onClick={() => trackEvent('cta_click', { location: 'navbar', label: 'Get in Touch' })}
               className={`font-body font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg flex items-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0 ${
                 isTransparent
                   ? 'bg-white text-teal hover:bg-cream-light'
@@ -183,9 +185,10 @@ const Navbar: React.FC = () => {
           })}
           <Link
             to="/contact"
+            onClick={() => trackEvent('cta_click', { location: 'mobile_menu', label: 'Book Your Free Discovery Call' })}
             className="bg-gold text-white font-bold py-4 px-12 rounded-full text-xl shadow-xl transform transition-all hover:scale-105 active:scale-95 mt-8"
           >
-            Start Your Journey
+            Book Your Free Discovery Call
           </Link>
         </div>
       </div>

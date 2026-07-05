@@ -81,7 +81,7 @@ const About: React.FC = () => {
               to="/contact" 
               className="bg-teal hover:bg-teal-dark text-white font-bold py-5 px-12 rounded-full transition-all shadow-xl inline-block transform hover:-translate-y-1"
             >
-              Start Your Journey With Me
+              Book Your Free Discovery Call
             </Link>
           </div>
         </div>

@@ -3,6 +3,7 @@ import React from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { SERVICES, TESTIMONIALS, SERVICE_IMAGES } from '../constants';
 import { CheckCircle2, Quote, Star, ArrowLeft, ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
+import { trackEvent } from '../lib/analytics';
 
 const ServiceDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -97,6 +98,12 @@ const ServiceDetail: React.FC = () => {
               </div>
             </div>
 
+            {service.stakes && (
+              <p className="font-body text-lg text-slate-800/70 italic text-center max-w-2xl mx-auto mb-10">
+                {service.stakes}
+              </p>
+            )}
+
             {/* CTA Box */}
             <div className="bg-slate-900 text-white rounded-[3rem] p-10 md:p-16 flex flex-col md:flex-row justify-between items-center gap-12 shadow-premium relative overflow-hidden border-b-8 border-gold">
               <div className="absolute top-0 right-0 p-12 opacity-5">
@@ -124,6 +131,7 @@ const ServiceDetail: React.FC = () => {
               <div className="relative z-10 flex flex-col items-center gap-4">
                 <Link
                   to="/contact"
+                  onClick={() => trackEvent('cta_click', { location: `service_${service.slug}`, label: 'Book Free Discovery Call' })}
                   className="bg-gold hover:bg-gold-dark text-white font-bold py-5 px-12 rounded-full shadow-2xl transition-all hover:-translate-y-1 text-center whitespace-nowrap flex items-center gap-3"
                 >
                   Book Free Discovery Call

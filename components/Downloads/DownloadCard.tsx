@@ -1,6 +1,7 @@
 import React from 'react';
 import { CheckCircle2, Headphones, BookOpen, ShoppingBag } from 'lucide-react';
 import type { DownloadProduct } from '../../types';
+import { trackEvent } from '../../lib/analytics';
 
 interface DownloadCardProps {
   product: DownloadProduct;
@@ -63,6 +64,7 @@ const DownloadCard: React.FC<DownloadCardProps> = ({ product }) => {
             className="payhip-buy-button inline-flex items-center gap-2 bg-teal hover:bg-teal-dark text-white font-bold text-sm py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-md flex-shrink-0"
             data-theme="none"
             data-product={product.payhipCode}
+            onClick={() => trackEvent('begin_checkout', { item_id: product.id, value: product.price, currency: 'GBP' })}
           >
             Buy Now <ShoppingBag size={14} />
           </a>

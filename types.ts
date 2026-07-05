@@ -14,6 +14,7 @@ export interface ServiceItem {
   price: string;
   icon: 'flower' | 'wind' | 'waves' | 'sun';
   category: 'weight' | 'smoking' | 'anxiety' | 'general';
+  stakes?: string;
 }
 
 export interface TestimonialItem {

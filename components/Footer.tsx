@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-heading text-2xl font-bold mb-6 text-gold">{SITE_INFO.title}</h3>
             <p className="text-gray-400 font-body mb-6">
-              Specialised clinical hypnotherapy serving Derry/Londonderry. Helping you achieve lasting positive change.
+              Most people who struggle with habits or anxiety have tried the obvious solutions. Derry Hypnosis works with the subconscious mind, where those patterns actually live, so change lasts.
             </p>
             <div className="flex gap-4">
               <a
