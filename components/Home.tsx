@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import Hero from './Hero';
 import MindfulnessTeaser from './MindfulnessTeaser';
 import BreathingApplet from './BreathingApplet';
@@ -9,6 +9,9 @@ import FAQ from './FAQ';
 import Booking from './Booking';
 import { getOrganizationSchema, getPersonSchema, getFAQSchema } from '../lib/schema';
 import JsonLd from './JsonLd';
+
+// Lazy so the blog bundle (post content, markdown pipeline) never lands in the home chunk
+const LatestPosts = React.lazy(() => import('./Blog/LatestPosts'));
 
 const Home: React.FC = () => {
   return (
@@ -51,6 +54,10 @@ const Home: React.FC = () => {
 
       <Testimonials />
       <FAQ />
+
+      <Suspense fallback={null}>
+        <LatestPosts />
+      </Suspense>
 
       {/* Failure line — one sentence before the final CTA */}
       <p className="text-center font-body text-sm text-slate-800/50 italic pb-2 px-6">

@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
-import { getPostBySlug, renderMarkdown, formatDate } from '../../lib/blog';
+import { getPostBySlug, getAllPosts, renderMarkdown, formatDate } from '../../lib/blog';
+import BlogCard from './BlogCard';
 import { getBlogPostingSchema } from '../../lib/schema';
 import { SITE_INFO } from '../../constants';
 import JsonLd from '../JsonLd';
@@ -24,6 +25,13 @@ const BlogPost: React.FC = () => {
 
   const html = renderMarkdown(post.content);
   const service = CATEGORY_SERVICE[post.category] ?? CATEGORY_SERVICE.General;
+
+  // Up to 3 related posts: same category first, then latest others
+  const others = getAllPosts().filter(p => p.slug !== post.slug);
+  const related = [
+    ...others.filter(p => p.category === post.category),
+    ...others.filter(p => p.category !== post.category),
+  ].slice(0, 3);
 
   return (
     <>
@@ -153,6 +161,20 @@ const BlogPost: React.FC = () => {
             </div>
 
           </div>
+
+          {/* Related posts */}
+          {related.length > 0 && (
+            <div className="max-w-5xl mx-auto mt-20">
+              <h2 className="font-heading text-2xl font-bold text-teal mb-8 text-center">
+                Keep Reading
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {related.map(p => (
+                  <BlogCard key={p.slug} post={p} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </article>
     </>
