@@ -36,7 +36,7 @@ const BlogPost: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>{post.title} | Derry Hypnosis</title>
+        <title>{`${post.title} | Derry Hypnosis`}</title>
         <meta name="description" content={post.metaDescription} />
         <link rel="canonical" href={`https://derryhypnosis.co.uk/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
