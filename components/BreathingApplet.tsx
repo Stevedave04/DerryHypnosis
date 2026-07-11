@@ -183,10 +183,12 @@ const BreathingApplet: React.FC = () => {
                   stroke="currentColor"
                   strokeWidth="8"
                   strokeLinecap="round"
-                  className={`transition-all duration-1000 linear ${phaseIndex % 2 === 0 ? 'text-teal' : 'text-gold'}`}
+                  className={`transition-all duration-1000 ease-linear ${phaseIndex % 2 === 0 ? 'text-teal' : 'text-gold'}`}
                   style={{
-                    strokeDasharray: '289%', 
-                    strokeDashoffset: isActive ? 289 - (289 * (4 - secondsLeft + 1) / 4) : 289,
+                    strokeDasharray: '289%',
+                    // Offset must share the same unit basis as dasharray (percentage),
+                    // otherwise the ring only sweeps a fraction of the circle.
+                    strokeDashoffset: isActive ? `${289 - (289 * (4 - secondsLeft + 1) / 4)}%` : '289%',
                   }}
                 />
               </svg>
