@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -22,6 +22,23 @@ const Downloads          = React.lazy(() => import('./components/Downloads/Downl
 const StopSmokingLanding = React.lazy(() => import('./components/StopSmokingLanding'));
 const BlogList           = React.lazy(() => import('./components/Blog/BlogList'));
 const BlogPost           = React.lazy(() => import('./components/Blog/BlogPost'));
+
+const BASE_URL = 'https://derryhypnosis.co.uk';
+
+// Single source of truth for the canonical URL, derived from the current path.
+// Set only here (per-route canonicals are intentionally omitted) because Helmet
+// does not dedupe <link> tags, so a global + per-route canonical would duplicate.
+// Descriptions stay per-route; routes without one let search engines generate it.
+const DefaultSeo = () => {
+  const { pathname } = useLocation();
+  const path = pathname === '/' ? '' : pathname.replace(/\/$/, '');
+
+  return (
+    <Helmet>
+      <link rel="canonical" href={`${BASE_URL}${path}`} />
+    </Helmet>
+  );
+};
 
 // Scroll to top and trigger scroll-reveal animations on every route change
 const ScrollToTop = () => {
@@ -64,6 +81,7 @@ const App: React.FC = () => {
   return (
     <HelmetProvider>
     <Router>
+      <DefaultSeo />
       <ScrollToTop />
       <div className="min-h-screen bg-white text-slate-800 font-body flex flex-col">
         <Navbar />

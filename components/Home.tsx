@@ -1,5 +1,6 @@
 
 import React, { Suspense } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Hero from './Hero';
 import BreathingApplet from './BreathingApplet';
 import Services from './Services';
@@ -15,6 +16,9 @@ const LatestPosts = React.lazy(() => import('./Blog/LatestPosts'));
 const Home: React.FC = () => {
   return (
     <div className="flex flex-col">
+      <Helmet>
+        <meta name="description" content="Clinical hypnotherapy in Derry/Londonderry with Tracey McGill. Specialising in weight loss, quit smoking, anxiety relief, sleep, and more. Book a free 15-minute discovery call today." />
+      </Helmet>
       {/* Structured data: rendered inline so it never conflicts with Helmet head management */}
       <JsonLd schema={getOrganizationSchema()} />
       <JsonLd schema={getPersonSchema()} />

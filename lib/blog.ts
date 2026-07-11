@@ -56,6 +56,44 @@ export function getPostBySlug(slug: string): Post | undefined {
   return getAllPosts().find(p => p.slug === slug);
 }
 
+// Pull question/answer pairs out of a post's "Frequently Asked Questions"
+// section (an H2 whose text contains "Frequently Asked Questions", followed by
+// H3 questions each trailed by their answer paragraphs). Returns [] when absent,
+// so FAQPage schema is only emitted for posts that actually have an FAQ.
+export function extractFaqs(content: string): { question: string; answer: string }[] {
+  const faqs: { question: string; answer: string }[] = [];
+  let inFaqSection = false;
+  let question: string | null = null;
+  let answerLines: string[] = [];
+
+  const flush = () => {
+    if (question && answerLines.length > 0) {
+      faqs.push({ question, answer: answerLines.join(' ').trim() });
+    }
+    question = null;
+    answerLines = [];
+  };
+
+  for (const line of content.split('\n')) {
+    if (/^##\s/.test(line)) {
+      // Top-level heading: enter the FAQ section, or leave it for any other H2.
+      flush();
+      inFaqSection = /frequently asked questions/i.test(line);
+      continue;
+    }
+    if (!inFaqSection) continue;
+    if (/^###\s/.test(line)) {
+      flush();
+      question = line.replace(/^###\s+/, '').trim();
+    } else if (question && line.trim()) {
+      answerLines.push(line.trim());
+    }
+  }
+  flush();
+
+  return faqs;
+}
+
 export function renderMarkdown(content: string): string {
   const html = marked(content, { gfm: true }) as string;
   return DOMPurify.sanitize(html);

@@ -2,9 +2,9 @@ import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
-import { getPostBySlug, getAllPosts, renderMarkdown, formatDate } from '../../lib/blog';
+import { getPostBySlug, getAllPosts, renderMarkdown, formatDate, extractFaqs } from '../../lib/blog';
 import BlogCard from './BlogCard';
-import { getBlogPostingSchema } from '../../lib/schema';
+import { getBlogPostingSchema, getFAQSchema } from '../../lib/schema';
 import { SITE_INFO } from '../../constants';
 import JsonLd from '../JsonLd';
 
@@ -25,6 +25,7 @@ const BlogPost: React.FC = () => {
 
   const html = renderMarkdown(post.content);
   const service = CATEGORY_SERVICE[post.category] ?? CATEGORY_SERVICE.General;
+  const faqs = extractFaqs(post.content);
 
   // Up to 3 related posts: same category first, then latest others
   const others = getAllPosts().filter(p => p.slug !== post.slug);
@@ -38,7 +39,6 @@ const BlogPost: React.FC = () => {
       <Helmet>
         <title>{`${post.title} | Derry Hypnosis`}</title>
         <meta name="description" content={post.metaDescription} />
-        <link rel="canonical" href={`https://derryhypnosis.co.uk/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.metaDescription} />
@@ -49,6 +49,7 @@ const BlogPost: React.FC = () => {
       </Helmet>
       {/* BlogPosting structured data — inline to avoid Helmet script-child edge cases */}
       <JsonLd schema={getBlogPostingSchema(post)} />
+      {faqs.length > 0 && <JsonLd schema={getFAQSchema(faqs)} />}
 
       <article className="bg-white min-h-screen pt-32 pb-24">
 

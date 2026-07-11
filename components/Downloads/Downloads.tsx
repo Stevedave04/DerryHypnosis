@@ -17,7 +17,6 @@ const Downloads: React.FC = () => {
           name="description"
           content="Professional hypnotherapy audio sessions and guides by Tracey McGill EAPH. Instant download, listen anywhere, return to download any time."
         />
-        <link rel="canonical" href="https://derryhypnosis.co.uk/downloads" />
         <meta property="og:title" content="Downloads | Derry Hypnosis" />
         <meta property="og:description" content="Professional hypnotherapy sessions by Tracey McGill. Instant download, listen anywhere." />
         <meta property="og:url" content="https://derryhypnosis.co.uk/downloads" />

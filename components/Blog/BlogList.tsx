@@ -23,7 +23,6 @@ const BlogList: React.FC = () => {
           name="description"
           content="Expert articles on hypnotherapy for weight loss, quitting smoking, anxiety, and more, by Tracey McGill, Clinical Hypnotherapist in Derry/Londonderry."
         />
-        <link rel="canonical" href="https://derryhypnosis.co.uk/blog" />
       </Helmet>
 
       <section className="py-24 bg-cream-light min-h-screen pt-40">
