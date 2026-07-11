@@ -98,7 +98,7 @@ const BreathingApplet: React.FC = () => {
             <span className="italic font-medium text-teal-light">Tactical Box Breathing.</span>
           </h2>
           <p className="font-body text-xl text-slate-800/60 leading-relaxed">
-            A high-performance technique to recalibrate your nervous system. Used by clinical practitioners and elite teams to achieve instant clarity and calm.
+            A high-performance technique to recalibrate your nervous system, used by clinical practitioners and elite teams to achieve instant clarity and calm. A perfect companion to your hypnotherapy journey.
           </p>
         </div>
 

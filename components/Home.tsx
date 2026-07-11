@@ -1,7 +1,6 @@
 
 import React, { Suspense } from 'react';
 import Hero from './Hero';
-import MindfulnessTeaser from './MindfulnessTeaser';
 import BreathingApplet from './BreathingApplet';
 import Services from './Services';
 import Testimonials from './Testimonials';
@@ -21,7 +20,6 @@ const Home: React.FC = () => {
       <JsonLd schema={getPersonSchema()} />
       <JsonLd schema={getFAQSchema()} />
       <Hero />
-      <MindfulnessTeaser />
       <BreathingApplet />
       <Services preview />
 
