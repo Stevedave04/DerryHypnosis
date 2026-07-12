@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { TESTIMONIALS } from '../constants';
 import { Star } from 'lucide-react';
 
@@ -30,6 +31,11 @@ const Testimonials: React.FC<{ standalone?: boolean }> = ({ standalone }) => {
 
   return (
     <section className={`${standalone ? 'pt-40 pb-24' : 'py-24'} bg-white`}>
+      {standalone && (
+        <Helmet>
+          <meta name="description" content="Real client success stories from Derry Hypnosis. See how clinical hypnotherapy with Tracey McGill helped people quit smoking, lose weight and ease anxiety." />
+        </Helmet>
+      )}
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Client Success</span>

@@ -1,11 +1,15 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FileText, Scale, AlertCircle, Clock } from 'lucide-react';
 import { SITE_INFO } from '../constants';
 
 const TermsAndConditions: React.FC = () => {
   return (
     <div className="pt-32 pb-24 min-h-screen bg-cream-light">
+      <Helmet>
+        <meta name="description" content="Terms and conditions for clinical hypnotherapy services provided by Tracey McGill at Derry Hypnosis, Derry/Londonderry." />
+      </Helmet>
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="bg-white rounded-[3xl] shadow-premium p-8 md:p-16">
           <header className="mb-12 border-b border-cream pb-8">

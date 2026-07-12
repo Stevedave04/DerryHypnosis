@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { SERVICES, TESTIMONIALS, SERVICE_IMAGES } from '../constants';
 import { CheckCircle2, Quote, Star, ArrowLeft, ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
@@ -19,6 +20,9 @@ const ServiceDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <meta name="description" content={`${service.description} Clinical hypnotherapy in Derry/Londonderry with Tracey McGill.`} />
+      </Helmet>
       {/* Immersive Hero Section with Service Image */}
       <section className="relative h-[65vh] flex items-center overflow-hidden bg-teal">
         {/* Background Image */}

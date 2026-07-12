@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Award, Heart, ShieldCheck, CheckCircle2, Star, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SITE_INFO } from '../constants';
@@ -9,6 +10,9 @@ const About: React.FC = () => {
 
   return (
     <section className="py-24 bg-white overflow-hidden min-h-screen pt-40">
+      <Helmet>
+        <meta name="description" content="Meet Tracey McGill, accredited clinical hypnotherapist in Derry/Londonderry. Combining neuroscience with clinical hypnotherapy for lasting, meaningful change." />
+      </Helmet>
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 mb-32">
           {/* Portrait Column */}

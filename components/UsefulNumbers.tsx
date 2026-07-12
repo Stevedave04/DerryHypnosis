@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Search, Phone, ExternalLink, AlertTriangle, Clock, Filter, Info, Heart, ShieldAlert } from 'lucide-react';
 
 const helplines = [
@@ -266,6 +267,9 @@ const UsefulNumbers: React.FC = () => {
 
   return (
     <div className="pt-32 pb-24 min-h-screen bg-cream-light">
+      <Helmet>
+        <meta name="description" content="Useful mental health, crisis and support helpline numbers for Derry/Londonderry and Northern Ireland, compiled by Derry Hypnosis." />
+      </Helmet>
       <div className="container mx-auto px-6">
         
         {/* Header Section */}

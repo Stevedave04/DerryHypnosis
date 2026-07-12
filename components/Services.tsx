@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { SERVICES, SERVICE_IMAGES } from '../constants';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -13,6 +14,11 @@ const Services: React.FC<ServicesProps> = ({ preview = false }) => {
 
   return (
     <section className={`py-24 bg-cream-light ${!preview ? 'pt-40' : ''}`}>
+      {!preview && (
+        <Helmet>
+          <meta name="description" content="Clinical hypnotherapy in Derry/Londonderry: weight loss, quit smoking, anxiety, sleep, phobias, IBS, public speaking and more, with Tracey McGill." />
+        </Helmet>
+      )}
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mb-16">
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Our Expertise</span>

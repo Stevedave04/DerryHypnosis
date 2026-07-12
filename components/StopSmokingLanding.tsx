@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { CheckCircle, Clock, ShieldCheck, ArrowRight, XCircle, BookOpen, Star } from 'lucide-react';
 import EbookModal from './EbookModal';
@@ -9,6 +10,9 @@ const StopSmokingLanding: React.FC = () => {
 
   return (
     <div className="font-body text-slate-800 bg-white">
+      <Helmet>
+        <meta name="description" content="Stop smoking in one session with clinical hypnotherapy at Derry Hypnosis. Become a calm, confident non-smoker, with a free quit smoking ebook to start." />
+      </Helmet>
       <EbookModal isOpen={ebookOpen} onClose={() => setEbookOpen(false)} />
 
       {/* Hero Section */}

@@ -1,13 +1,15 @@
 
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { CONTACT_OPTIONS, SITE_INFO, SERVICES, FORM_ENDPOINT } from '../constants';
 import { Phone, MapPin, Video, Calendar, ShieldCheck, Mail, ArrowRight, Star, AlertCircle, CheckCircle2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { trackEvent } from '../lib/analytics';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
 const Booking: React.FC = () => {
+  const { pathname } = useLocation();
   const [formState, setFormState] = useState<FormState>('idle');
   const [values, setValues] = useState({
     name: '',
@@ -59,6 +61,11 @@ const Booking: React.FC = () => {
 
   return (
     <section id="contact-form" className="py-24 bg-cream-light min-h-screen pt-40">
+      {pathname === '/contact' && (
+        <Helmet>
+          <meta name="description" content="Book a free 15-minute discovery call with Tracey McGill at Derry Hypnosis. Clinical hypnotherapy in Derry/Londonderry and online, with a reply within 24 hours." />
+        </Helmet>
+      )}
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block animate-reveal">Take the First Step</span>
