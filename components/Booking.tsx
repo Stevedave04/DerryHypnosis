@@ -60,14 +60,14 @@ const Booking: React.FC = () => {
     'w-full px-4 py-3 rounded-xl border border-cream bg-cream-light focus:outline-none focus:ring-2 focus:ring-teal/30 focus:border-teal font-body text-sm transition-all placeholder:text-slate-400';
 
   return (
-    <section id="contact-form" className="py-24 bg-cream-light min-h-screen pt-40">
+    <section id="contact-form" className="py-24 bg-cream-light min-h-screen pt-32">
       {pathname === '/contact' && (
         <Helmet>
           <meta name="description" content="Book a free 15-minute discovery call with Tracey McGill at Derry Hypnosis. Clinical hypnotherapy in Derry/Londonderry and online, with a reply within 24 hours." />
         </Helmet>
       )}
       <div className="container mx-auto px-6">
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-10">
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block animate-reveal">Take the First Step</span>
           <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6 animate-reveal stagger-1">Connect With Us</h1>
           <p className="font-body text-xl text-slate-800/60 leading-relaxed max-w-2xl mx-auto animate-reveal stagger-2">
