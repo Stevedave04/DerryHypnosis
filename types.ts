@@ -53,4 +53,5 @@ export interface DownloadProduct {
   coverImage: string;
   benefits: string[];
   available: boolean;
+  featured?: boolean;
 }

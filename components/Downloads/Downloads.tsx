@@ -6,19 +6,21 @@ import { DOWNLOAD_PRODUCTS } from '../../constants';
 import DownloadCard from './DownloadCard';
 
 const Downloads: React.FC = () => {
-  const available = DOWNLOAD_PRODUCTS.filter(p => p.available);
+  // Featured (free) product leads the grid with the strongest visual weight
+  const available = [...DOWNLOAD_PRODUCTS.filter(p => p.available)]
+    .sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
   const comingSoon = DOWNLOAD_PRODUCTS.filter(p => !p.available);
 
   return (
     <>
       <Helmet>
-        <title>Downloads | Derry Hypnosis</title>
+        <title>Hypnosis Audio Downloads MP3 | Derry Hypnosis</title>
         <meta
           name="description"
-          content="Professional hypnotherapy audio sessions and guides by Tracey McGill EAPH. Instant download, listen anywhere, return to download any time."
+          content="Guided hypnosis MP3 downloads from clinical hypnotherapist Tracey McGill. Self esteem, confidence, quit smoking, cravings and relaxation from £9.99."
         />
-        <meta property="og:title" content="Downloads | Derry Hypnosis" />
-        <meta property="og:description" content="Professional hypnotherapy sessions by Tracey McGill. Instant download, listen anywhere." />
+        <meta property="og:title" content="Hypnosis Audio Downloads MP3 | Derry Hypnosis" />
+        <meta property="og:description" content="Guided hypnosis MP3 downloads from clinical hypnotherapist Tracey McGill. Instant download, listen anywhere." />
         <meta property="og:url" content="https://derryhypnosis.co.uk/downloads" />
       </Helmet>
 
@@ -35,11 +37,13 @@ const Downloads: React.FC = () => {
               Instant Download &nbsp;&middot;&nbsp; Professional Grade &nbsp;&middot;&nbsp; 30+ Min Sessions
             </span>
             <h1 className="font-heading text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.05]">
-              Change That Continues <br />
-              <span className="italic font-medium text-gold text-4xl md:text-6xl">Between Sessions.</span>
+              Hypnosis Audio Downloads
             </h1>
+            <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mb-4">
+              Listen to professional guided hypnosis sessions at home, recorded by clinical hypnotherapist Tracey McGill. Each MP3 download is yours to keep and listen to as often as you need. Sessions cover self esteem, assertiveness, quitting smoking, junk food cravings, fear of judgement, memory and daily relaxation.
+            </p>
             <p className="text-white/70 text-lg md:text-xl leading-relaxed max-w-2xl mb-10">
-              Keep reinforcing the shift at home, at your own pace, as many times as you need. Professional hypnotherapy sessions crafted by Tracey McGill.
+              Not sure where to start? Download the free Positive Suggestions and Relaxation session and try a full 17-minute hypnosis experience before you buy.
             </p>
 
             {/* Trust row */}

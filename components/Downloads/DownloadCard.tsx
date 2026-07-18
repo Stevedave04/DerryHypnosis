@@ -9,7 +9,7 @@ interface DownloadCardProps {
 
 const DownloadCard: React.FC<DownloadCardProps> = ({ product }) => {
   return (
-    <article className="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-premium transition-all duration-500 hover:-translate-y-1 group flex flex-col border border-cream">
+    <article className={`bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-premium transition-all duration-500 hover:-translate-y-1 group flex flex-col border ${product.featured ? 'border-gold ring-2 ring-gold/20' : 'border-cream'}`}>
 
       {/* Cover image */}
       <div className="relative overflow-hidden h-52 flex-shrink-0">
@@ -30,6 +30,13 @@ const DownloadCard: React.FC<DownloadCardProps> = ({ product }) => {
             )}
           </span>
         </div>
+        {product.featured && (
+          <div className="absolute top-3 right-3">
+            <span className="inline-flex items-center gap-1.5 bg-gold text-white text-[10px] font-bold uppercase tracking-[0.15em] px-3 py-1.5 rounded-full shadow-md">
+              Start Here
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Content */}
