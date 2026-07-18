@@ -383,9 +383,8 @@ export const DOWNLOAD_PRODUCTS: DownloadProduct[] = [
     available: false,
   },
   {
-    // No Payhip listing yet: add the real payhipCode and set available: true once live.
     id: 'memory-and-recall',
-    payhipCode: '',
+    payhipCode: 'AKiT2',
     title: 'Memory and Recall Improvement',
     subtitle: 'Sharper focus and recall',
     description: 'A focus and recall session for study or work.',
@@ -394,8 +393,12 @@ export const DOWNLOAD_PRODUCTS: DownloadProduct[] = [
     duration: '30+ min',
     category: 'general',
     coverImage: '/images/downloads/memory-and-recall.webp',
-    benefits: [],
-    available: false,
+    benefits: [
+      'Sharpen focus and mental clarity',
+      'Support recall for study or work',
+      'Quieten distractions before a session',
+    ],
+    available: true,
   },
 ];
 
