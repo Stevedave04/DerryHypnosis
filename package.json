@@ -5,15 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/generate-sitemap.mjs && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@heroui/react": "^2.8.10",
     "@tailwindcss/typography": "^0.5.19",
     "dompurify": "^3.4.5",
-    "framer-motion": "^12.38.0",
     "lucide-react": "0.460.0",
     "marked": "^18.0.4",
     "react": "19.2.3",
