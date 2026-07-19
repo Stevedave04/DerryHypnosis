@@ -4,6 +4,8 @@ import { Headphones, Lock, Sparkles, ArrowRight, RefreshCw, Download } from 'luc
 import { Link } from 'react-router-dom';
 import { DOWNLOAD_PRODUCTS } from '../../constants';
 import DownloadCard from './DownloadCard';
+import { getProductListSchema } from '../../lib/schema';
+import JsonLd from '../JsonLd';
 
 const Downloads: React.FC = () => {
   // Featured (free) product leads the grid with the strongest visual weight
@@ -23,6 +25,7 @@ const Downloads: React.FC = () => {
         <meta property="og:description" content="Guided hypnosis MP3 downloads from clinical hypnotherapist Tracey McGill. Instant download, listen anywhere." />
         <meta property="og:url" content="https://derryhypnosis.co.uk/downloads" />
       </Helmet>
+      <JsonLd schema={getProductListSchema(available)} />
 
       {/* Hero */}
       <section className="bg-teal-dark pt-40 pb-24 relative overflow-hidden">

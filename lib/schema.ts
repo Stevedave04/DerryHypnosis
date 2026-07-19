@@ -6,7 +6,7 @@
 
 import { SITE_INFO, FAQS } from '../constants';
 import type { Post } from './blog';
-import type { FAQItem } from '../types';
+import type { FAQItem, DownloadProduct } from '../types';
 
 const BASE_URL = 'https://derryhypnosis.co.uk';
 
@@ -180,5 +180,49 @@ export function getServiceSchema(service: {
     },
     areaServed: 'Derry/Londonderry, Northern Ireland',
     serviceType: 'Clinical Hypnotherapy',
+  });
+}
+
+// ─── Breadcrumbs ─────────────────────────────────────────────────────────────
+
+export function getBreadcrumbSchema(items: { name: string; path: string }[]): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: `${BASE_URL}${item.path}`,
+    })),
+  });
+}
+
+// ─── Download Products ───────────────────────────────────────────────────────
+
+export function getProductListSchema(products: DownloadProduct[]): string {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Hypnosis Audio Downloads',
+    url: `${BASE_URL}/downloads`,
+    itemListElement: products.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Product',
+        name: p.title,
+        description: p.description,
+        image: `${BASE_URL}${p.coverImage}`,
+        url: `https://payhip.com/b/${p.payhipCode}`,
+        offers: {
+          '@type': 'Offer',
+          price: p.price.toFixed(2),
+          priceCurrency: 'GBP',
+          availability: 'https://schema.org/InStock',
+          url: `https://payhip.com/b/${p.payhipCode}`,
+        },
+      },
+    })),
   });
 }

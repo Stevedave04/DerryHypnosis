@@ -3,7 +3,7 @@ title: "Quit Smoking in One Session: How Clinical Hypnotherapy Works"
 slug: "quit-smoking-hypnotherapy-derry"
 date: "2025-05-12"
 category: "Smoking"
-excerpt: "Most of our clients in Derry quit smoking after a single 90-minute session. Here's the neuroscience behind why hypnotherapy works when patches, apps, and willpower don't."
+excerpt: "Many clients leave their single 90-minute session feeling they no longer want to smoke. Here's the neuroscience behind why hypnotherapy works when patches, apps, and willpower don't."
 metaDescription: "Discover how clinical hypnotherapy helps people quit smoking in Derry/Londonderry, often in just one session. Tracey McGill explains the science and what to expect."
 ogImage: "https://images.unsplash.com/photo-1527099908998-5b73a5fe2a0d?q=85&w=1200&h=630&fit=crop&auto=format"
 readingTime: 6

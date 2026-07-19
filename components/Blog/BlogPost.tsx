@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Calendar, Clock, ArrowLeft, ArrowRight } from 'lucide-react';
 import { getPostBySlug, getAllPosts, renderMarkdown, formatDate, extractFaqs } from '../../lib/blog';
 import BlogCard from './BlogCard';
-import { getBlogPostingSchema, getFAQSchema } from '../../lib/schema';
+import { getBlogPostingSchema, getFAQSchema, getBreadcrumbSchema } from '../../lib/schema';
 import { SITE_INFO } from '../../constants';
 import JsonLd from '../JsonLd';
 
@@ -50,6 +50,11 @@ const BlogPost: React.FC = () => {
       {/* BlogPosting structured data — inline to avoid Helmet script-child edge cases */}
       <JsonLd schema={getBlogPostingSchema(post)} />
       {faqs.length > 0 && <JsonLd schema={getFAQSchema(faqs)} />}
+      <JsonLd schema={getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Blog', path: '/blog' },
+        { name: post.title, path: `/blog/${post.slug}` },
+      ])} />
 
       <article className="bg-white min-h-screen pt-32 pb-24">
 
