@@ -17,6 +17,7 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col">
       <Helmet>
+        <title>Derry Hypnosis | Clinical Hypnotherapy in Derry/Londonderry</title>
         <meta name="description" content="Clinical hypnotherapy in Derry/Londonderry with Tracey McGill. Specialising in weight loss, quit smoking, anxiety relief, sleep, and more. Book a free 15-minute discovery call today." />
       </Helmet>
       {/* Structured data: rendered inline so it never conflicts with Helmet head management */}

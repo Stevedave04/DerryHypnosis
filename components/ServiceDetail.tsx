@@ -1,14 +1,53 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { SERVICES, TESTIMONIALS, SERVICE_IMAGES } from '../constants';
 import { CheckCircle2, Quote, Star, ArrowLeft, ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
 import { trackEvent } from '../lib/analytics';
+import { getServiceSchema, getBreadcrumbSchema } from '../lib/schema';
+import JsonLd from './JsonLd';
+
+// Service slug → blog category, for the Further Reading sidebar block
+const SERVICE_BLOG_CATEGORY: Record<string, string> = {
+  'weight-loss': 'Weight Loss',
+  'quit-smoking': 'Smoking',
+  'anxiety-stress': 'Anxiety',
+  'sleep-insomnia': 'Sleep',
+  'public-speaking': 'Anxiety',
+  'ibs-management': 'General',
+};
+
+interface RelatedPost {
+  slug: string;
+  title: string;
+}
 
 const ServiceDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = SERVICES.find(s => s.slug === slug);
+  const [relatedPosts, setRelatedPosts] = useState<RelatedPost[]>([]);
+
+  // Blog metadata loads via dynamic import so the markdown bundle
+  // stays out of this route's chunk (same technique as LatestPosts).
+  useEffect(() => {
+    const category = slug ? SERVICE_BLOG_CATEGORY[slug] : undefined;
+    if (!category) {
+      setRelatedPosts([]);
+      return;
+    }
+    let cancelled = false;
+    import('../lib/blog').then(({ getAllPosts }) => {
+      if (cancelled) return;
+      setRelatedPosts(
+        getAllPosts()
+          .filter(p => p.category === category)
+          .slice(0, 3)
+          .map(p => ({ slug: p.slug, title: p.title }))
+      );
+    });
+    return () => { cancelled = true; };
+  }, [slug]);
 
   if (!service) {
     return <Navigate to="/services" replace />;
@@ -21,8 +60,15 @@ const ServiceDetail: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
+        <title>{`${service.title} in Derry | Derry Hypnosis`}</title>
         <meta name="description" content={`${service.description} Clinical hypnotherapy in Derry/Londonderry with Tracey McGill.`} />
       </Helmet>
+      <JsonLd schema={getServiceSchema(service)} />
+      <JsonLd schema={getBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: service.title, path: `/services/${service.slug}` },
+      ])} />
       {/* Immersive Hero Section with Service Image */}
       <section className="relative h-[65vh] flex items-center overflow-hidden bg-teal">
         {/* Background Image */}
@@ -204,6 +250,40 @@ const ServiceDetail: React.FC = () => {
                    Meet Tracey McGill <ArrowRight size={14} />
                  </Link>
               </div>
+
+              {/* Further reading: related blog articles */}
+              {relatedPosts.length > 0 && (
+                <div className="bg-white p-10 rounded-[2rem] border border-cream shadow-soft">
+                  <h4 className="font-heading text-xl font-bold text-teal mb-6">Further Reading</h4>
+                  <ul className="space-y-4">
+                    {relatedPosts.map(p => (
+                      <li key={p.slug}>
+                        <Link
+                          to={`/blog/${p.slug}`}
+                          className="group flex items-start gap-3 text-sm font-semibold text-slate-800/80 hover:text-teal transition-colors"
+                        >
+                          <ArrowRight size={14} className="text-gold mt-0.5 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+                          {p.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Quit-smoking service links to the dedicated programme page */}
+              {service.slug === 'quit-smoking' && (
+                <Link
+                  to="/stop-smoking"
+                  className="block bg-teal text-white p-8 rounded-[2rem] shadow-premium hover:bg-teal-dark transition-colors group"
+                >
+                  <p className="text-gold font-bold text-[10px] uppercase tracking-[0.3em] mb-3">Dedicated Programme</p>
+                  <p className="font-heading text-xl font-bold mb-2">See the full Stop Smoking programme</p>
+                  <span className="inline-flex items-center gap-2 text-cream/80 text-xs font-bold uppercase tracking-[0.2em] group-hover:gap-3 transition-all">
+                    Learn more <ArrowRight size={14} />
+                  </span>
+                </Link>
+              )}
 
             </div>
           </div>

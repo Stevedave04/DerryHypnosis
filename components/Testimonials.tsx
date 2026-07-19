@@ -33,6 +33,7 @@ const Testimonials: React.FC<{ standalone?: boolean }> = ({ standalone }) => {
     <section className={`${standalone ? 'pt-40 pb-24' : 'py-24'} bg-white`}>
       {standalone && (
         <Helmet>
+          <title>Client Success Stories | Derry Hypnosis</title>
           <meta name="description" content="Real client success stories from Derry Hypnosis. See how clinical hypnotherapy with Tracey McGill helped people quit smoking, lose weight and ease anxiety." />
         </Helmet>
       )}

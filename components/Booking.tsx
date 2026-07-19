@@ -63,6 +63,7 @@ const Booking: React.FC = () => {
     <section id="contact-form" className="py-24 bg-cream-light min-h-screen pt-32">
       {pathname === '/contact' && (
         <Helmet>
+          <title>Book a Free Discovery Call | Derry Hypnosis</title>
           <meta name="description" content="Book a free 15-minute discovery call with Tracey McGill at Derry Hypnosis. Clinical hypnotherapy in Derry/Londonderry and online, with a reply within 24 hours." />
         </Helmet>
       )}

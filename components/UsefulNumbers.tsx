@@ -268,6 +268,7 @@ const UsefulNumbers: React.FC = () => {
   return (
     <div className="pt-32 pb-24 min-h-screen bg-cream-light">
       <Helmet>
+        <title>Useful Support Numbers NI | Derry Hypnosis</title>
         <meta name="description" content="Useful mental health, crisis and support helpline numbers for Derry/Londonderry and Northern Ireland, compiled by Derry Hypnosis." />
       </Helmet>
       <div className="container mx-auto px-6">

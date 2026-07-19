@@ -16,6 +16,7 @@ const Services: React.FC<ServicesProps> = ({ preview = false }) => {
     <section className={`py-24 bg-cream-light ${!preview ? 'pt-40' : ''}`}>
       {!preview && (
         <Helmet>
+          <title>Hypnotherapy Services in Derry | Derry Hypnosis</title>
           <meta name="description" content="Clinical hypnotherapy in Derry/Londonderry: weight loss, quit smoking, anxiety, sleep, phobias, IBS, public speaking and more, with Tracey McGill." />
         </Helmet>
       )}

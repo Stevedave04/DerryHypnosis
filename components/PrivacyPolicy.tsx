@@ -8,6 +8,7 @@ const PrivacyPolicy: React.FC = () => {
   return (
     <div className="pt-32 pb-24 min-h-screen bg-cream-light">
       <Helmet>
+        <title>Privacy Policy | Derry Hypnosis</title>
         <meta name="description" content="Privacy policy for Derry Hypnosis: how Tracey McGill collects, uses and protects the personal information you share." />
       </Helmet>
       <div className="container mx-auto px-6 max-w-4xl">

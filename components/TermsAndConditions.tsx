@@ -8,6 +8,7 @@ const TermsAndConditions: React.FC = () => {
   return (
     <div className="pt-32 pb-24 min-h-screen bg-cream-light">
       <Helmet>
+        <title>Terms and Conditions | Derry Hypnosis</title>
         <meta name="description" content="Terms and conditions for clinical hypnotherapy services provided by Tracey McGill at Derry Hypnosis, Derry/Londonderry." />
       </Helmet>
       <div className="container mx-auto px-6 max-w-4xl">

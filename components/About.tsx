@@ -11,6 +11,7 @@ const About: React.FC = () => {
   return (
     <section className="py-24 bg-white overflow-hidden min-h-screen pt-40">
       <Helmet>
+        <title>About Tracey McGill, Clinical Hypnotherapist | Derry Hypnosis</title>
         <meta name="description" content="Meet Tracey McGill, accredited clinical hypnotherapist in Derry/Londonderry. Combining neuroscience with clinical hypnotherapy for lasting, meaningful change." />
       </Helmet>
       <div className="container mx-auto px-6">

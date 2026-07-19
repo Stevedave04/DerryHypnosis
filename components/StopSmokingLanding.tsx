@@ -11,6 +11,7 @@ const StopSmokingLanding: React.FC = () => {
   return (
     <div className="font-body text-slate-800 bg-white">
       <Helmet>
+        <title>Stop Smoking Hypnotherapy in Derry | Derry Hypnosis</title>
         <meta name="description" content="Stop smoking in one session with clinical hypnotherapy at Derry Hypnosis. Become a calm, confident non-smoker, with a free quit smoking ebook to start." />
       </Helmet>
       <EbookModal isOpen={ebookOpen} onClose={() => setEbookOpen(false)} />
@@ -215,7 +216,11 @@ const StopSmokingLanding: React.FC = () => {
               About Derry Hypnosis
             </h2>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-12">
-              Welcome to Derry Hypnosis, where we help smokers become calm, confident non-smokers. Our goal is simple: help people break free from smoking quickly and comfortably.
+              Welcome to Derry Hypnosis, where we help smokers become calm, confident non-smokers. Our goal is simple: help people break free from smoking quickly and comfortably. Read more about the{' '}
+              <Link to="/services/quit-smoking" className="text-gold underline hover:text-gold-light transition-colors">
+                Quit Smoking hypnotherapy service
+              </Link>{' '}
+              or explore what a session involves below.
             </p>
 
             <h3 className="text-2xl font-bold mb-8 text-gold">Why Trust Us?</h3>
@@ -233,7 +238,7 @@ const StopSmokingLanding: React.FC = () => {
               <div className="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
                 <Clock className="text-gold w-10 h-10 mb-4" />
                 <h4 className="font-bold text-lg mb-2">Results Focused</h4>
-                <p className="text-slate-400">High success rate helping people stay smoke-free.</p>
+                <p className="text-slate-400">A structured programme built specifically around helping smokers quit.</p>
               </div>
             </div>
 
@@ -244,8 +249,11 @@ const StopSmokingLanding: React.FC = () => {
               </p>
               <div className="inline-block bg-gold/10 border border-gold border-dashed p-6 rounded-xl">
                 <h4 className="text-2xl md:text-3xl font-heading font-bold text-gold mb-2">
-                  Become a Non-Smoker in 2 Hours or Your Money Back.
+                  Tracey's Money-Back Promise
                 </h4>
+                <p className="text-slate-300 max-w-md mx-auto">
+                  If you complete your session and feel it has not helped you, Tracey offers your money back. No quibbles.
+                </p>
               </div>
             </div>
 
