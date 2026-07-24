@@ -5,6 +5,7 @@ import { CONTACT_OPTIONS, SITE_INFO, SERVICES, FORM_ENDPOINT } from '../constant
 import { Phone, MapPin, Video, Calendar, ShieldCheck, Mail, ArrowRight, Star, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { trackEvent } from '../lib/analytics';
+import CalendlyInline from './CalendlyInline';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -78,6 +79,29 @@ const Booking: React.FC = () => {
             Evening and weekend slots are limited and tend to book first. If you need one, mention it in your message.
           </p>
         </div>
+
+        {pathname === '/contact' && (
+          <>
+            {/* Primary path: pick a discovery-call slot instantly via Calendly */}
+            <div id="book-a-call" className="max-w-4xl mx-auto mb-16 scroll-mt-28">
+              <div className="text-center mb-8">
+                <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Book Instantly</span>
+                <h2 className="font-heading text-3xl md:text-4xl font-bold text-teal mb-3">Pick a time that suits you</h2>
+                <p className="font-body text-slate-800/60 max-w-xl mx-auto leading-relaxed">
+                  Choose a free discovery call slot with Tracey below. No waiting for a reply, just pick a time and you are booked in.
+                </p>
+              </div>
+              <CalendlyInline />
+            </div>
+
+            {/* Divider to the message form as the alternative */}
+            <div className="max-w-4xl mx-auto flex items-center gap-4 mb-16">
+              <div className="h-px bg-cream-dark flex-1" />
+              <span className="text-slate-800/40 text-xs font-bold uppercase tracking-[0.2em] whitespace-nowrap">Or send a message</span>
+              <div className="h-px bg-cream-dark flex-1" />
+            </div>
+          </>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20">
 
@@ -294,7 +318,10 @@ const Booking: React.FC = () => {
                 </a>
               ) : (
                 <button
-                  onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    const target = document.getElementById('book-a-call') || document.getElementById('contact-form');
+                    target?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="inline-flex items-center gap-2 text-gold font-bold text-xs uppercase tracking-[0.2em] group-hover:gap-4 transition-all"
                 >
                   {option.ctaText} <ArrowRight size={14} />

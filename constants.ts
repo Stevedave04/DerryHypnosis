@@ -15,6 +15,11 @@ export const SITE_INFO = {
 // e.g. "https://formspree.io/f/abcdefgh"
 export const FORM_ENDPOINT = "https://formspree.io/f/mbdbdojz";
 
+// Calendly discovery-call booking, embedded on the contact page.
+// Note: the current event slug is "30min". If a dedicated 15-minute event
+// type is created in Calendly, swap the slug here and nothing else changes.
+export const CALENDLY_URL = "https://calendly.com/hello-derryhypnosis/30min";
+
 export const SERVICE_IMAGES: Record<string, string> = {
   'weight-loss': 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop',
   'quit-smoking': 'https://images.unsplash.com/photo-1527099908998-5b73a5fe2a0d?q=80&w=1200&auto=format&fit=crop',
