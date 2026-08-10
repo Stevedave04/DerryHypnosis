@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Menu, X, Mail, Calendar, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { NAV_ITEMS } from '../constants';
@@ -126,18 +127,32 @@ const Navbar: React.FC = () => {
           className={`lg:hidden relative z-10 p-2 rounded-lg transition-colors ${
             isTransparent ? 'text-white hover:bg-white/10' : 'text-teal hover:bg-teal/5'
           }`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          onClick={() => setIsMenuOpen(true)}
+          aria-label="Open menu"
           aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          <Menu size={28} />
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <div className={`lg:hidden fixed inset-0 bg-slate-900/95 backdrop-blur-xl transition-all duration-500 ${
+      {/* Mobile Menu Overlay, rendered in a portal on <body>. Escaping the nav is
+          essential: when scrolled, the nav has backdrop-blur, which makes it the
+          containing block for position:fixed descendants, so an overlay nested
+          inside it only covered the nav bar and the page bled through. */}
+      {createPortal(
+      <div className={`lg:hidden fixed inset-0 z-[60] bg-slate-900 transition-opacity duration-500 ${
         isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
+        <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-6 py-6">
+          <Logo className="h-16 md:h-20 w-auto" variant="light" />
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            aria-label="Close menu"
+            className="p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+          >
+            <X size={28} />
+          </button>
+        </div>
         <div className="flex flex-col h-full justify-center items-center space-y-6 text-center px-6">
           {NAV_ITEMS.map((item, i) => {
             const active = isActivePath(item.url);
@@ -191,7 +206,9 @@ const Navbar: React.FC = () => {
             Book Your Free Discovery Call
           </Link>
         </div>
-      </div>
+      </div>,
+      document.body
+      )}
     </nav>
   );
 };
