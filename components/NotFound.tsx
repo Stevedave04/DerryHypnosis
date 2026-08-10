@@ -1,10 +1,15 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Home } from 'lucide-react';
 
 const NotFound: React.FC = () => {
   return (
     <section className="min-h-screen bg-cream-light flex items-center justify-center px-6 pt-20">
+      <Helmet>
+        <title>Page Not Found | Derry Hypnosis</title>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <div className="text-center max-w-lg">
         <p className="font-heading text-[10rem] font-bold text-teal/10 leading-none select-none">
           404

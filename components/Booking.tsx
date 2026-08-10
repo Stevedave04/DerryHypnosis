@@ -71,7 +71,12 @@ const Booking: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center mb-10">
           <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-4 block animate-reveal">Take the First Step</span>
-          <h1 className="font-heading text-4xl md:text-6xl font-bold text-teal mb-6 animate-reveal stagger-1">Connect With Us</h1>
+          {/* h1 only on the standalone /contact route; h2 when embedded on the home page (avoids a duplicate h1) */}
+          {React.createElement(
+            pathname === '/contact' ? 'h1' : 'h2',
+            { className: 'font-heading text-4xl md:text-6xl font-bold text-teal mb-6 animate-reveal stagger-1' },
+            'Connect With Us'
+          )}
           <p className="font-body text-xl text-slate-800/60 leading-relaxed max-w-2xl mx-auto animate-reveal stagger-2">
             Most people find the discovery call easier than they expected. There is no pressure and no commitment: just a straightforward conversation about what you want to change and whether hypnotherapy is the right fit. Tracey replies within 24 hours.
           </p>
