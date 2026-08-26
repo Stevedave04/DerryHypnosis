@@ -5,7 +5,7 @@ date: "2026-08-26"
 category: "Weight Loss"
 excerpt: "Darker evenings, cosy nights and the same familiar patterns. Knowing what to eat is rarely the hard part. Introducing an 8-week clinical hypnotherapy mindset and habits programme in Derry."
 metaDescription: "An 8-week clinical hypnotherapy mindset and habits programme in Derry. No weigh-ins, no meal plans. Work on the emotional eating and old patterns underneath the food."
-ogImage: "https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=85&w=1200&h=630&fit=crop&auto=format"
+ogImage: "https://derryhypnosis.co.uk/images/blog/8-week-mindset-programme-social.jpg"
 heroImage: "/images/blog/8-week-mindset-programme-flyer.webp"
 heroFit: "contain"
 readingTime: 6
