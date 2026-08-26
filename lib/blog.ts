@@ -9,6 +9,12 @@ export interface PostMeta {
   excerpt: string;
   metaDescription: string;
   ogImage: string;
+  // Optional in-page header image, used instead of ogImage at the top of a post.
+  // Lets a post show a portrait asset (e.g. a programme flyer) while ogImage
+  // stays a landscape 1200x630 image for social cards and structured data.
+  heroImage?: string;
+  // 'contain' shows the whole image on a backdrop; anything else crops to fill.
+  heroFit?: 'cover' | 'contain';
   readingTime: number;
 }
 
