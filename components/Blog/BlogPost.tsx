@@ -26,6 +26,7 @@ const BlogPost: React.FC = () => {
   const html = renderMarkdown(post.content);
   const service = CATEGORY_SERVICE[post.category] ?? CATEGORY_SERVICE.General;
   const faqs = extractFaqs(post.content);
+  const containHero = post.heroFit === 'contain';
 
   // Up to 3 related posts: same category first, then latest others
   const others = getAllPosts().filter(p => p.slug !== post.slug);
@@ -58,15 +59,22 @@ const BlogPost: React.FC = () => {
 
       <article className="bg-white min-h-screen pt-32 pb-24">
 
-        {/* Hero image */}
-        <div className="w-full h-72 md:h-96 overflow-hidden relative mb-0">
+        {/* Hero image. Portrait assets (heroFit: contain) are shown whole on a
+            cream backdrop rather than cropped to a letterbox strip. */}
+        <div
+          className={`w-full overflow-hidden relative mb-0 ${
+            containHero ? 'h-[30rem] md:h-[40rem] bg-cream' : 'h-72 md:h-96'
+          }`}
+        >
           <img
-            src={post.ogImage}
+            src={post.heroImage ?? post.ogImage}
             alt={post.title}
-            className="w-full h-full object-cover"
+            className={`w-full h-full ${containHero ? 'object-contain' : 'object-cover'}`}
             loading="eager"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
+          {!containHero && (
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white" />
+          )}
         </div>
 
         <div className="container mx-auto px-6">

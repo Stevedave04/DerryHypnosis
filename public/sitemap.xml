@@ -4,7 +4,7 @@
     <loc>https://derryhypnosis.co.uk/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2026-07-19</lastmod>
+    <lastmod>2026-08-26</lastmod>
   </url>
   <url>
     <loc>https://derryhypnosis.co.uk/services</loc>
@@ -95,6 +95,12 @@
     <loc>https://derryhypnosis.co.uk/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://derryhypnosis.co.uk/blog/seasonal-habits-weight-loss-mindset-programme</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-08-26</lastmod>
   </url>
   <url>
     <loc>https://derryhypnosis.co.uk/blog/hypnotherapy-for-sleep-derry-3am-waking</loc>
