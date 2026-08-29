@@ -252,6 +252,24 @@ export const FOOTER_LINKS: { label: string; url: string }[] = [
 
 export const DOWNLOAD_PRODUCTS: DownloadProduct[] = [
   {
+    id: 'post-operation-recovery',
+    payhipCode: '0GzJK',
+    title: 'Post Operation Recovery',
+    subtitle: 'Healing & Comfort Hypnosis',
+    description: 'A restorative session for the rest period after surgery. Quiet the nervous system, ease physical tension and stay grounded while you recover.',
+    price: 9.99,
+    type: 'audio',
+    duration: '30+ min',
+    category: 'general',
+    coverImage: '/images/downloads/post-operation-recovery.webp',
+    benefits: [
+      'Settle into the deep rest recovery asks for',
+      'Ease physical tension and stay comfortable',
+      'Calm the stress and frustration of healing slowly',
+    ],
+    available: true,
+  },
+  {
     id: 'junk-food-cravings',
     payhipCode: 'NFLo6',
     title: 'Junk Food Cravings Hypnosis',
