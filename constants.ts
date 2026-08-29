@@ -259,7 +259,7 @@ export const DOWNLOAD_PRODUCTS: DownloadProduct[] = [
     description: 'A restorative session for the rest period after surgery. Quiet the nervous system, ease physical tension and stay grounded while you recover.',
     price: 9.99,
     type: 'audio',
-    duration: '30+ min',
+    duration: '38 min',
     category: 'general',
     coverImage: '/images/downloads/post-operation-recovery.webp',
     benefits: [
