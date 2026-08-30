@@ -252,6 +252,24 @@ export const FOOTER_LINKS: { label: string; url: string }[] = [
 
 export const DOWNLOAD_PRODUCTS: DownloadProduct[] = [
   {
+    id: 'pre-operation-preparation',
+    payhipCode: 'irmMf',
+    title: 'Pre Operation Preparation',
+    subtitle: 'Calm & Confidence Hypnosis',
+    description: 'A reassuring session for the weeks and days before your procedure. Settle pre-surgery nerves, quiet the fear of the unknown and arrive feeling steady.',
+    price: 9.99,
+    type: 'audio',
+    duration: '40 min',
+    category: 'general',
+    coverImage: '/images/downloads/pre-operation-preparation.webp',
+    benefits: [
+      'Quieten worry and tension before surgery day',
+      'Build trust and confidence in your surgical team',
+      'Arrive feeling calm, steady and mentally prepared',
+    ],
+    available: true,
+  },
+  {
     id: 'post-operation-recovery',
     payhipCode: '0GzJK',
     title: 'Post Operation Recovery',
