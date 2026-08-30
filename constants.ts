@@ -252,6 +252,24 @@ export const FOOTER_LINKS: { label: string; url: string }[] = [
 
 export const DOWNLOAD_PRODUCTS: DownloadProduct[] = [
   {
+    id: 'complete-surgical-care-bundle',
+    payhipCode: 'Ws8X9',
+    title: 'Complete Surgical Care Bundle',
+    subtitle: 'Pre & Post-Operation Hypnosis',
+    description: 'Both surgery sessions together. Settle your mind in the run-up to the procedure, then support rest and comfort through recovery. Saves £4.99 on buying them separately.',
+    price: 14.99,
+    type: 'audio',
+    duration: '57 min total',
+    category: 'general',
+    coverImage: '/images/downloads/complete-surgical-care-bundle.webp',
+    benefits: [
+      'Two full sessions, one for before and one for after',
+      'Save £4.99 against buying them separately',
+      'Yours to keep and replay on any device',
+    ],
+    available: true,
+  },
+  {
     id: 'pre-operation-preparation',
     payhipCode: 'irmMf',
     title: 'Pre Operation Preparation',
