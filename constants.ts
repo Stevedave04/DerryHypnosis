@@ -263,7 +263,7 @@ export const DOWNLOAD_PRODUCTS: DownloadProduct[] = [
     category: 'general',
     coverImage: '/images/downloads/complete-surgical-care-bundle.webp',
     benefits: [
-      'Two full sessions, one for before and one for after',
+      'Two full sessions: 40 min before, 38 min after',
       'Save £4.99 against buying them separately',
       'Yours to keep and replay on any device',
     ],
