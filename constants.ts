@@ -259,7 +259,7 @@ export const DOWNLOAD_PRODUCTS: DownloadProduct[] = [
     description: 'Both surgery sessions together. Settle your mind in the run-up to the procedure, then support rest and comfort through recovery. Saves £4.99 on buying them separately.',
     price: 14.99,
     type: 'audio',
-    duration: '57 min total',
+    duration: '80 min total',
     category: 'general',
     coverImage: '/images/downloads/complete-surgical-care-bundle.webp',
     benefits: [
