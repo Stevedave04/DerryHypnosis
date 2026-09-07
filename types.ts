@@ -23,7 +23,7 @@ export interface TestimonialItem {
   location: string;
   rating: number;
   category: 'weight' | 'smoking' | 'anxiety' | 'general';
-  source?: 'facebook';
+  source?: 'facebook' | 'google';
 }
 
 export interface ContactOption {
