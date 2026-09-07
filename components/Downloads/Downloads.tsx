@@ -1,17 +1,19 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Headphones, Lock, Sparkles, ArrowRight, RefreshCw, Download } from 'lucide-react';
+import { Headphones, Lock, Sparkles, ArrowRight, RefreshCw, Download, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { DOWNLOAD_PRODUCTS } from '../../constants';
+import { DOWNLOAD_PRODUCTS, TESTIMONIALS } from '../../constants';
 import DownloadCard from './DownloadCard';
 import { getProductListSchema } from '../../lib/schema';
 import JsonLd from '../JsonLd';
+import { GoogleIcon } from '../ReviewSourceIcons';
 
 const Downloads: React.FC = () => {
   // Featured (free) product leads the grid with the strongest visual weight
   const available = [...DOWNLOAD_PRODUCTS.filter(p => p.available)]
     .sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
   const comingSoon = DOWNLOAD_PRODUCTS.filter(p => !p.available);
+  const surgeryReview = TESTIMONIALS.find(t => t.author === 'Gerard Gray');
 
   return (
     <>
@@ -87,6 +89,35 @@ const Downloads: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Client review. Speaks directly to the pre and post-operation
+          sessions, so it sits under the product grid. */}
+      {surgeryReview && (
+        <section className="bg-white py-16">
+          <div className="container mx-auto px-6">
+            <figure className="max-w-3xl mx-auto text-center">
+              <div className="flex justify-center gap-1 mb-6 text-gold">
+                {[...Array(surgeryReview.rating)].map((_, i) => (
+                  <Star key={i} size={14} fill="currentColor" />
+                ))}
+              </div>
+              <blockquote className="font-body text-slate-800 text-lg md:text-xl leading-relaxed mb-6">
+                "{surgeryReview.text}"
+              </blockquote>
+              <figcaption className="flex items-center justify-center gap-3 text-xs">
+                <span className="font-bold text-teal uppercase tracking-widest">
+                  {surgeryReview.author}
+                </span>
+                <span className="text-cream-dark" aria-hidden="true">|</span>
+                <span className="flex items-center gap-1.5 text-slate-600 font-bold uppercase tracking-wider">
+                  <GoogleIcon size={14} />
+                  Google Review
+                </span>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+      )}
 
       {/* Coming soon */}
       {comingSoon.length > 0 && (
