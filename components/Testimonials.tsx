@@ -10,7 +10,8 @@ type Category = 'all' | 'smoking' | 'weight' | 'anxiety' | 'general';
 const FILTERS: { label: string; value: Category }[] = [
   { label: 'All', value: 'all' },
   { label: 'Quit Smoking', value: 'smoking' },
-  { label: 'Weight Loss', value: 'weight' },
+  // Weight Loss filter is out until there is a weight-loss review to show;
+  // restore { label: 'Weight Loss', value: 'weight' } when one lands.
   { label: 'Anxiety', value: 'anxiety' },
   { label: 'General', value: 'general' },
 ];
