@@ -189,6 +189,38 @@ export const SERVICES: ServiceItem[] = [
 
 export const TESTIMONIALS: TestimonialItem[] = [
   {
+    text: "I contacted Tracey in relation to anxiety about an upcoming surgery, and she was able to accommodate me at short notice. She was incredibly patient and understanding throughout our two sessions and kept in contact afterwards to follow up on my progress. Thanks to her help, I felt calm and relaxed both in the lead-up to my surgery and during my entire hospital stay. Highly recommend if you're struggling with pre-surgery nerves/medical phobias.",
+    author: "Gerard Gray",
+    location: "Derry",
+    rating: 5,
+    category: 'anxiety',
+    source: 'google'
+  },
+  {
+    text: "I went to Derry hypnosis as a last resort il b honest some belief but mostly hope in that 3 hour appointment ive never felt more comfortable and positive, i walked out and everything had changed for me my train of through my feelings around my issue all changed im weeks in now to recovery and I owe it all to this lady so il be shouting her from the rooftops thanks for everything",
+    author: "Leona Rankin",
+    location: "Derry",
+    rating: 5,
+    category: 'general',
+    source: 'google'
+  },
+  {
+    text: "Tracey is amazing!!!! I had smoked on and off for over 30 years and repeatedly quit and started back as soon as something happened or I had a drink - any excuse really. Tracey hypnotised me on the 6th February - nearly 7 months ago - and I haven't smoked since. I have been in every triggering situation during these last 7 months and believe me if I didn't smoke then, there's no chance of me going back. It just feels different- there's no effort. I firmly believe that Tracey was behind this. The session itself was so relaxing even though I was aware of everything that was going on. I can't wait now to work on my other struggles with Tracey. Thank you for everything 🙏 what you do is life-changing.",
+    author: "Terri Harkin",
+    location: "Derry",
+    rating: 5,
+    category: 'smoking',
+    source: 'google'
+  },
+  {
+    text: "Tracey has been amazing from the moment I made contact. She made me feel at ease from the start. I've been a smoker for 40 odd years and I'm glad to say I'm now a non smoker after getting hypnotherapy with Tracey. Don't hesitate to get in touch with Tracey at Derry Hypnosis and she will explain everything to you.",
+    author: "Brenda Okane",
+    location: "Derry",
+    rating: 5,
+    category: 'smoking',
+    source: 'google'
+  },
+  {
     text: "Tracey helped me quit smoking in just one session. I haven't touched a cigarette in 6 months and don't even think about them anymore.",
     author: "James M.",
     location: "Derry",
@@ -239,38 +271,6 @@ export const TESTIMONIALS: TestimonialItem[] = [
     rating: 5,
     category: 'general',
     source: 'facebook'
-  },
-  {
-    text: "I contacted Tracey in relation to anxiety about an upcoming surgery, and she was able to accommodate me at short notice. She was incredibly patient and understanding throughout our two sessions and kept in contact afterwards to follow up on my progress. Thanks to her help, I felt calm and relaxed both in the lead-up to my surgery and during my entire hospital stay. Highly recommend if you're struggling with pre-surgery nerves/medical phobias.",
-    author: "Gerard Gray",
-    location: "Derry",
-    rating: 5,
-    category: 'anxiety',
-    source: 'google'
-  },
-  {
-    text: "I went to Derry hypnosis as a last resort il b honest some belief but mostly hope in that 3 hour appointment ive never felt more comfortable and positive, i walked out and everything had changed for me my train of through my feelings around my issue all changed im weeks in now to recovery and I owe it all to this lady so il be shouting her from the rooftops thanks for everything",
-    author: "Leona Rankin",
-    location: "Derry",
-    rating: 5,
-    category: 'general',
-    source: 'google'
-  },
-  {
-    text: "Tracey is amazing!!!! I had smoked on and off for over 30 years and repeatedly quit and started back as soon as something happened or I had a drink - any excuse really. Tracey hypnotised me on the 6th February - nearly 7 months ago - and I haven't smoked since. I have been in every triggering situation during these last 7 months and believe me if I didn't smoke then, there's no chance of me going back. It just feels different- there's no effort. I firmly believe that Tracey was behind this. The session itself was so relaxing even though I was aware of everything that was going on. I can't wait now to work on my other struggles with Tracey. Thank you for everything 🙏 what you do is life-changing.",
-    author: "Terri Harkin",
-    location: "Derry",
-    rating: 5,
-    category: 'smoking',
-    source: 'google'
-  },
-  {
-    text: "Tracey has been amazing from the moment I made contact. She made me feel at ease from the start. I've been a smoker for 40 odd years and I'm glad to say I'm now a non smoker after getting hypnotherapy with Tracey. Don't hesitate to get in touch with Tracey at Derry Hypnosis and she will explain everything to you.",
-    author: "Brenda Okane",
-    location: "Derry",
-    rating: 5,
-    category: 'smoking',
-    source: 'google'
   }
 ];
 

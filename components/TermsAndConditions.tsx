@@ -49,11 +49,11 @@ const TermsAndConditions: React.FC = () => {
               <div className="flex gap-4 items-start mb-4">
                 <Clock className="text-teal flex-shrink-0 mt-1" size={20} />
                 <p>
-                  We operate a strict <strong>48-hour cancellation policy</strong>. If you fail to attend an appointment or cancel with less than 48 hours' notice, the full session fee will be charged.
+                  We operate a strict <strong>24-hour cancellation policy</strong>. If you fail to attend an appointment or cancel with less than 24 hours' notice, the full session fee will be charged.
                 </p>
               </div>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Appointments can be rescheduled once without penalty if 48 hours' notice is given.</li>
+                <li>Appointments can be rescheduled once without penalty if 24 hours' notice is given.</li>
                 <li>Late arrival may result in a shortened session time to ensure following clients are seen on schedule.</li>
               </ul>
             </section>
