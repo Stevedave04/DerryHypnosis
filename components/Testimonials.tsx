@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { TESTIMONIALS } from '../constants';
+import { TESTIMONIALS, GOOGLE_REVIEW_URL } from '../constants';
 import { Star } from 'lucide-react';
 import { FacebookIcon, GoogleIcon } from './ReviewSourceIcons';
 
@@ -107,6 +107,22 @@ const Testimonials: React.FC<{ standalone?: boolean }> = ({ standalone }) => {
         {filtered.length === 0 && (
           <p className="text-center text-slate-800/40 font-body py-16">No testimonials in this category yet.</p>
         )}
+
+        {/* Invite reviews from past clients */}
+        <div className="text-center mt-16">
+          <p className="font-body text-slate-800/60 mb-5">
+            Worked with Tracey? Sharing your experience helps others take the first step.
+          </p>
+          <a
+            href={GOOGLE_REVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 bg-white border border-cream-dark hover:border-teal/40 text-teal font-bold text-sm py-3.5 px-7 rounded-full shadow-soft hover:shadow-premium transition-all hover:-translate-y-0.5"
+          >
+            <GoogleIcon size={16} />
+            Leave a Google Review
+          </a>
+        </div>
       </div>
     </section>
   );

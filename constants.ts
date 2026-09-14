@@ -187,7 +187,19 @@ export const SERVICES: ServiceItem[] = [
   }
 ];
 
+// "Write a review" link for the Google Business Profile, used on the
+// testimonials page to invite reviews from past clients.
+export const GOOGLE_REVIEW_URL = "https://g.page/r/CW-WjaP8uR4KEBM/review";
+
 export const TESTIMONIALS: TestimonialItem[] = [
+  {
+    text: "Tracey is an insightful, highly intuitive & very experienced Hypnotherapist. My session with her brought me forward in leaps & bounds, in my healing. Highly recommended.",
+    author: "C McGlynn",
+    location: "Derry",
+    rating: 5,
+    category: 'general',
+    source: 'google'
+  },
   {
     text: "I contacted Tracey in relation to anxiety about an upcoming surgery, and she was able to accommodate me at short notice. She was incredibly patient and understanding throughout our two sessions and kept in contact afterwards to follow up on my progress. Thanks to her help, I felt calm and relaxed both in the lead-up to my surgery and during my entire hospital stay. Highly recommend if you're struggling with pre-surgery nerves/medical phobias.",
     author: "Gerard Gray",
@@ -219,34 +231,6 @@ export const TESTIMONIALS: TestimonialItem[] = [
     rating: 5,
     category: 'smoking',
     source: 'google'
-  },
-  {
-    text: "Tracey helped me quit smoking in just one session. I haven't touched a cigarette in 6 months and don't even think about them anymore.",
-    author: "James M.",
-    location: "Derry",
-    rating: 5,
-    category: 'smoking'
-  },
-  {
-    text: "The weight loss program changed my life. I finally understand my emotional triggers and the pounds are just falling off naturally.",
-    author: "Sarah O.",
-    location: "Letterkenny",
-    rating: 5,
-    category: 'weight'
-  },
-  {
-    text: "I was crippled by social anxiety. After four sessions with Tracey, I feel like a new person. I'm actually enjoying meeting new people now.",
-    author: "Michael R.",
-    location: "Derry",
-    rating: 5,
-    category: 'anxiety'
-  },
-  {
-    text: "Derry Hypnosis was the breakthrough I needed. After years of struggling with public speaking, I delivered a 20-minute presentation with total ease.",
-    author: "Emma L.",
-    location: "Strabane",
-    rating: 5,
-    category: 'general'
   },
   {
     text: "My mum had hypnosis a few weeks ago to stop smoking. She was very nervous though really enjoyed it and hasn't smoked since. It's early days though she is so glad she tried it and couldn't speak more highly of Tracey.",
