@@ -81,28 +81,28 @@ const BreathingApplet: React.FC = () => {
   const currentPhase = PHASES[phaseIndex];
 
   return (
-    <div id="breathing-applet" className="py-24 md:py-32 bg-cream-light/40 border-y border-cream relative overflow-hidden scroll-mt-24">
+    <div id="breathing-applet" className="py-16 md:py-20 bg-cream-light/40 border-y border-cream relative overflow-hidden scroll-mt-24">
       {/* Dynamic Background Ambiance */}
       <div className={`absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none transition-all duration-[3000ms] ${isActive ? 'bg-teal/10 opacity-100' : 'bg-teal/5 opacity-50'}`}></div>
       <div className={`absolute bottom-1/4 -right-20 w-[500px] h-[500px] rounded-full blur-[140px] pointer-events-none transition-all duration-[3000ms] ${isActive ? 'bg-gold/10 opacity-100' : 'bg-gold/5 opacity-50'}`} style={{ animationDelay: '2s' }}></div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Superior Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 rounded-full text-gold font-bold text-xs uppercase tracking-[0.2em] mb-8 animate-reveal">
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 rounded-full text-gold font-bold text-xs uppercase tracking-[0.2em] mb-6 animate-reveal">
             <Sparkles size={14} />
-            Clinical Breathing Tool
+            Free Breathing Tool
           </div>
-          <h2 className="font-heading text-5xl md:text-7xl font-bold text-teal mb-8 leading-tight">
-            Master Your Focus with <br />
-            <span className="italic font-medium text-teal-light">Tactical Box Breathing.</span>
+          <h2 className="font-heading text-3xl md:text-5xl font-bold text-teal mb-6 leading-tight">
+            Try Box Breathing <br />
+            <span className="italic font-medium text-teal-light">Right Here, Right Now.</span>
           </h2>
           <p className="font-body text-xl text-slate-800/60 leading-relaxed">
-            A high-performance technique to recalibrate your nervous system, used by clinical practitioners and elite teams to achieve instant clarity and calm. A perfect companion to your hypnotherapy journey.
+            A simple way to settle a racing mind, used in clinical practice and easy to do anywhere. Follow the circle for a few rounds and notice what changes. A gentle companion between sessions.
           </p>
         </div>
 
-        <div className="flex flex-col xl:flex-row items-center justify-center gap-16 xl:gap-24 max-w-7xl mx-auto">
+        <div className="flex flex-col xl:flex-row items-center justify-center gap-12 xl:gap-16 max-w-7xl mx-auto">
           
           {/* LEFT PANEL: The Science */}
           <div className="hidden xl:flex flex-col gap-8 w-80 animate-reveal stagger-1">
@@ -112,7 +112,7 @@ const BreathingApplet: React.FC = () => {
               </div>
               <h4 className="font-heading font-bold text-teal text-xl mb-3">Neural Reset</h4>
               <p className="text-sm text-slate-800/60 leading-relaxed font-body">
-                By equalising the rhythm of your breath, you manually override the stress center of your brain, inducing a physiological state of calm.
+                Evening out the rhythm of your breath signals to your nervous system that it is safe to settle.
               </p>
             </div>
             
@@ -122,7 +122,7 @@ const BreathingApplet: React.FC = () => {
               </div>
               <h4 className="font-heading font-bold text-teal text-xl mb-3">Safe Haven</h4>
               <p className="text-sm text-slate-800/60 leading-relaxed font-body">
-                Consistent practice strengthens your emotional resilience, making it easier to return to this center during times of high stress.
+                Practised regularly, it becomes easier to find your way back to calm when things feel difficult.
               </p>
             </div>
           </div>
@@ -130,7 +130,7 @@ const BreathingApplet: React.FC = () => {
           {/* CENTER PANEL: The Breathing Core */}
           <div className="flex flex-col items-center flex-1 w-full max-w-3xl">
             {/* Phase Visualiser */}
-            <div className="w-full bg-white/80 backdrop-blur-md rounded-[2.5rem] p-4 md:p-6 mb-16 shadow-premium border border-cream/50 relative overflow-hidden">
+            <div className="w-full bg-white/80 backdrop-blur-md rounded-[2.5rem] p-4 md:p-6 mb-10 shadow-premium border border-cream/50 relative overflow-hidden">
                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal/20 via-gold/20 to-teal/20 opacity-30"></div>
                <div className="grid grid-cols-4 gap-3 md:gap-4 relative z-10">
                 {PHASES.map((p, i) => (
@@ -221,8 +221,8 @@ const BreathingApplet: React.FC = () => {
             </div>
 
             {/* Controls */}
-            <div className="mt-24 md:mt-32 flex flex-col items-center w-full">
-              <div className="flex items-center gap-4 px-8 py-3 bg-white rounded-2xl border border-cream shadow-soft mb-12">
+            <div className="mt-14 md:mt-16 flex flex-col items-center w-full">
+              <div className="flex items-center gap-4 px-8 py-3 bg-white rounded-2xl border border-cream shadow-soft mb-8">
                  <div className="flex -space-x-1">
                     {[...Array(Math.min(cycles, 5))].map((_, i) => (
                       <div key={i} className="w-2.5 h-2.5 rounded-full bg-gold border border-white"></div>
@@ -237,7 +237,7 @@ const BreathingApplet: React.FC = () => {
               <div className="flex flex-wrap justify-center gap-6">
                 <button
                   onClick={handleStart}
-                  className={`min-w-[220px] font-bold py-6 px-12 rounded-full shadow-premium transition-all flex items-center justify-center gap-4 transform hover:-translate-y-1 active:scale-95 text-lg ${
+                  className={`min-w-[220px] font-bold py-5 px-10 rounded-full shadow-premium transition-all flex items-center justify-center gap-4 transform hover:-translate-y-1 active:scale-95 text-lg ${
                     isActive ? 'bg-slate-900 text-white' : 'bg-teal text-white hover:bg-teal-dark'
                   }`}
                 >
@@ -246,7 +246,7 @@ const BreathingApplet: React.FC = () => {
                 </button>
                 <button
                   onClick={handleReset}
-                  className="bg-white hover:bg-cream-light border-2 border-cream text-slate-800 font-bold py-6 px-12 rounded-full transition-all flex items-center justify-center gap-4 active:scale-95 text-lg group"
+                  className="bg-white hover:bg-cream-light border-2 border-cream text-slate-800 font-bold py-5 px-10 rounded-full transition-all flex items-center justify-center gap-4 active:scale-95 text-lg group"
                 >
                   Reset
                   <RotateCcw size={22} className="group-hover:rotate-[-45deg] transition-transform" />
@@ -258,8 +258,8 @@ const BreathingApplet: React.FC = () => {
           {/* Mobile tip cards, shown below xl where side panels are hidden */}
           <div className="xl:hidden w-full max-w-xl mx-auto mt-8 grid grid-cols-2 gap-4">
             {[
-              { icon: <Brain size={18} />, title: "Neural Reset", body: "Equalising your breath rhythm manually overrides the brain's stress centre, inducing calm." },
-              { icon: <Shield size={18} />, title: "Safe Haven", body: "Consistent practice strengthens emotional resilience under high stress." },
+              { icon: <Brain size={18} />, title: "Neural Reset", body: "Evening out your breath rhythm signals to your nervous system that it is safe to settle." },
+              { icon: <Shield size={18} />, title: "Safe Haven", body: "Practised regularly, calm becomes easier to find when things feel difficult." },
               { icon: <Wind size={18} />, title: "Airflow Path", body: "Visualise cool air entering and warm, weighted mist leaving on each exhale." },
               { icon: <Info size={18} />, title: "Quiet Eyes", body: "Soft focus or closed eyes lets the brain process internal changes more effectively." },
             ].map((card, i) => (
@@ -296,15 +296,15 @@ const BreathingApplet: React.FC = () => {
         </div>
 
         {/* Fact Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mt-32 md:mt-48">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-16 md:mt-20">
           {[
             { label: "16 Seconds", sub: "One complete cycle", icon: <Award className="text-gold" size={28} /> },
             { label: "4 Equal Phases", sub: "Inhale · Hold · Exhale · Hold", icon: <CheckCircle className="text-gold" size={28} /> },
-            { label: "Navy SEAL Method", sub: "Combat stress protocol", icon: <Users className="text-gold" size={28} /> },
-            { label: "5–10 Minutes", sub: "Recommended daily practice", icon: <TrendingUp className="text-gold" size={28} /> }
+            { label: "Anywhere, Anytime", sub: "No equipment needed", icon: <Users className="text-gold" size={28} /> },
+            { label: "5–10 Minutes", sub: "A gentle daily practice", icon: <TrendingUp className="text-gold" size={28} /> }
           ].map((stat, i) => (
-            <div key={i} className="text-center group bg-white p-10 rounded-[2.5rem] border border-cream-dark/10 hover:border-gold/30 transition-all duration-500 shadow-soft hover:shadow-premium">
-              <div className="w-16 h-16 bg-cream-light rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-soft group-hover:bg-teal group-hover:text-white transition-all duration-700">
+            <div key={i} className="text-center group bg-white p-8 rounded-[2rem] border border-cream-dark/10 hover:border-gold/30 transition-all duration-500 shadow-soft hover:shadow-premium">
+              <div className="w-16 h-16 bg-cream-light rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-soft group-hover:bg-teal group-hover:text-white transition-all duration-700">
                 {stat.icon}
               </div>
               <h3 className="font-heading font-bold text-teal mb-3 text-lg leading-tight">{stat.label}</h3>

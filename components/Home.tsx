@@ -25,7 +25,6 @@ const Home: React.FC = () => {
       <JsonLd schema={getPersonSchema()} />
       <JsonLd schema={getFAQSchema()} />
       <Hero />
-      <BreathingApplet />
       <Services preview />
 
       {/* 3-step plan — lifts the fog, reduces fear of the unknown */}
@@ -56,6 +55,9 @@ const Home: React.FC = () => {
       </section>
 
       <Testimonials />
+      {/* Free breathing tool. Sits after the offer and the proof, so it does
+          not stand between the hero and what Tracey actually does. */}
+      <BreathingApplet />
       <FAQ />
 
       <Suspense fallback={null}>
