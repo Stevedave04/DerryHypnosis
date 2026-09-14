@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
 
   return (
     <section
-      className="relative min-h-[95vh] flex items-center pt-20 overflow-hidden"
+      className="relative min-h-[95vh] flex items-center pt-28 md:pt-36 pb-12 overflow-hidden"
       aria-roledescription="carousel"
       aria-label="Derry Hypnosis Hero"
       onMouseEnter={() => setIsPaused(true)}
@@ -133,12 +133,12 @@ const Hero: React.FC = () => {
             </span>
           </div>
 
-          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.08] mb-8 animate-hero-reveal hero-stagger-1">
+          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-white font-bold leading-[1.08] mb-7 animate-hero-reveal hero-stagger-1">
             {slide.headline} <br />
             <span className="italic font-medium text-gold-light">{slide.highlight}</span>
           </h1>
 
-          <p className="font-body text-lg md:text-xl text-cream-light/85 mb-12 max-w-xl leading-relaxed animate-hero-reveal hero-stagger-2">
+          <p className="font-body text-lg md:text-xl text-cream-light/85 mb-10 max-w-xl leading-relaxed animate-hero-reveal hero-stagger-2">
             {slide.body}
           </p>
 
@@ -161,30 +161,32 @@ const Hero: React.FC = () => {
             </Link>
           </div>
         </div>
-      </div>
 
-      {/* Slide indicators */}
-      <div
-        className="absolute bottom-10 left-6 md:left-12 z-20 flex gap-3"
-        role="tablist"
-        aria-label="Select slide"
-      >
-        {SLIDES.map((s, i) => (
-          <button
-            key={i}
-            ref={(el) => { indicatorRefs.current[i] = el; }}
-            onClick={() => goTo(i)}
-            onKeyDown={(e) => handleKeyDown(e, i)}
-            role="tab"
-            aria-selected={i === currentIndex}
-            aria-label={`Slide ${i + 1}: ${s.headline} ${s.highlight}`}
-            className={`h-1 transition-all duration-700 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${
-              i === currentIndex
-                ? 'bg-gold w-14 shadow-[0_0_8px_rgba(212,165,116,0.7)]'
-                : 'bg-white/30 w-5 hover:bg-white/55'
-            }`}
-          />
-        ))}
+        {/* Slide indicators. In flow below the CTAs rather than pinned to the
+            section, so they share the content's left edge and cannot overlap
+            the buttons at any viewport height. */}
+        <div
+          className="mt-10 flex gap-3"
+          role="tablist"
+          aria-label="Select slide"
+        >
+          {SLIDES.map((s, i) => (
+            <button
+              key={i}
+              ref={(el) => { indicatorRefs.current[i] = el; }}
+              onClick={() => goTo(i)}
+              onKeyDown={(e) => handleKeyDown(e, i)}
+              role="tab"
+              aria-selected={i === currentIndex}
+              aria-label={`Slide ${i + 1}: ${s.headline} ${s.highlight}`}
+              className={`h-1 transition-all duration-700 rounded-full outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent ${
+                i === currentIndex
+                  ? 'bg-gold w-14 shadow-[0_0_8px_rgba(212,165,116,0.7)]'
+                  : 'bg-white/30 w-5 hover:bg-white/55'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Prev / Next arrows, visible on md+ */}
