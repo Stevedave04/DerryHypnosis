@@ -108,7 +108,9 @@ const Testimonials: React.FC<{ standalone?: boolean }> = ({ standalone }) => {
           <p className="text-center text-slate-800/40 font-body py-16">No testimonials in this category yet.</p>
         )}
 
-        {/* Invite reviews from past clients */}
+        {/* Invite reviews from past clients. Standalone page only: the home
+            page section is aimed at prospects, not past clients. */}
+        {standalone && (
         <div className="text-center mt-16">
           <p className="font-body text-slate-800/60 mb-5">
             Worked with Tracey? Sharing your experience helps others take the first step.
@@ -123,6 +125,7 @@ const Testimonials: React.FC<{ standalone?: boolean }> = ({ standalone }) => {
             Leave a Google Review
           </a>
         </div>
+        )}
       </div>
     </section>
   );
