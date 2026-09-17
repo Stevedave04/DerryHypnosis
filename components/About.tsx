@@ -48,7 +48,7 @@ const About: React.FC = () => {
             
             <div className="space-y-6 font-body text-lg text-slate-800/80 leading-relaxed mb-10">
               <p>
-                If you've tried to change something about yourself, really tried, and it hasn't worked, you are not the problem. Most approaches fail because they target the conscious mind. Habits live somewhere else entirely. I'm Tracey, and I've spent years helping people in Derry access the part of the mind where lasting change actually happens.
+                If you've tried to change something about yourself, really tried, and it hasn't worked, you are not the problem. Most approaches fail because they target the conscious mind. Habits live somewhere else entirely.
               </p>
               <p>
                 I am a fully accredited Clinical Hypnotherapist, but I see myself as more of a catalyst for your change. I combine the latest neuroscientific understanding of the mind with time-tested clinical hypnotherapy techniques to provide a treatment that isn't just relaxing, but deeply transformative.
