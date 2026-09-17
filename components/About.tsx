@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { SITE_INFO } from '../constants';
 
 const About: React.FC = () => {
-  const traceyPortrait = "/images/Tracey-portrait.jpg";
+  const traceyPortrait = "/images/tracey-mcgill.webp";
 
   return (
     <section className="py-24 bg-white overflow-hidden min-h-screen pt-40">
@@ -27,7 +27,7 @@ const About: React.FC = () => {
                 <img
                   src={traceyPortrait}
                   alt={`${SITE_INFO.owner} - Clinical Hypnotherapist`}
-                  className="w-full h-full object-cover object-[center_15%] transition-opacity duration-500"
+                  className="w-full h-full object-cover object-center transition-opacity duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-teal/40 via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 text-white bg-gradient-to-t from-teal/80 to-transparent">

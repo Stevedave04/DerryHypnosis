@@ -75,6 +75,7 @@ export function getPersonSchema(): string {
     name: SITE_INFO.owner,
     jobTitle: 'Clinical Hypnotherapist',
     url: `${BASE_URL}/about`,
+    image: `${BASE_URL}/images/tracey-mcgill.webp`,
     worksFor: {
       '@type': 'Organization',
       name: 'Derry Hypnosis',
