@@ -4,7 +4,7 @@
     <loc>https://derryhypnosis.co.uk/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
     <loc>https://derryhypnosis.co.uk/services</loc>
@@ -95,6 +95,12 @@
     <loc>https://derryhypnosis.co.uk/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://derryhypnosis.co.uk/blog/hypnotherapist-near-me-derry-donegal-north-west</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-09-19</lastmod>
   </url>
   <url>
     <loc>https://derryhypnosis.co.uk/blog/hypnotherapy-cost-derry</loc>

@@ -35,10 +35,23 @@ export function getOrganizationSchema(): string {
       latitude: '54.9966',
       longitude: '-7.3086',
     },
+    // Towns clients actually travel in from, plus online reach. Derry sits on
+    // the border, so Donegal and Ireland belong here as much as Tyrone does.
     areaServed: [
       { '@type': 'City', name: 'Derry' },
       { '@type': 'City', name: 'Londonderry' },
+      { '@type': 'City', name: 'Strabane' },
+      { '@type': 'City', name: 'Limavady' },
+      { '@type': 'City', name: 'Coleraine' },
+      { '@type': 'City', name: 'Omagh' },
+      { '@type': 'City', name: 'Letterkenny' },
+      { '@type': 'City', name: 'Buncrana' },
+      { '@type': 'AdministrativeArea', name: 'County Londonderry' },
+      { '@type': 'AdministrativeArea', name: 'County Tyrone' },
+      { '@type': 'AdministrativeArea', name: 'County Donegal' },
+      { '@type': 'AdministrativeArea', name: 'Inishowen' },
       { '@type': 'State', name: 'Northern Ireland' },
+      { '@type': 'Country', name: 'Ireland' },
     ],
     priceRange: '££',
     hasOfferCatalog: {
