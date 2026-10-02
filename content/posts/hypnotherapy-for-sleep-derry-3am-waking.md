@@ -51,7 +51,7 @@ The path from your first message to sleeping through the night usually looks lik
 2. **Attend your first session.** Together, you map out what is keeping your nervous system on alert at bedtime. This session also introduces you to hypnotherapy itself, so you know exactly what to expect and stay in control throughout.
 3. **Follow your personalised programme.** Most clients combine in-clinic sessions with a guided audio track for home use between visits, so the new pattern has a chance to settle rather than fading once you leave the room.
 
-If you are not ready to book a full programme yet, you can start tonight with Tracey's guided Deep Sleep audio, available on the [Derry Hypnosis Downloads page](https://derryhypnosis.co.uk/downloads).
+If you are not ready to book a full programme yet, you can start tonight with the free Positive Suggestions and Relaxation session on the [Derry Hypnosis Downloads page](https://derryhypnosis.co.uk/downloads). It is a full 17-minute recording, and winding down with it at bedtime is a reasonable place to begin.
 
 ## Life After You Start Sleeping Again
 
@@ -67,7 +67,7 @@ You do not have to keep managing around exhaustion. The nervous system that lear
 
 ## Book Your Free Consultation
 
-If you are tired of being tired, book a free consultation with Tracey at [Derry Hypnosis](https://derryhypnosis.co.uk/contact) and find out what is realistic for your specific sleep pattern. Prefer to try something first? Start with the [Deep Sleep audio download](https://derryhypnosis.co.uk/downloads) tonight.
+If you are tired of being tired, book a free consultation with Tracey at [Derry Hypnosis](https://derryhypnosis.co.uk/contact) and find out what is realistic for your specific sleep pattern. Prefer to try something first? The free [Positive Suggestions and Relaxation session](https://derryhypnosis.co.uk/downloads) is a full 17-minute recording you can use tonight.
 
 ## Frequently Asked Questions
 
