@@ -4,7 +4,7 @@
     <loc>https://derryhypnosis.co.uk/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://derryhypnosis.co.uk/services</loc>
@@ -95,6 +95,24 @@
     <loc>https://derryhypnosis.co.uk/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://derryhypnosis.co.uk/blog/christmas-party-social-anxiety-derry</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-10-11</lastmod>
+  </url>
+  <url>
+    <loc>https://derryhypnosis.co.uk/blog/fear-of-flying-hypnotherapy-derry</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-10-11</lastmod>
+  </url>
+  <url>
+    <loc>https://derryhypnosis.co.uk/blog/quit-smoking-before-new-year</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-10-11</lastmod>
   </url>
   <url>
     <loc>https://derryhypnosis.co.uk/blog/seasonal-affective-disorder-hypnotherapy-derry</loc>
